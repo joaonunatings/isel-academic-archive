@@ -4,15 +4,23 @@ This is a simple implementation of the game Reversi (also known as Othello) in J
 It is a two-player game, where the players take turns placing their pieces on the board. 
 The goal is to have the most pieces on the board at the end of the game.
 
-## Information
-This project was developed using Java 8 and IntelliJ IDEA.
+## Screenshots
+<img alt="Beginning of game" src="docs/screenshots/begin.png" width="500">
+<img alt="Middle of game" src="docs/screenshots/game.png" width="500">
+<img alt="Game over" src="docs/screenshots/game_over.png" width="500">
 
-- [Problem set](docs/reversi.pdf)
-- [Report](docs/report.pdf)
+## Information
+This was the last work (of three, being the first two mere academic exercises) for [Programming @ ISEL](https://www.isel.pt/en/leic/programming).
+
+- [Problem set](docs/reversi.pdf) (Portuguese)
+- [Report](docs/report.pdf) (Portuguese)
 
 ## How to run
 
-Execute the following instructions in the root directory of the project (_isel-academic-archive/year_1/semester_1/Pg/Reversi_)
+### Requirements
+- Java SDK 8
+
+The following instructions must be executed in the root directory of the project (_isel-academic-archive/year_1/semester_1/Pg/Reversi_)
 
 ### Compile
 
