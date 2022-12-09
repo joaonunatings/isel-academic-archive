@@ -5,9 +5,12 @@ It is a two-player game, where the players take turns placing their pieces on th
 The goal is to have the most pieces on the board at the end of the game.
 
 ## Screenshots
-<img alt="Beginning of game" src="docs/screenshots/begin.png" width="500">
-<img alt="Middle of game" src="docs/screenshots/game.png" width="500">
-<img alt="Game over" src="docs/screenshots/game_over.png" width="500">
+<p float="left">
+  <img alt="Beginning of game" src="docs/screenshots/begin.png" width="300">
+  <img alt="Middle of game" src="docs/screenshots/game.png" width="300">
+  <img alt="Game over" src="docs/screenshots/game_over.png" width="300">
+</p>
+
 
 ## Information
 This was the last work (of three, being the first two mere academic exercises) for [Programming @ ISEL](https://www.isel.pt/en/leic/programming).
