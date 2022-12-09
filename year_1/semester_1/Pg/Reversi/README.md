@@ -14,6 +14,7 @@ The goal is to have the most pieces on the board at the end of the game.
 
 ## Information
 This was the last work (of three, being the first two mere academic exercises) for [Programming @ ISEL](https://www.isel.pt/en/leic/programming).
+Project was developed in IntelliJ IDEA.
 
 - [Project description](docs/project-description.pdf) (Portuguese)
 - [Report](docs/report.pdf) (Portuguese)
