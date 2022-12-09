@@ -1,6 +1,6 @@
 # Reversi
 
-This is a simple implementation of the game Reversi (also known as Othello) in Java. 
+This is a simple implementation of the game [Reversi](https://en.wikipedia.org/wiki/Reversi) (also known as Othello) in Java. 
 It is a two-player game, where the players take turns placing their pieces on the board. 
 The goal is to have the most pieces on the board at the end of the game.
 
