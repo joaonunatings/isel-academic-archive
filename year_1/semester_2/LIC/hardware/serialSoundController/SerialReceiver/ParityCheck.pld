@@ -1,0 +1,36 @@
+Name     ParityCheck ; 
+PartNo   00 ; 
+Date     07/06/2020 ;
+Revision 01 ;
+Designer JAM ;
+Company  ISEL ;
+Assembly None ; 
+Location  ;
+Device   v750c ;
+
+/* INPUT PINS */
+
+PIN 1 = SCLK ;
+PIN 2 = SDX ;
+PIN 3 = init ;
+
+/* OUTPUT PINS */
+
+PIN 14 = err ;
+
+
+/* PINNODES */
+
+PIN 25 = T0 ;
+
+/* BODY */
+
+/* Parity Check */
+
+T0.ck = SCLK ;
+T0.sp = 'b'0 ;
+T0.ar = init ;
+
+T0.d = !SDX ;
+
+err = T0 ;

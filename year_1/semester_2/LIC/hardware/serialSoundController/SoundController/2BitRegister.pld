@@ -1,0 +1,34 @@
+Name     2BitRegister ; 
+PartNo   00 ; 
+Date     09/06/2020 ;
+Revision 01 ;
+Designer JAM ;
+Company  ISEL ;
+Assembly None ; 
+Location  ;
+Device   v750c ;
+
+/* INPUT PINS */
+
+PIN 1 = Clock ;
+PIN [2..3] = [DataIn0..1] ;
+
+/* OUPUT PINS */
+
+PIN [14..15] = [DataOut0..1] ;
+
+/* PINNODES */
+
+PINNODE 25 = R0 ;
+PINNODE 34 = R1 ;
+
+
+/* BODY */
+
+[R0..1].ckmux = Clock ;
+[R0..1].sp = 'b'0 ;
+[R0..1].ar = 'b'0 ;
+
+[R0..1].d = [DataIn0..1] ;
+
+[DataOut0..1] = [R0..1] ;

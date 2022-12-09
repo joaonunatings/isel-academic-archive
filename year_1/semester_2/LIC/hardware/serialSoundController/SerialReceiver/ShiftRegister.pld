@@ -1,0 +1,39 @@
+Name     ShiftRegister ; 
+PartNo   00 ; 
+Date     07/06/2020 ;
+Revision 01 ;
+Designer JAM ;
+Company  ISEL ;
+Assembly None ; 
+Location  ;
+Device   v750c ;
+
+/* INPUT PINS */
+
+PIN 1 = SCLK ;
+PIN 2 = SDX ;
+PIN 3 = enableShift ;
+
+/* OUTPUT PINS */
+
+PIN [14..17] = [D0..3] ;
+
+/* PINNODES */
+
+PINNODE 25 = T0 ;
+PINNODE 34 = T1 ;
+PINNODE 26 = T2 ;
+PINNODE 33 = T3 ;
+
+/* BODY */
+
+/* Shift Register  */
+
+[T0..3].ck = SCLK ;
+[T0..3].sp = 'b'0 ;
+[T0..3].ar = 'b'0 ;
+
+T0.d = SDX & enableShift # T0 & !enableShift ;
+[T1..3].d = [T0..2] & enableShift # [T1..3] & !enableShift ;
+
+[D0..3] = [T0..3] ;

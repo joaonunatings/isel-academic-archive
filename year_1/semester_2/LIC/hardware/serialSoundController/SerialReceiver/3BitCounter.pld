@@ -1,0 +1,39 @@
+Name     3BitCounter ; 
+PartNo   00 ; 
+Date     07/06/2020 ;
+Revision 01 ;
+Designer JAM ;
+Company  ISEL ;
+Assembly None ; 
+Location  ;
+Device   v750c ;
+
+/* INPUT PINS */
+
+PIN 1 = SCLK ;
+PIN 2 = clr ;
+
+/* OUTPUT PINS */
+
+PIN 14 = dFlag ;
+PIN 15 = pFlag ;
+
+/* PINNODES */
+PINNODE 25 = T0 ;
+PINNODE 34 = T1 ;
+PINNODE 26 = T2 ;
+/* BODY */
+
+/* 3 Bit Counter */
+
+[T0..2].ck = SCLK ;
+[T0..2].sp = 'b'0 ;
+[T0..2].ar = clr ;
+
+T0.t = 'b'1 ;
+T1.t = T0 ;
+T2.t = T0 & T1 ;
+
+dFlag = T2 & !T1 & !T0 ;
+
+pFlag = T2 & !T1 & T0 ;

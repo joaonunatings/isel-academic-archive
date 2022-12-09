@@ -1,0 +1,47 @@
+Name     SoundControl ; 
+PartNo   00 ; 
+Date     09/06/2020 ;
+Revision 01 ;
+Designer JAM ;
+Company  ISEL ;
+Assembly None ; 
+Location  ;
+Device   v750c ;
+
+/* INPUT PINS */
+
+PIN 1 = MClock ;
+PIN 2 = Dval ;
+
+/* OUTPUT PINS */
+
+PIN 14 = cmd ;
+PIN 15 = done ;
+
+/* PINNODES */
+
+PINNODE 25 = Q0 ;
+PINNODE 34 = Q1 ;
+
+/* BODY */
+
+[Q0..1].ckmux = MClock ;
+[Q0..1].sp = 'b'0 ;
+[Q0..1].ar = 'b'0 ;
+
+SEQUENCE [Q1, Q0] {
+	PRESENT 0 
+		IF Dval NEXT 1 ;
+		DEFAULT NEXT 0 ;
+	PRESENT 1
+		OUT cmd ;
+		DEFAULT NEXT 2 ;
+	PRESENT 2
+		OUT done ;
+		IF Dval NEXT 2 ;
+		DEFAULT NEXT 0 ;
+	PRESENT 3
+		DEFAULT NEXT 0 ;
+}
+
+

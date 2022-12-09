@@ -1,0 +1,181 @@
+Name     SerialSoundController ; 
+PartNo   00 ; 
+Date     09/06/2020 ;
+Revision 01 ;
+Designer JAM ;
+Company  ISEL ;
+Assembly None ; 
+Location  ;
+Device   v750c ;
+
+/* INPUT PINS */
+
+PIN 1 = SCLK ;
+PIN 2 = MCLK ;
+PIN 3 = SS ;
+PIN 4 = SDX ;
+
+/* OUTPUT PINS */
+
+PIN 14 = RP ; 							/* Play */
+PIN [15..16] = [RV0..1] ; 				/* vol0..1 */
+PIN [17..18] = [RS0..1] ; 				/* sid0..1 */
+PIN [20..21] = [MSR0..1] ;				/* State-Machine for Serial Receiver */
+PIN [22..23] = [MSC0..1] ;				/* State-Machine for Sound Control */
+
+/* PINNODES */
+
+PINNODE 25 = PB ;						/* Parity Check Bit register */
+PINNODE 34 = SR0 ;						/* Shift Register (Bit 0) */
+PINNODE 26 = SR1 ;						/* Shift Register (Bit 1) */	
+PINNODE 33 = SR2 ;						/* Shift Register (Bit 2) */
+PINNODE 27 = SR3 ;						/* Shift Register (Bit 3) */
+PINNODE 30 = C0 ;						/* 3 Bit Counter (Bit 0) */
+PINNODE 28 = C1 ;						/* 3 Bit Counter (Bit 1) */
+PINNODE 31 = C2 ;						/* 3 Bit Counter (Bit 2) */
+
+/* BODY */
+
+/* SERIAL RECEIVER */
+
+accept = done ;
+
+/* Serial Control */
+
+enRX = !SS ;
+RXerror = err ;
+
+[MSR0..1].ck = MCLK ;
+[MSR0..1].sp = 'b'0 ;
+[MSR0..1].ar = 'b'0 ;
+
+SEQUENCE [MSR1, MSR0] {
+	PRESENT 0
+		OUT init;
+		IF !enRX NEXT 0 ;
+		DEFAULT NEXT 1 ;
+	PRESENT 1
+		OUT wr ;
+		IF !enRX NEXT 0 ;
+		IF enRX & !dFlag NEXT 1 ;
+		DEFAULT NEXT 2 ;
+	PRESENT 2
+		IF !enRX NEXT 0 ;
+		IF enRX & !pFlag NEXT 2 ;
+		IF enRX & pFlag & RXerror NEXT 0 ;
+		DEFAULT NEXT 3 ;
+	PRESENT 3
+		OUT DXval ;
+		IF accept # !enRX NEXT 0 ;
+		DEFAULT NEXT 3 ;
+}
+
+/* Parity Check */
+
+PB.ckmux = SCLK ;
+PB.sp = 'b'0 ;
+PB.ar = init ;
+
+PB.t = SDX ;
+
+err = !PB ;
+
+/* Shift Register */
+
+enableShift = wr ;
+
+[SR0..3].ckmux = SCLK ;
+[SR0..3].sp = 'b'0 ;
+[SR0..3].ar = 'b'0 ;
+
+SR3.d = SDX & enableShift # SR3 & !enableShift;
+[SR2..0].d = [SR3..1] & enableShift # [SR2..0] & !enableShift ;
+
+[Din0..3] = [SR0..3] ;
+
+/* 3 Bit Counter */
+
+clr = init ;
+
+[C0..2].ckmux = SCLK ;
+[C0..2].sp = 'b'0 ;
+[C0..2].ar = clr ;
+
+C0.t = 'b'1 ;
+C1.t = C0 ;
+C2.t = C0 & C1 ;
+
+dFlag = C2 & !C1 & !C0 ;
+
+pFlag = C2 & !C1 & C0 ;
+
+/* SOUND CONTROLLER */
+
+Dval = DXval ;
+
+[Cmd0..1] = [Din0..1] ;
+
+[Data0..1] = [Din2..3] ;
+
+/* Sound Control */
+
+[MSC0..1].ck = MCLK ;
+[MSC0..1].sp = 'b'0 ;
+[MSC0..1].ar = 'b'0 ;
+
+SEQUENCE [MSC1, MSC0] {
+	PRESENT 0 
+		IF Dval NEXT 1 ;
+		DEFAULT NEXT 0 ;
+	PRESENT 1
+		OUT cmd ;
+		DEFAULT NEXT 2 ;
+	PRESENT 2
+		OUT done ;
+		IF Dval NEXT 2 ;
+		DEFAULT NEXT 0 ;
+	PRESENT 3
+		DEFAULT NEXT 0 ;
+}
+
+/* De-Mux 1x4 */
+
+enableCmd = cmd ;
+
+stop = enableCmd & !Cmd1 & !Cmd0 ;
+
+play = enableCmd & !Cmd1 & Cmd0 ;
+
+set_sound = enableCmd & Cmd1 & !Cmd0 ;
+
+set_volume = enableCmd & Cmd1 & Cmd0 ;
+
+/* 2 Bit Register - Sound */
+
+RSClock = set_sound ;
+
+[RS0..1].ck = RSClock ;
+[RS0..1].sp = 'b'0 ;
+[RS0..1].ar = 'b'0 ;
+
+[RS0..1].d = [Data0..1] ;
+
+/* 2 Bit Register - Volume */
+
+RVClock = set_volume ;
+
+[RV0..1].ck = RVClock ;
+[RV0..1].sp = 'b'0 ;
+[RV0..1].ar = 'b'0 ;
+
+[RV0..1].d = [Data0..1] ;
+
+/* 1 Bit Register - Play */
+
+RPClock = play # stop ;
+
+RP.ck = RPClock ;
+RP.sp = 'b'0 ;
+RP.ar = 'b'0 ;
+
+RP.d = Cmd0 ;

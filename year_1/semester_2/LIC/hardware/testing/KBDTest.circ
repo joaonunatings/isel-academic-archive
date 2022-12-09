@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project source="2.7.1" version="1.0">
+This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
+<lib desc="#Wiring" name="0">
+    <tool name="Splitter">
+      <a name="facing" val="west"/>
+    </tool>
+  </lib>
+  <lib desc="#Gates" name="1"/>
+  <lib desc="#Plexers" name="2"/>
+  <lib desc="#Arithmetic" name="3"/>
+  <lib desc="#Memory" name="4">
+    <tool name="ROM">
+      <a name="contents">addr/data: 8 8
+0
+</a>
+    </tool>
+  </lib>
+  <lib desc="#I/O" name="5"/>
+  <lib desc="#Base" name="6">
+    <tool name="Text Tool">
+      <a name="text" val=""/>
+      <a name="font" val="SansSerif plain 12"/>
+      <a name="halign" val="center"/>
+      <a name="valign" val="base"/>
+    </tool>
+  </lib>
+  <lib desc="jar#C:\Users\j0a0n\Desktop\OneDrive - Universidade do Minho\ISEL\1ano\2semestre\LIC\Projeto\space-invaders\resources\libs\logisim\newer\ISEL-LIC.jar#isel.adeetc.saso.logisimLibs.ISELLIC" name="7"/>
+  <main name="KBDTest"/>
+  <options>
+    <a name="gateUndefined" val="ignore"/>
+    <a name="simlimit" val="1000"/>
+    <a name="simrand" val="0"/>
+  </options>
+  <mappings>
+    <tool lib="6" map="Button2" name="Menu Tool"/>
+    <tool lib="6" map="Button3" name="Menu Tool"/>
+    <tool lib="6" map="Ctrl Button1" name="Menu Tool"/>
+  </mappings>
+  <toolbar>
+    <tool lib="6" name="Poke Tool"/>
+    <tool lib="6" name="Edit Tool"/>
+    <tool lib="6" name="Text Tool">
+      <a name="text" val=""/>
+      <a name="font" val="SansSerif plain 12"/>
+      <a name="halign" val="center"/>
+      <a name="valign" val="base"/>
+    </tool>
+    <sep/>
+    <tool lib="0" name="Pin">
+      <a name="tristate" val="false"/>
+    </tool>
+    <tool lib="0" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
+    </tool>
+    <tool lib="1" name="NOT Gate"/>
+    <tool lib="1" name="AND Gate"/>
+    <tool lib="1" name="OR Gate"/>
+  </toolbar>
+  <circuit name="KBDTest">
+    <a name="circuit" val="KBDTest"/>
+    <a name="clabel" val=""/>
+    <a name="clabelup" val="east"/>
+    <a name="clabelfont" val="SansSerif plain 12"/>
+    <wire from="(60,350)" to="(60,420)"/>
+    <wire from="(440,300)" to="(440,310)"/>
+    <wire from="(490,230)" to="(490,240)"/>
+    <wire from="(450,90)" to="(450,110)"/>
+    <wire from="(240,270)" to="(240,350)"/>
+    <wire from="(170,300)" to="(210,300)"/>
+    <wire from="(170,240)" to="(210,240)"/>
+    <wire from="(210,240)" to="(250,240)"/>
+    <wire from="(620,240)" to="(620,260)"/>
+    <wire from="(120,400)" to="(220,400)"/>
+    <wire from="(430,80)" to="(470,80)"/>
+    <wire from="(490,240)" to="(530,240)"/>
+    <wire from="(440,250)" to="(530,250)"/>
+    <wire from="(210,270)" to="(240,270)"/>
+    <wire from="(570,290)" to="(600,290)"/>
+    <wire from="(570,270)" to="(600,270)"/>
+    <wire from="(570,330)" to="(600,330)"/>
+    <wire from="(250,240)" to="(250,350)"/>
+    <wire from="(410,70)" to="(410,110)"/>
+    <wire from="(210,300)" to="(230,300)"/>
+    <wire from="(420,280)" to="(430,280)"/>
+    <wire from="(210,330)" to="(220,330)"/>
+    <wire from="(240,380)" to="(250,380)"/>
+    <wire from="(450,290)" to="(530,290)"/>
+    <wire from="(450,270)" to="(530,270)"/>
+    <wire from="(90,350)" to="(90,410)"/>
+    <wire from="(620,260)" to="(630,260)"/>
+    <wire from="(90,410)" to="(220,410)"/>
+    <wire from="(520,350)" to="(520,360)"/>
+    <wire from="(580,230)" to="(580,240)"/>
+    <wire from="(410,70)" to="(470,70)"/>
+    <wire from="(240,370)" to="(240,380)"/>
+    <wire from="(570,310)" to="(630,310)"/>
+    <wire from="(440,230)" to="(440,250)"/>
+    <wire from="(220,330)" to="(220,350)"/>
+    <wire from="(430,80)" to="(430,110)"/>
+    <wire from="(170,270)" to="(210,270)"/>
+    <wire from="(170,330)" to="(210,330)"/>
+    <wire from="(370,80)" to="(370,110)"/>
+    <wire from="(170,80)" to="(170,110)"/>
+    <wire from="(440,300)" to="(530,300)"/>
+    <wire from="(60,420)" to="(220,420)"/>
+    <wire from="(570,280)" to="(600,280)"/>
+    <wire from="(570,300)" to="(600,300)"/>
+    <wire from="(570,320)" to="(600,320)"/>
+    <wire from="(570,340)" to="(600,340)"/>
+    <wire from="(450,90)" to="(470,90)"/>
+    <wire from="(230,300)" to="(230,350)"/>
+    <wire from="(490,80)" to="(500,80)"/>
+    <wire from="(120,350)" to="(120,400)"/>
+    <wire from="(240,410)" to="(250,410)"/>
+    <wire from="(390,60)" to="(470,60)"/>
+    <wire from="(450,280)" to="(530,280)"/>
+    <wire from="(450,260)" to="(530,260)"/>
+    <wire from="(390,60)" to="(390,110)"/>
+    <wire from="(570,240)" to="(580,240)"/>
+    <wire from="(520,350)" to="(530,350)"/>
+    <wire from="(620,350)" to="(630,350)"/>
+    <comp lib="0" loc="(440,310)" name="Tunnel">
+      <a name="facing" val="north"/>
+      <a name="label" val="ACK"/>
+    </comp>
+    <comp lib="0" loc="(240,370)" name="Splitter">
+      <a name="facing" val="north"/>
+      <a name="fanout" val="4"/>
+      <a name="incoming" val="4"/>
+      <a name="appear" val="center"/>
+    </comp>
+    <comp lib="0" loc="(630,260)" name="Tunnel">
+      <a name="width" val="4"/>
+      <a name="label" val="K0_3"/>
+    </comp>
+    <comp lib="0" loc="(420,280)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="width" val="4"/>
+      <a name="label" val="KBD.out0_3"/>
+    </comp>
+    <comp lib="0" loc="(370,80)" name="Tunnel">
+      <a name="facing" val="south"/>
+      <a name="label" val="Dval"/>
+    </comp>
+    <comp lib="0" loc="(520,360)" name="Ground"/>
+    <comp lib="0" loc="(490,80)" name="Splitter">
+      <a name="facing" val="west"/>
+      <a name="fanout" val="4"/>
+      <a name="incoming" val="4"/>
+      <a name="appear" val="center"/>
+      <a name="bit0" val="3"/>
+      <a name="bit1" val="2"/>
+      <a name="bit2" val="1"/>
+      <a name="bit3" val="0"/>
+    </comp>
+    <comp lib="0" loc="(250,410)" name="Tunnel">
+      <a name="width" val="3"/>
+      <a name="label" val="KBD.in0_2"/>
+    </comp>
+    <comp lib="7" loc="(530,230)" name="ATF750c">
+      <a name="label" val="KeyboardReader"/>
+      <a name="DOC file path" val="C:\Users\j0a0n\Desktop\OneDrive - Universidade do Minho\ISEL\1ano\2semestre\LIC\Projeto\space-invaders\hardware\output\KeyboardReader.doc"/>
+      <a name="l/L - to load doc file" val="C:\Users\j0a0n\Desktop\OneDrive - Universidade do Minho\ISEL\1ano\2semestre\LIC\Projeto\space-invaders\hardware\output\KeyboardReader.doc"/>
+      <a name="u/U - to unload doc file" val="C:\Users\j0a0n\Desktop\OneDrive - Universidade do Minho\ISEL\1ano\2semestre\LIC\Projeto\space-invaders\hardware\output\KeyboardReader.doc"/>
+    </comp>
+    <comp lib="0" loc="(500,80)" name="Tunnel">
+      <a name="width" val="4"/>
+      <a name="label" val="K0_3"/>
+    </comp>
+    <comp lib="7" loc="(50,230)" name="4x4 Matrix Keyboard">
+      <a name="label" val="Keyboard"/>
+    </comp>
+    <comp lib="0" loc="(210,330)" name="Pull Resistor">
+      <a name="pull" val="1"/>
+    </comp>
+    <comp lib="0" loc="(620,350)" name="Splitter">
+      <a name="facing" val="west"/>
+      <a name="fanout" val="3"/>
+      <a name="incoming" val="3"/>
+      <a name="appear" val="right"/>
+      <a name="bit0" val="2"/>
+      <a name="bit2" val="0"/>
+    </comp>
+    <comp lib="0" loc="(630,350)" name="Tunnel">
+      <a name="width" val="3"/>
+      <a name="label" val="KBD.in0_2"/>
+    </comp>
+    <comp lib="7" loc="(110,110)" name="UsbPort">
+      <a name="Server Address" val="/192.168.1.67:50111"/>
+      <a name="View Name" val="UsbPort 50111"/>
+    </comp>
+    <comp lib="0" loc="(620,240)" name="Pin">
+      <a name="facing" val="south"/>
+      <a name="output" val="true"/>
+      <a name="width" val="4"/>
+      <a name="label" val="K0_3"/>
+      <a name="labelloc" val="north"/>
+    </comp>
+    <comp lib="0" loc="(630,310)" name="Tunnel">
+      <a name="label" val="Dval"/>
+    </comp>
+    <comp lib="0" loc="(210,240)" name="Pull Resistor">
+      <a name="pull" val="1"/>
+    </comp>
+    <comp lib="0" loc="(580,230)" name="Power"/>
+    <comp lib="0" loc="(250,380)" name="Tunnel">
+      <a name="width" val="4"/>
+      <a name="label" val="KBD.out0_3"/>
+    </comp>
+    <comp lib="0" loc="(240,410)" name="Splitter">
+      <a name="facing" val="west"/>
+      <a name="fanout" val="3"/>
+      <a name="incoming" val="3"/>
+      <a name="appear" val="center"/>
+      <a name="bit0" val="2"/>
+      <a name="bit2" val="0"/>
+    </comp>
+    <comp lib="0" loc="(430,280)" name="Splitter">
+      <a name="fanout" val="4"/>
+      <a name="incoming" val="4"/>
+      <a name="appear" val="center"/>
+    </comp>
+    <comp lib="0" loc="(210,300)" name="Pull Resistor">
+      <a name="pull" val="1"/>
+    </comp>
+    <comp lib="0" loc="(490,230)" name="Clock">
+      <a name="facing" val="south"/>
+      <a name="label" val="MCLK"/>
+      <a name="labelloc" val="north"/>
+    </comp>
+    <comp lib="0" loc="(620,260)" name="Splitter">
+      <a name="facing" val="west"/>
+      <a name="fanout" val="4"/>
+      <a name="incoming" val="4"/>
+      <a name="bit0" val="3"/>
+      <a name="bit1" val="2"/>
+      <a name="bit2" val="1"/>
+      <a name="bit3" val="0"/>
+    </comp>
+    <comp lib="0" loc="(440,230)" name="Clock">
+      <a name="facing" val="south"/>
+      <a name="highDuration" val="2"/>
+      <a name="lowDuration" val="2"/>
+      <a name="label" val="ScanCLK"/>
+      <a name="labelloc" val="north"/>
+    </comp>
+    <comp lib="0" loc="(210,270)" name="Pull Resistor">
+      <a name="pull" val="1"/>
+    </comp>
+    <comp lib="0" loc="(170,80)" name="Tunnel">
+      <a name="facing" val="south"/>
+      <a name="label" val="ACK"/>
+    </comp>
+  </circuit>
+</project>

@@ -1,0 +1,30 @@
+Name     DeMux1x4 ; 
+PartNo   00 ; 
+Date     09/06/2020 ;
+Revision 01 ;
+Designer JAM ;
+Company  ISEL ;
+Assembly None ; 
+Location  ;
+Device   v750c ;
+
+/* INPUT PINS */
+
+PIN 1 = enableCmd ;
+PIN [2..3] = [Cmd0..1] ;
+
+/* OUPUT PINS */
+
+PIN 14 = play ;
+PIN 15 = set_sound ;
+PIN 16 = set_volume ;
+
+/* PINNODES */
+
+/* BODY */
+
+play = enableCmd & !Cmd1 & Cmd0 ;
+
+set_sound = enableCmd & Cmd1 & !Cmd0 ;
+
+set_volume = enableCmd & Cmd1 & Cmd0 ;

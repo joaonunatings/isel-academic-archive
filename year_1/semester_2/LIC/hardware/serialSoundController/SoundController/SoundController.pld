@@ -1,0 +1,107 @@
+Name     SoundController ; 
+PartNo   00 ; 
+Date     09/06/2020 ;
+Revision 01 ;
+Designer JAM ;
+Company  ISEL ;
+Assembly None ; 
+Location  ;
+Device   v750c ;
+
+/* INPUT PINS */
+
+PIN 1 = MClk ;
+PIN 2 = Dval ;
+PIN [3..6] = [Din0..3] ;
+
+/* OUTPUT PINS */
+
+PIN 14 = Play ;
+PIN [15..16] = [sid0..1] ;
+PIN [17..18] = [vol0..1] ;
+PIN 19 = done ;
+
+/* PINNODES */
+
+PINNODE 25 = Q0 ;
+PINNODE 34 = Q1 ;
+PINNODE 26 = SR0 ;
+PINNODE 33 = SR1 ;
+PINNODE 27 = VR0 ;
+PINNODE 32 = VR1 ;
+PINNODE 28 = PR ;
+
+/* BODY */
+
+[Cmd0..1] = [Din0..1] ;
+
+[Data0..1] = [Din2..3] ;
+
+/* SOUND CONTROL */
+
+[Q0..1].ckmux = MClk ;
+[Q0..1].sp = 'b'0 ;
+[Q0..1].ar = 'b'0 ;
+
+SEQUENCE [Q1, Q0] {
+	PRESENT 0 
+		IF Dval NEXT 1 ;
+		DEFAULT NEXT 0 ;
+	PRESENT 1
+		OUT cmd ;
+		DEFAULT NEXT 2 ;
+	PRESENT 2
+		OUT done ;
+		IF Dval NEXT 2 ;
+		DEFAULT NEXT 0 ;
+	PRESENT 3
+		DEFAULT NEXT 0 ;
+}
+
+
+/* DEMUX 1X4 */
+
+enableCmd = cmd ;
+
+stop = enableCmd & !Cmd1 & !Cmd0 ;
+
+play = enableCmd & !Cmd1 & Cmd0 ;
+
+set_sound = enableCmd & Cmd1 & !Cmd0 ;
+
+set_volume = enableCmd & Cmd1 & Cmd0 ;
+/* 2 BIT REGISTER - SOUND */
+
+SRClock = set_sound ;
+
+[SR0..1].ck = SRClock ;
+[SR0..1].sp = 'b'0 ;
+[SR0..1].ar = 'b'0 ;
+
+[SR0..1].d = [Data0..1] ;
+
+[sid0..1] = [SR0..1] ;
+
+/* 2 BIT REGISTER - VOLUME */
+
+VRClock = set_volume ;
+
+[VR0..1].ck = VRClock ;
+[VR0..1].sp = 'b'0 ;
+[VR0..1].ar = 'b'0 ;
+
+[VR0..1].d = [Data0..1] ;
+
+[vol0..1] = [VR0..1] ;
+
+/* 1 BIT REGISTER - PLAY */
+
+PRClock = play # stop ;
+
+PR.ck = PRClock ;
+PR.sp = 'b'0 ;
+PR.ar = 'b'0 ;
+
+PR.d = Cmd0 ;
+
+Play = PR ;

@@ -1,0 +1,104 @@
+Name     SerialReceiver ; 
+PartNo   00 ; 
+Date     07/06/2020 ;
+Revision 01 ;
+Designer JAM ;
+Company  ISEL ;
+Assembly None ; 
+Location  ;
+Device   v750c ;
+
+/* INPUT PINS */
+
+PIN 1 = SCLK ;
+PIN 2 = MClk ;
+PIN 3 = SDX ;
+PIN 4 = SS ;
+PIN 5 = accept ;
+
+/* OUTPUT PINS */
+
+PIN 14 = DXval ;
+PIN [15..18] = [D0..3] ;
+PIN 19 = Q0 ;
+PIN 20 = Q1 ;
+
+/* PINNODES */
+PINNODE 26 = PC0 ;
+PINNODE 33 = SR0 ;
+PINNODE 27 = SR1 ;
+PINNODE 32 = SR2 ;
+PINNODE 28 = SR3 ;
+PINNODE 31 = C0 ;
+PINNODE 29 = C1 ;
+PINNODE 30 = C2 ;
+
+/* BODY */
+
+/* Serial Control */
+
+enRX = !SS ;
+RXerror = err ;
+
+[Q0..1].ck = MClk ;
+[Q0..1].sp = 'b'0 ;
+[Q0..1].ar = 'b'0 ;
+
+SEQUENCE [Q1, Q0] {
+	PRESENT 0
+		OUT init ;
+		IF enRX NEXT 1 ;
+		DEFAULT NEXT 0 ;
+	PRESENT 1
+		OUT wr ;
+		IF enRX & dFlag NEXT 2 ;
+		IF enRX & !dFlag NEXT 1 ;
+		DEFAULT NEXT 0 ;
+	PRESENT 2
+		IF !pFlag NEXT 2 ;
+		IF pFlag & !RXerror NEXT 3 ;
+		DEFAULT NEXT 0 ;
+	PRESENT 3
+		OUT DXval ;
+		IF !accept NEXT 3 ;
+		DEFAULT NEXT 0 ;
+}
+
+/* Parity Check */
+
+PC0.ckmux = SCLK ;
+PC0.sp = 'b'0 ;
+PC0.ar = init ;
+
+PC0.d = !SDX ;
+
+err = PC0 ;
+
+/* Shift Register */
+
+enableShift = wr;
+
+[SR0..3].ckmux = SCLK ;
+[SR0..3].sp = 'b'0 ;
+[SR0..3].ar = 'b'0 ;
+
+SR0.d = SDX & enableShift # SR0 & !enableShift;
+[SR1..3].d = [SR0..2] & enableShift # [SR1..3] & !enableShift ;
+
+[D0..3] = [SR3..0] ;
+
+/* 3 Bit Counter */
+
+clr = init ;
+
+[C0..2].ckmux = SCLK ;
+[C0..2].sp = 'b'0 ;
+[C0..2].ar = clr ;
+
+C0.t = 'b'1 ;
+C1.t = C0 ;
+C2.t = C0 & C1 ;
+
+dFlag = C2 & !C1 & !C0 ;
+
+pFlag = C2 & !C1 & C0 ;

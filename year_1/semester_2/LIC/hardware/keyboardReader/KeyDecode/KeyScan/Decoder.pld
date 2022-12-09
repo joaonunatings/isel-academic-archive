@@ -1,0 +1,30 @@
+Name     Decoder ;
+PartNo   00 ;
+Date     3/4/2020 ;
+Revision 01 ;
+Designer JAM ;
+Company  ISEL ;
+Assembly None ;
+Location  ;
+Device   V750C ;
+
+/* *************** INPUT PINS *********************/
+
+PIN 2 = DecS0 ;
+PIN 3 = DecS1 ;
+
+/* *************** OUTPUT PINS *********************/
+
+PIN 16 = Dec0 ;
+PIN 17 = Dec1 ;
+PIN 18 = Dec2 ;
+
+/* ****************** BODY *************************/
+
+Dec0 = !(!DecS0 & !DecS1) ;
+
+Dec1 = !(DecS0 & !DecS1) ;
+
+Dec2 = !(!DecS0 & DecS1) ;
+
+

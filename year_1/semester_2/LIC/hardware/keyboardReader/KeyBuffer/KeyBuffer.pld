@@ -1,0 +1,72 @@
+Name     KeyBuffer ;
+PartNo   00 ;
+Date     11/03/2020 ;
+Revision 01 ;
+Designer JAM ;
+Company  ISEL ;
+Assembly None ;
+Location  ;
+Device   v750c ;
+
+/* *************** INPUT PINS *********************/
+PIN 1 = Mclk ;
+PIN 2 = Kval ;
+PIN 3 = ack ;
+                        
+/* *************** OUTPUT PINS *********************/
+PIN 17 = Dval ;   
+PIN 18 = O0 ;	/*	Counter */
+PIN 19 = O1 ;
+PIN 20 = O2 ;	/*	Register */
+PIN 21 = O3 ;
+PIN 22 = Wreg ;
+PIN 23 = DAC ;
+
+
+/* ************* PINNODES ************ */
+PINNODE 28 = X1 ;
+PINNODE 29 = Q1 ;
+PINNODE 30 = Q0 ;
+PINNODE 31 = R1 ;
+PINNODE 32 = R0 ;
+PINNODE 33 = X0 ;
+
+/* ************** BODY ************** */
+
+/* **************** KEY BUFFER ***************** */
+
+/* ******* OUTPUT REGISTER ******** */
+
+[O0..1].d = [R0..1] ;
+[O2..3].d = [Q0..1] ;
+[O0..3].sp = 'b'0 ;
+[O0..3].ar = 'b'0 ;
+O0.ck = Wreg ;
+O1.ck = Wreg ;
+O2.ck = Wreg ;
+O3.ck = Wreg ;
+
+/* *********** KEY BUFFER CONTROL *********** */
+DAV = Kval ;
+
+[X0..1].ar = 'b'0 ;
+[X0..1].sp = 'b'0 ;
+[X0..1].ckmux = Mclk ;
+
+SEQUENCE [X1, X0] {
+	PRESENT 0
+		IF DAV & !ack NEXT 1 ;
+		DEFAULT NEXT 0 ;
+	PRESENT 1
+		OUT Wreg;
+		DEFAULT NEXT 2 ;
+	PRESENT 2
+		OUT Dval, DAC ;
+		IF !DAV NEXT 3 ;
+		DEFAULT NEXT 2 ;
+	PRESENT 3
+		OUT Dval ;
+		IF ack NEXT 0 ;
+		DEFAULT NEXT 3 ;				
+}
+

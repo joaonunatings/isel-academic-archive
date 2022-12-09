@@ -1,0 +1,32 @@
+Name     PriorityEncoder ;
+PartNo   00 ;
+Date     3/4/2020 ;
+Revision 01 ;
+Designer JAM ;
+Company  ISEL ;
+Assembly None ;
+Location  ;
+Device   V750C ;
+
+/* *************** INPUT PINS *********************/
+
+PIN 2 = Enc0 ;
+PIN 3 = Enc1 ;
+PIN 4 = Enc2 ;
+PIN 5 = Enc3 ; 
+
+/* *************** OUTPUT PINS *********************/
+
+PIN 16 = GS ;
+PIN 17 = Y0 ;
+PIN 18 = Y1 ;
+
+/* ****************** BODY ************************/
+
+GS = !Enc0 # !Enc1 # !Enc2 # !Enc3 ;
+
+Y0 = Enc2 & !Enc1 # !Enc3 ;
+
+Y1 = !Enc2 # !Enc3 ;
+
+

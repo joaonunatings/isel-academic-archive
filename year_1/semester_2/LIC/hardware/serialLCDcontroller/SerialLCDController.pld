@@ -1,0 +1,146 @@
+Name     SerialLCDController ; 
+PartNo   00 ; 
+Date     10/10/10 ;
+Revision 01 ;
+Designer JAM ;
+Company  ISEL ;
+Assembly None ; 
+Location  ;
+Device   v750c ;
+
+/* INPUT PINS */
+
+PIN 1 = SCLK;
+PIN 2 = SDX;	/*SDX*/
+PIN 3 = SS;	/*SS=!(!SS)*/ 
+PIN 11 = CLK;
+
+/* OUTPUT PINS */
+
+PIN 14 = T0;
+PINNODE 33 = T1;
+
+PINNODE 29 = E0;
+PIN 15 = nCLK;
+PIN 16 = E1; 
+PIN 17 = SR4;			/*D7 LCD input pin */
+PIN 18 = SR3;			/*D6 LCD input pin */
+PIN 19 = SR2;			/*D5 LCD input pin */
+PIN 20 = SR1;			/*D4 LCD input pin*/
+PIN 21 = SR0;			/*RS LCD input pin */
+PIN 22 = Wr_L;
+PIN 23 = init;
+
+PINNODE 28 = PB;
+PINNODE 30 = C2;
+PINNODE 31 = C1;
+PINNODE 32 = C0;
+
+/********************** BODY  *********************/
+
+/*----*** SERIAL RECEIVER *----***/
+
+/** Serial Control **/
+
+enRx = !SS ;
+RXerror = err ;
+
+[E0..1].ck = CLK;
+[E0..1].ar = 'b'0;
+[E0..1].sp = 'b'0;
+
+SEQUENCE [E1 , E0] {
+	
+	PRESENT 0
+		OUT init;
+		IF enRx Next 1;
+		DEFAULT Next 0;
+	
+	PRESENT 1
+		OUT wr;
+		IF !enRx Next 0;
+		IF dFlag Next 2;
+		DEFAULT Next 1;
+		
+	PRESENT 2
+		IF pFlag & !RXerror Next 3;
+		IF pFlag & RXerror # !enRx NEXT 0;
+		DEFAULT Next 2;
+		
+	PRESENT 3
+		OUT DXval;
+		IF accept # !enRx NEXT 0;
+		DEFAULT Next 3;		
+}
+
+/** Shift Register **/
+
+enableShift = wr ;
+
+[SR0..4].ckmux = SCLK ;
+[SR0..4].sp = 'b'0 ;
+[SR0..4].ar = 'b'0 ;
+
+SR4.d = SDX & enableShift # SR4 & !enableShift;
+[SR3..0].d = [SR4..1] & enableShift # [SR3..0] & !enableShift ;
+
+
+/** Parity Check **/
+PB.ckmux = SCLK;
+PB.sp = 'b'0;
+PB.ar = init;
+
+PB.T = SDX;
+
+err = !PB;
+
+/** Counter **/
+
+[C0..2].ck = SCLK;
+[C0..2].sp = 'b'0;
+[C0..2].ar = init;
+
+C0.T = 'b'1;
+C1.T = C0;
+C2.T = C0 & C1;
+
+dFlag = C0 & !C1 & C2; /* =5 */
+pFlag = !C0 & C1 & C2; /* =6 */
+
+
+/*----*** LCD Dispatcher ***----*/
+accept = done;
+nCLK = !CLK;
+
+[T0..1].ck = nCLK;
+[T0..1].ar = 'b'0;
+[T0..1].sp = 'b'0;
+
+SEQUENCE [T1 , T0] {
+	
+	PRESENT 0
+		IF DXval NEXT 1;
+		DEFAULT NEXT 0;
+	
+	PRESENT 1
+		OUT Wr_L;
+		DEFAULT NEXT 2;
+	
+	PRESENT 2
+		OUT done;
+		
+		DEFAULT NEXT 0;
+	
+	PRESENT 3
+		DEFAULT NEXT 0;	
+}
+
+
+
+
+
+
+
+
+
+

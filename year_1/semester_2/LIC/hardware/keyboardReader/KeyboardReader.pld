@@ -1,0 +1,139 @@
+Name     KeyboardReader ;
+PartNo   00 ;
+Date     11/03/2020 ;
+Revision 01 ;
+Designer JAM ;
+Company  ISEL ;
+Assembly None ;
+Location  ;
+Device   v750c ;
+
+/* *************** INPUT PINS *********************/
+PIN 1 = Mclk ;
+PIN 2 = Clk ;  
+PIN 3 = Enc0 ;
+PIN 4 = Enc1 ;
+PIN 5 = Enc2 ;
+PIN 6 = Enc3 ;
+PIN 7 = ack ;
+                        
+/* *************** OUTPUT PINS *********************/
+PIN 14 = !Dec0 ;  
+PIN 15 = !Dec1 ;
+PIN 16 = !Dec2 ;
+PIN 17 = Dval ;   
+PIN 18 = O0 ;	/*	Counter */
+PIN 19 = O1 ;
+PIN 20 = O2 ;	/*	Register */
+PIN 21 = O3 ;
+PIN 22 = X1 ;
+PIN 23 = Kval ;	
+
+
+/* ************* PINNODES ************ */
+PINNODE 27 = K0 ;
+PINNODE 28 = K1 ;
+PINNODE 29 = Q1 ;
+PINNODE 30 = Q0 ;
+PINNODE 31 = R1 ;
+PINNODE 32 = R0 ;
+PINNODE 33 = X0 ;
+
+/* ************** BODY ************** */
+
+/* ************** COUNTER ********** */
+CE = Kscan0 ;
+
+[Q0..1].ck = Clk ;
+[Q0..1].sp = 'b'0 ;
+[Q0..1].ar = 'b'0 ;
+
+Q0.T = CE ;
+Q1.T = CE & Q0 ;
+
+
+/* ************ DECODER ******** */
+DecS0 = Q0 ; /* Para efeitos de teste */
+DecS1 = Q1 ; 
+
+Dec0 = !DecS0 & !DecS1 ;
+
+Dec1 = DecS0 & !DecS1 ;
+
+Dec2 = !DecS0 & DecS1 ;
+
+
+/* *********** PRIORITY ENCODER ********* */
+GS = !Enc0 # !Enc1 # !Enc2 # !Enc3 ;
+
+Y0 = Enc2 & !Enc1 # !Enc3 ;
+
+Y1 = !Enc2 # !Enc3 ;
+
+
+/* ********* REGISTER *********** */
+[R0..1].d = [Y0..1] ;
+[R0..1].sp = 'b'0 ;
+[R0..1].ar = 'b'0 ;
+[R0..1].ck = Kscan1 ;
+
+
+/* ************* KEY CONTROL ******************** */
+Kpress = GS ;
+Kack = DAC ;
+
+[K0..1].ar = 'b'0 ;
+[K0..1].sp = 'b'0 ;
+[K0..1].ckmux = Mclk ;
+
+SEQUENCE [K1, K0] {
+	PRESENT 0
+		OUT Kscan0 ;
+		IF Kpress NEXT 1 ;
+		DEFAULT NEXT 0 ;
+	PRESENT 1
+		OUT Kscan1 ;
+		DEFAULT NEXT 2 ;	
+	PRESENT 2
+		OUT Kval ;
+		IF Kack & !Kpress NEXT 0 ;
+		DEFAULT NEXT 2 ;	
+}
+
+/* **************** KEY BUFFER ***************** */
+
+/* ******* OUTPUT REGISTER ******** */
+
+[O0..1].d = [R0..1] ;
+[O2..3].d = [Q0..1] ;
+[O0..3].sp = 'b'0 ;
+[O0..3].ar = 'b'0 ;
+O0.ck = Wreg ;
+O1.ck = Wreg ;
+O2.ck = Wreg ;
+O3.ck = Wreg ;
+
+/* *********** KEY BUFFER CONTROL *********** */
+DAV = Kval ;
+
+[X0..1].ar = 'b'0 ;
+[X0..1].sp = 'b'0 ;
+[X0..1].ckmux = Mclk ;
+
+SEQUENCE [X1, X0] {
+	PRESENT 0
+		IF DAV & !ack NEXT 1 ;
+		DEFAULT NEXT 0 ;
+	PRESENT 1
+		OUT Wreg;
+		DEFAULT NEXT 2 ;
+	PRESENT 2
+		OUT Dval, DAC ;
+		IF !DAV NEXT 3 ;
+		DEFAULT NEXT 2 ;
+	PRESENT 3
+		OUT Dval ;
+		IF ack NEXT 0 ;
+		DEFAULT NEXT 3 ;				
+}
+

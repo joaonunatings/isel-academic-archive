@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project source="2.7.1" version="1.0">
+This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
+<lib desc="#Wiring" name="0"/>
+  <lib desc="#Gates" name="1"/>
+  <lib desc="#Plexers" name="2"/>
+  <lib desc="#Arithmetic" name="3"/>
+  <lib desc="#Memory" name="4">
+    <tool name="ROM">
+      <a name="contents">addr/data: 8 8
+0
+</a>
+    </tool>
+  </lib>
+  <lib desc="#I/O" name="5"/>
+  <lib desc="#Base" name="6">
+    <tool name="Text Tool">
+      <a name="text" val=""/>
+      <a name="font" val="SansSerif plain 12"/>
+      <a name="halign" val="center"/>
+      <a name="valign" val="base"/>
+    </tool>
+  </lib>
+  <lib desc="jar#C:\Users\mjbma\Downloads\ISEL-LIC.jar#isel.adeetc.saso.logisimLibs.ISELLIC" name="7"/>
+  <main name="main"/>
+  <options>
+    <a name="gateUndefined" val="ignore"/>
+    <a name="simlimit" val="1000"/>
+    <a name="simrand" val="0"/>
+  </options>
+  <mappings>
+    <tool lib="6" map="Button2" name="Menu Tool"/>
+    <tool lib="6" map="Button3" name="Menu Tool"/>
+    <tool lib="6" map="Ctrl Button1" name="Menu Tool"/>
+  </mappings>
+  <toolbar>
+    <tool lib="6" name="Poke Tool"/>
+    <tool lib="6" name="Edit Tool"/>
+    <tool lib="6" name="Text Tool">
+      <a name="text" val=""/>
+      <a name="font" val="SansSerif plain 12"/>
+      <a name="halign" val="center"/>
+      <a name="valign" val="base"/>
+    </tool>
+    <sep/>
+    <tool lib="0" name="Pin">
+      <a name="tristate" val="false"/>
+    </tool>
+    <tool lib="0" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
+    </tool>
+    <tool lib="1" name="NOT Gate"/>
+    <tool lib="1" name="AND Gate"/>
+    <tool lib="1" name="OR Gate"/>
+  </toolbar>
+  <circuit name="main">
+    <a name="circuit" val="main"/>
+    <a name="clabel" val=""/>
+    <a name="clabelup" val="east"/>
+    <a name="clabelfont" val="SansSerif plain 12"/>
+    <wire from="(390,210)" to="(390,470)"/>
+    <wire from="(410,310)" to="(600,310)"/>
+    <wire from="(120,400)" to="(120,410)"/>
+    <wire from="(200,520)" to="(200,530)"/>
+    <wire from="(280,400)" to="(280,410)"/>
+    <wire from="(260,480)" to="(360,480)"/>
+    <wire from="(180,510)" to="(220,510)"/>
+    <wire from="(630,210)" to="(630,250)"/>
+    <wire from="(690,210)" to="(690,250)"/>
+    <wire from="(750,210)" to="(750,250)"/>
+    <wire from="(70,480)" to="(160,480)"/>
+    <wire from="(260,410)" to="(280,410)"/>
+    <wire from="(160,440)" to="(160,480)"/>
+    <wire from="(660,210)" to="(660,440)"/>
+    <wire from="(600,210)" to="(600,310)"/>
+    <wire from="(260,500)" to="(390,500)"/>
+    <wire from="(420,210)" to="(420,460)"/>
+    <wire from="(260,490)" to="(330,490)"/>
+    <wire from="(330,490)" to="(330,560)"/>
+    <wire from="(60,440)" to="(120,440)"/>
+    <wire from="(60,400)" to="(120,400)"/>
+    <wire from="(260,450)" to="(450,450)"/>
+    <wire from="(160,440)" to="(220,440)"/>
+    <wire from="(120,430)" to="(120,440)"/>
+    <wire from="(360,210)" to="(360,480)"/>
+    <wire from="(120,430)" to="(220,430)"/>
+    <wire from="(120,410)" to="(220,410)"/>
+    <wire from="(60,420)" to="(220,420)"/>
+    <wire from="(720,210)" to="(720,250)"/>
+    <wire from="(260,460)" to="(420,460)"/>
+    <wire from="(260,430)" to="(410,430)"/>
+    <wire from="(200,520)" to="(220,520)"/>
+    <wire from="(260,440)" to="(660,440)"/>
+    <wire from="(450,210)" to="(450,450)"/>
+    <wire from="(390,500)" to="(390,560)"/>
+    <wire from="(260,470)" to="(390,470)"/>
+    <wire from="(410,310)" to="(410,430)"/>
+    <comp lib="5" loc="(390,560)" name="LED">
+      <a name="facing" val="north"/>
+      <a name="label" val="E0"/>
+      <a name="labelloc" val="south"/>
+      <a name="labelfont" val="SansSerif bold 13"/>
+    </comp>
+    <comp lib="0" loc="(280,400)" name="Power"/>
+    <comp lib="0" loc="(60,400)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="SCLK"/>
+      <a name="labelfont" val="SansSerif bold 13"/>
+    </comp>
+    <comp lib="0" loc="(750,250)" name="Ground"/>
+    <comp lib="0" loc="(720,250)" name="Power">
+      <a name="facing" val="south"/>
+    </comp>
+    <comp lib="7" loc="(220,400)" name="ATF750c">
+      <a name="label" val="SLCDC"/>
+      <a name="DOC file path" val="C:\Users\mjbma\OneDrive - Instituto Superior de Engenharia de Lisboa\ISEL\CUPL_workplace\SLCDCdone\src-gen\SLCDCdone.doc"/>
+      <a name="l/L - to load doc file" val="C:\Users\mjbma\OneDrive - Instituto Superior de Engenharia de Lisboa\ISEL\CUPL_workplace\SLCDCdone\src-gen\SLCDCdone.doc"/>
+      <a name="u/U - to unload doc file" val="C:\Users\mjbma\OneDrive - Instituto Superior de Engenharia de Lisboa\ISEL\CUPL_workplace\SLCDCdone\src-gen\SLCDCdone.doc"/>
+    </comp>
+    <comp lib="0" loc="(180,510)" name="Clock"/>
+    <comp lib="0" loc="(60,440)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="/SS"/>
+      <a name="labelfont" val="SansSerif bold 13"/>
+    </comp>
+    <comp lib="0" loc="(630,250)" name="Ground"/>
+    <comp lib="5" loc="(330,560)" name="LED">
+      <a name="facing" val="north"/>
+      <a name="label" val="E1"/>
+      <a name="labelloc" val="south"/>
+      <a name="labelfont" val="SansSerif bold 13"/>
+    </comp>
+    <comp lib="0" loc="(70,480)" name="Clock"/>
+    <comp lib="0" loc="(60,420)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="SDX"/>
+      <a name="labelfont" val="SansSerif bold 13"/>
+    </comp>
+    <comp lib="7" loc="(300,60)" name="LCD 16x2"/>
+    <comp lib="0" loc="(200,530)" name="Ground"/>
+    <comp lib="0" loc="(690,250)" name="Ground"/>
+  </circuit>
+</project>

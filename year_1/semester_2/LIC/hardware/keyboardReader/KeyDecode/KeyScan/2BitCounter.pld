@@ -1,0 +1,30 @@
+Name     2BitCounter ;
+PartNo   00 ;
+Date     3/4/2020 ;
+Revision 01 ;
+Designer JAM ;
+Company  ISEL ;
+Assembly None ;
+Location  ;
+Device   V750C ;
+
+/* *************** INPUT PINS *********************/
+
+PIN 1 = Clk ;
+PIN 2 = CE ;
+
+/* *************** OUTPUT PINS *********************/
+
+PIN [14..15] = [Q0..1] ;
+
+/* *************** BODY    *********************/
+
+[Q0..1].ck = Clk ;
+[Q0..1].sp = 'b'0 ;
+[Q0..1].ar = 'b'0 ;
+
+Q0.T = CE ;
+Q1.T = CE & Q0 ;
+
+
+

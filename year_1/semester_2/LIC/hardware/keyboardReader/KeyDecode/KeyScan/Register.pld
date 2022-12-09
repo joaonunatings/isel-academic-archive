@@ -1,0 +1,30 @@
+Name     Register ;
+PartNo   00 ;
+Date     3/4/2020 ;
+Revision 01 ;
+Designer JAM ;
+Company  ISEL ;
+Assembly None ;
+Location  ;
+Device   V750C ;
+
+/* *************** INPUT PINS *********************/
+
+PIN 1 = Clk ;
+PIN 2 = Y0 ;  
+PIN 3 = Y1 ;    
+         
+/* *************** OUTPUT PINS *********************/
+
+PIN 16 = R0 ; 
+PIN 17 = R1 ;
+
+/* ****************** BODY ********************* */
+
+[R0..1].d = [Y0..1] ;
+[R0..1].sp = 'b'0 ;
+[R0..1].ar = 'b'0 ;
+[R0..1].ck = Clk ;
+
+
+

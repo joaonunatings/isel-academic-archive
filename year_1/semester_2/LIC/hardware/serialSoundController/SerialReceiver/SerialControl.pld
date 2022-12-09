@@ -1,0 +1,59 @@
+Name     SerialControl ; 
+PartNo   00 ; 
+Date     07/06/2020 ;
+Revision 01 ;
+Designer JAM ;
+Company  ISEL ;
+Assembly None ; 
+Location  ;
+Device   v750c ;
+
+/* INPUT PINS */
+
+PIN 1 = MClk ;
+PIN 2 = SS ;
+PIN 3 = accept ;
+PIN 4 = pFlag ;
+PIN 5 = dFlag ;
+PIN 6 = RXerror ; 
+
+/* OUTPUT PINS */
+
+PIN 14 = wr ;
+PIN 15 = init ;
+PIN 16 = DXval ;
+
+/* PINNODES */
+
+PINNODE 25 = Q0 ;
+PINNODE 34 = Q1 ;
+
+/* BODY */
+
+/* Serial Control */
+
+enRX = !SS ;
+
+[Q0..1].ckmux = MClk ;
+[Q0..1].sp = 'b'0 ;
+[Q0..1].ar = 'b'0 ;
+
+SEQUENCE [Q1, Q0] {
+	PRESENT 0
+		OUT init ;
+		IF enRX NEXT 1 ;
+		DEFAULT NEXT 0 ;
+	PRESENT 1
+		OUT wr ;
+		IF enRX & dFlag NEXT 2 ;
+		IF enRX & !dFlag NEXT 1 ;
+		DEFAULT NEXT 0 ;
+	PRESENT 2
+		IF !pFlag NEXT 2 ;
+		IF pFlag & !RXerror NEXT 3 ;
+		DEFAULT NEXT 0 ;
+	PRESENT 3
+		OUT DXval ;
+		IF !accept NEXT 3 ;
+		DEFAULT NEXT 0 ;
+}

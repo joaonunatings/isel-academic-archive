@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project source="2.7.1" version="1.0">
+This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
+<lib desc="#Wiring" name="0">
+    <tool name="Splitter">
+      <a name="facing" val="west"/>
+    </tool>
+  </lib>
+  <lib desc="#Gates" name="1"/>
+  <lib desc="#Plexers" name="2"/>
+  <lib desc="#Arithmetic" name="3"/>
+  <lib desc="#Memory" name="4">
+    <tool name="ROM">
+      <a name="contents">addr/data: 8 8
+0
+</a>
+    </tool>
+  </lib>
+  <lib desc="#I/O" name="5"/>
+  <lib desc="#Base" name="6">
+    <tool name="Text Tool">
+      <a name="text" val=""/>
+      <a name="font" val="SansSerif plain 12"/>
+      <a name="halign" val="center"/>
+      <a name="valign" val="base"/>
+    </tool>
+  </lib>
+  <lib desc="jar#ISEL-LIC.jar#isel.adeetc.saso.logisimLibs.ISELLIC" name="7"/>
+  <main name="main"/>
+  <options>
+    <a name="gateUndefined" val="ignore"/>
+    <a name="simlimit" val="1000"/>
+    <a name="simrand" val="0"/>
+  </options>
+  <mappings>
+    <tool lib="6" map="Button2" name="Menu Tool"/>
+    <tool lib="6" map="Button3" name="Menu Tool"/>
+    <tool lib="6" map="Ctrl Button1" name="Menu Tool"/>
+  </mappings>
+  <toolbar>
+    <tool lib="6" name="Poke Tool"/>
+    <tool lib="6" name="Edit Tool"/>
+    <tool lib="6" name="Text Tool">
+      <a name="text" val=""/>
+      <a name="font" val="SansSerif plain 12"/>
+      <a name="halign" val="center"/>
+      <a name="valign" val="base"/>
+    </tool>
+    <sep/>
+    <tool lib="0" name="Pin">
+      <a name="tristate" val="false"/>
+    </tool>
+    <tool lib="0" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
+    </tool>
+    <tool lib="1" name="NOT Gate">
+      <a name="facing" val="south"/>
+    </tool>
+    <tool lib="1" name="AND Gate"/>
+    <tool lib="1" name="OR Gate"/>
+  </toolbar>
+  <circuit name="main">
+    <a name="circuit" val="main"/>
+    <a name="clabel" val=""/>
+    <a name="clabelup" val="east"/>
+    <a name="clabelfont" val="SansSerif plain 12"/>
+    <wire from="(230,170)" to="(420,170)"/>
+    <wire from="(230,160)" to="(420,160)"/>
+    <wire from="(140,250)" to="(200,250)"/>
+    <wire from="(230,150)" to="(230,160)"/>
+    <wire from="(230,170)" to="(230,180)"/>
+    <wire from="(80,270)" to="(200,270)"/>
+    <wire from="(370,190)" to="(420,190)"/>
+    <wire from="(500,190)" to="(500,200)"/>
+    <wire from="(240,150)" to="(420,150)"/>
+    <wire from="(370,190)" to="(370,200)"/>
+    <wire from="(240,180)" to="(420,180)"/>
+    <wire from="(380,120)" to="(380,140)"/>
+    <wire from="(140,230)" to="(140,250)"/>
+    <wire from="(200,210)" to="(240,210)"/>
+    <wire from="(200,120)" to="(240,120)"/>
+    <wire from="(240,180)" to="(240,210)"/>
+    <wire from="(240,120)" to="(240,150)"/>
+    <wire from="(380,140)" to="(420,140)"/>
+    <wire from="(110,230)" to="(110,260)"/>
+    <wire from="(460,200)" to="(500,200)"/>
+    <wire from="(110,260)" to="(200,260)"/>
+    <wire from="(350,200)" to="(370,200)"/>
+    <wire from="(80,230)" to="(80,270)"/>
+    <wire from="(460,190)" to="(480,190)"/>
+    <wire from="(460,170)" to="(480,170)"/>
+    <wire from="(460,230)" to="(480,230)"/>
+    <wire from="(460,210)" to="(480,210)"/>
+    <wire from="(460,160)" to="(480,160)"/>
+    <wire from="(460,180)" to="(480,180)"/>
+    <wire from="(460,220)" to="(480,220)"/>
+    <wire from="(220,280)" to="(500,280)"/>
+    <wire from="(500,150)" to="(650,150)"/>
+    <wire from="(190,180)" to="(210,180)"/>
+    <wire from="(410,90)" to="(410,130)"/>
+    <wire from="(190,150)" to="(210,150)"/>
+    <wire from="(500,240)" to="(500,280)"/>
+    <wire from="(210,180)" to="(230,180)"/>
+    <wire from="(210,150)" to="(230,150)"/>
+    <wire from="(410,130)" to="(420,130)"/>
+    <wire from="(410,240)" to="(420,240)"/>
+    <wire from="(460,130)" to="(470,130)"/>
+    <wire from="(500,190)" to="(640,190)"/>
+    <wire from="(190,210)" to="(200,210)"/>
+    <wire from="(190,120)" to="(200,120)"/>
+    <comp lib="0" loc="(200,210)" name="Pull Resistor">
+      <a name="facing" val="north"/>
+      <a name="pull" val="1"/>
+    </comp>
+    <comp lib="0" loc="(210,150)" name="Pull Resistor">
+      <a name="pull" val="1"/>
+    </comp>
+    <comp lib="0" loc="(410,90)" name="Clock">
+      <a name="facing" val="south"/>
+      <a name="label" val="Mclk"/>
+    </comp>
+    <comp lib="0" loc="(210,180)" name="Pull Resistor">
+      <a name="facing" val="north"/>
+      <a name="pull" val="1"/>
+    </comp>
+    <comp lib="0" loc="(380,120)" name="Clock">
+      <a name="facing" val="south"/>
+      <a name="highDuration" val="2"/>
+      <a name="lowDuration" val="2"/>
+      <a name="label" val="Clk"/>
+    </comp>
+    <comp lib="7" loc="(70,110)" name="4x4 Matrix Keyboard"/>
+    <comp lib="6" loc="(443,149)" name="Text"/>
+    <comp lib="0" loc="(410,240)" name="Ground"/>
+    <comp lib="0" loc="(650,150)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="width" val="4"/>
+      <a name="label" val="D0:3"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(640,190)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="label" val="Dval"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="7" loc="(420,120)" name="ATF750c">
+      <a name="label" val="Dumb PAL"/>
+      <a name="DOC file path" val="E:\Documentos\ISEL\2-Semestre\LIC\space-invaders\hardware\cupl\src-gen\KeyScan.doc"/>
+      <a name="l/L - to load doc file" val="E:\Documentos\ISEL\2-Semestre\LIC\space-invaders\hardware\cupl\src-gen\KeyScan.doc"/>
+      <a name="u/U - to unload doc file" val="E:\Documentos\ISEL\2-Semestre\LIC\space-invaders\hardware\cupl\src-gen\KeyScan.doc"/>
+    </comp>
+    <comp lib="0" loc="(220,280)" name="Splitter">
+      <a name="facing" val="west"/>
+      <a name="fanout" val="3"/>
+      <a name="incoming" val="3"/>
+      <a name="appear" val="right"/>
+      <a name="bit0" val="2"/>
+      <a name="bit2" val="0"/>
+    </comp>
+    <comp lib="0" loc="(500,240)" name="Splitter">
+      <a name="facing" val="west"/>
+      <a name="fanout" val="3"/>
+      <a name="incoming" val="3"/>
+      <a name="appear" val="right"/>
+      <a name="bit0" val="2"/>
+      <a name="bit2" val="0"/>
+    </comp>
+    <comp lib="0" loc="(200,120)" name="Pull Resistor">
+      <a name="pull" val="1"/>
+    </comp>
+    <comp lib="0" loc="(350,200)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="ACK"/>
+    </comp>
+    <comp lib="7" loc="(520,360)" name="UsbPort">
+      <a name="Server Address" val="/10.169.88.56:51933"/>
+    </comp>
+    <comp lib="0" loc="(500,150)" name="Splitter">
+      <a name="facing" val="west"/>
+      <a name="fanout" val="4"/>
+      <a name="incoming" val="4"/>
+      <a name="bit0" val="3"/>
+      <a name="bit1" val="2"/>
+      <a name="bit2" val="1"/>
+      <a name="bit3" val="0"/>
+    </comp>
+    <comp lib="0" loc="(470,130)" name="Power"/>
+  </circuit>
+</project>

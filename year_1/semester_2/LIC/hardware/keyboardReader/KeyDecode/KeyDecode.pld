@@ -1,0 +1,97 @@
+Name     KeyDecode ;
+PartNo   00 ;
+Date     22/06/2020 ;
+Revision 01 ;
+Designer JAM ;
+Company  ISEL ;
+Assembly None ;
+Location  ;
+Device   v750c ;
+
+/* *************** INPUT PINS *********************/
+PIN 1 = Mclk ;
+PIN 2 = Clk ;  
+PIN 3 = Enc0 ;
+PIN 4 = Enc1 ;
+PIN 5 = Enc2 ;
+PIN 6 = Enc3 ;
+PIN 7 = Kack ;
+                        
+/* *************** OUTPUT PINS *********************/
+PIN 14 = !Dec0 ;  
+PIN 15 = !Dec1 ;
+PIN 16 = !Dec2 ;
+PIN 17 = Kval ;   
+PIN 18 = Q0 ;	/*	Counter */
+PIN 19 = Q1 ;
+PIN 20 = R0 ;	/*	Register */
+PIN 21 = R1 ;
+
+
+
+/* ************* PINNODES ************ */
+PINNODE 27 = K0 ;
+PINNODE 28 = K1 ;
+
+
+
+/* ************** BODY ************** */
+
+/* ************** COUNTER ********** */
+CE = Kscan0 ;
+
+[Q0..1].ck = Clk ;
+[Q0..1].sp = 'b'0 ;
+[Q0..1].ar = 'b'0 ;
+
+Q0.T = CE ;
+Q1.T = CE & Q0 ;
+
+
+/* ************ DECODER ******** */
+DecS0 = Q0 ; /* Para efeitos de teste */
+DecS1 = Q1 ; 
+
+Dec0 = !DecS0 & !DecS1 ;
+
+Dec1 = DecS0 & !DecS1 ;
+
+Dec2 = !DecS0 & DecS1 ;
+
+
+/* *********** PRIORITY ENCODER ********* */
+GS = !Enc0 # !Enc1 # !Enc2 # !Enc3 ;
+
+Y0 = Enc2 & !Enc1 # !Enc3 ;
+
+Y1 = !Enc2 # !Enc3 ;
+
+
+/* ********* REGISTER *********** */
+[R0..1].d = [Y0..1] ;
+[R0..1].sp = 'b'0 ;
+[R0..1].ar = 'b'0 ;
+[R0..1].ck = Kscan1 ;
+
+
+/* ************* KEY CONTROL ******************** */
+Kpress = GS ;
+
+
+[K0..1].ar = 'b'0 ;
+[K0..1].sp = 'b'0 ;
+[K0..1].ckmux = Mclk ;
+
+SEQUENCE [K1, K0] {
+	PRESENT 0
+		OUT Kscan0 ;
+		IF Kpress NEXT 1 ;
+		DEFAULT NEXT 0 ;
+	PRESENT 1
+		OUT Kscan1 ;
+		DEFAULT NEXT 2 ;	
+	PRESENT 2
+		OUT Kval ;
+		IF Kack & !Kpress NEXT 0 ;
+		DEFAULT NEXT 2 ;	
+}
