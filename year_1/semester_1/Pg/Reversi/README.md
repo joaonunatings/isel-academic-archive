@@ -28,15 +28,15 @@ The following instructions must be executed in the root directory of the project
 ### Compile
 
 #### Windows & Linux
-`javac -cp libs/ConsolePG.jar -d . src/*.java`
+`javac -cp lib/ConsolePG.jar -d . src/*.java`
 
 ### Execute
 
 #### Windows
-`java -cp .;libs/ConsolePG.jar Reversi`
+`java -cp .;lib/ConsolePG.jar Reversi`
 
 #### Linux
-`java -cp .:libs/ConsolePG.jar Reversi`
+`java -cp .:lib/ConsolePG.jar Reversi`
 
 ## Authors
 - João Nunes ([joaonunatingscode](https://github.com/joaonunatingscode))
