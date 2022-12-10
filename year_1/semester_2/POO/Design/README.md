@@ -12,7 +12,7 @@ It also allows the user to save, load and reset the state of the drawing.
 
 ## Information
 First project for Object Oriented Programming @ ISEL (now called [Software Development Techniques](https://www.isel.pt/en/leic/software-development-techniques)).
-This project was developed in IntelliJ IDEA.
+This project was developed in Android Studio.
 
 - [Project description](docs/project-description.pdf) (Portuguese)
 
