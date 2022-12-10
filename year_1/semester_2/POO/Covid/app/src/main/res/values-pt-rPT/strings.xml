@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">covid</string>
+    <string name="level">Nível:</string>
+    <string name="gameOver">Fim do jogo</string>
+    <string name="save">Gravar</string>
+    <string name="load">Repôr</string>
+    <string name="virus">Vírus:</string>
+    <string name="levelCompleted">Nível completo</string>
+    <string name="noMoreLevels">Não há mais níveis</string>
+    <string name="nothingToLoad">Nada para ler</string>
+</resources>
