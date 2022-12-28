@@ -1,0 +1,8 @@
+Startone CG 851 1/8;Startone;Size: 1/8, Body: Basswood, Nato neck, Fretboard: Maple, 19 Frets, Nylon strings Startone;Classical Acoustic Guitar;Chordophones
+Yamaha C40;Yamaha;Top: Spruce, Back & Sides: Meranti, Neck: Nato, Fretboard: Rosewood, Bridge: Rosewood;Classical Acoustic Guitar;Chordophones
+Yamaha GC 1 M PE Grand Piano;Yamaha;Glossy black finish, Length: 161cm, Width: 146cm, Height: 99cm, Weight: 249kg, 88 Keys, 3 Pedals;Grand Piano;Chordophones
+Yamaha GB1 K Walnut Polished;Yamaha;88 Keys, 3 Pedals, Length: 151cm, Width: 146cm, Height: 99cm, Weight: 261 kg, Walnut polished;Grand Piano; Chordophones
+Steinway & Sons B-211;Steinway & Sons;Length: 211cm, Width: 148cm, Weight: 345kg;Grand Piano;Chordophones
+Karl Höfner Allegretto 4/4 Violin Outfit;Höfner;Size: 4/4, Solid spruce top, D'Addario Prelude stringing, Golden brown lacquer finish;Violin;Chordophones
+Pearl 11 3/4" Travel Conga;Pearl;Size: 11 3/4" x 3 1/2", Compact, Shell: Thai oak, Head: Remo Fiberskyn 3rd;Conga;Membranophones
+Pearl 7" & 8,5" Travel Bongo;Pearl;Size: 7" & 8.5" x 3.5", Compact, Shell: Thai oak, Head: Remo Fiberskyn 3;Bongo;Membranophones

@@ -1,0 +1,5 @@
+Yamaha;Japan;Yamaha Corporation is a Japanese multinational corporation and conglomerate with a very wide range of products and services.
+Startone;Germany;Startone is Thomann's own brand which sells wind instruments, brass instruments, accordions, guitars, music stands.
+Steinway & Sons;United States;Steinway & Sons, also known as Steinway, is a German-American piano company, founded in 1853 in Manhattan by German piano builder Heinrich Engelhard Steinweg (later known as Henry E. Steinway).
+Höfner;Germany;Karl Höfner GmbH & Co. KG is a German (originally Austro-Bohemian) manufacturer of musical instruments, with one division that manufactures guitars and basses, and another that manufactures other string instruments, such as violins, violas, cellos, double basses and bows for stringed instruments.
+Pearl;Japan;Pearl Musical Instrument Company, simply known as Pearl, is a multinational corporation based in Japan with a wide range of products, predominantly percussion instruments.

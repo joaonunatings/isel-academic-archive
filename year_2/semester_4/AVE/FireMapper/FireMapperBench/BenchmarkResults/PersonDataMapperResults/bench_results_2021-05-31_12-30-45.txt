@@ -1,0 +1,50 @@
+> Benchmarking: PersonFireDataMapperTest
+time: 1000; iterations: 20; calls: 32
+> Iteration  0: 7 ops/ms | 7200 ops/s
+> Iteration  1: 7 ops/ms | 7296 ops/s
+> Iteration  2: 7 ops/ms | 7328 ops/s
+> Iteration  3: 7 ops/ms | 7168 ops/s
+> Iteration  4: 7 ops/ms | 7136 ops/s
+> Iteration  5: 7 ops/ms | 7328 ops/s
+> Iteration  6: 7 ops/ms | 7328 ops/s
+> Iteration  7: 7 ops/ms | 7296 ops/s
+> Iteration  8: 7 ops/ms | 7200 ops/s
+> Iteration  9: 7 ops/ms | 7200 ops/s
+> Iteration 10: 7 ops/ms | 7328 ops/s
+> Iteration 11: 7 ops/ms | 7360 ops/s
+> Iteration 12: 7 ops/ms | 7360 ops/s
+> Iteration 13: 7 ops/ms | 7200 ops/s
+> Iteration 14: 7 ops/ms | 7200 ops/s
+> Iteration 15: 7 ops/ms | 7296 ops/s
+> Iteration 16: 7 ops/ms | 7264 ops/s
+> Iteration 17: 6 ops/ms | 6976 ops/s
+> Iteration 18: 7 ops/ms | 7200 ops/s
+> Iteration 19: 7 ops/ms | 7168 ops/s
+> Best: 7 ops/ms
+> Executed handler 7168 times
+
+> Benchmarking: PersonDynamicDataMapperTest
+time: 1000; iterations: 20; calls: 32
+> Iteration  0: 157 ops/ms | 157632 ops/s
+> Iteration  1: 162 ops/ms | 162848 ops/s
+> Iteration  2: 162 ops/ms | 162240 ops/s
+> Iteration  3: 160 ops/ms | 160864 ops/s
+> Iteration  4: 159 ops/ms | 159552 ops/s
+> Iteration  5: 161 ops/ms | 161568 ops/s
+> Iteration  6: 162 ops/ms | 162368 ops/s
+> Iteration  7: 162 ops/ms | 162592 ops/s
+> Iteration  8: 161 ops/ms | 161056 ops/s
+> Iteration  9: 158 ops/ms | 158400 ops/s
+> Iteration 10: 162 ops/ms | 162400 ops/s
+> Iteration 11: 162 ops/ms | 162912 ops/s
+> Iteration 12: 162 ops/ms | 162496 ops/s
+> Iteration 13: 160 ops/ms | 160576 ops/s
+> Iteration 14: 160 ops/ms | 160832 ops/s
+> Iteration 15: 159 ops/ms | 159616 ops/s
+> Iteration 16: 161 ops/ms | 161376 ops/s
+> Iteration 17: 162 ops/ms | 162752 ops/s
+> Iteration 18: 161 ops/ms | 161408 ops/s
+> Iteration 19: 160 ops/ms | 160672 ops/s
+> Best: 162 ops/ms
+> Executed handler 160672 times
+

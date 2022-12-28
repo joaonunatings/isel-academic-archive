@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net48</TargetFramework>
+        <LangVersion>9</LangVersion>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\FireMapper.Test\FireMapper.Test.csproj" />
+      <ProjectReference Include="..\FireMapper\FireMapper.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="BenchmarkResults" />
+    </ItemGroup>
+
+</Project>

@@ -1,0 +1,4 @@
+Idiophones;Vibrating Instruments;Instruments which produce sound by vibrating themselves.
+Membranophones;Vibrating Membrane Instruments;Instruments which produce sound by a vibrating membrane.
+Chordophones;Vibrating Strings Instruments;Instruments which produce sound by vibrating strings.
+Aerophones;Vibrating Air Instruments;Instruments which produce sound by vibrating columns of air.

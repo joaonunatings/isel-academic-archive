@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<ItemGroup>
+		<ProjectReference Include="..\FireMapperUtils\FireMapperUtils.csproj" />
+		<ProjectReference Include="..\FireSource\FireSource.csproj" />
+	</ItemGroup>
+
+	<PropertyGroup>
+		<TargetFramework>net48</TargetFramework>
+		<LangVersion>9.0</LangVersion>
+	</PropertyGroup>
+</Project>

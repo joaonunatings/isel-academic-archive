@@ -1,0 +1,90 @@
+> Benchmarking: PersonFireDataMapperTest
+time: 3000; iterations: 40; calls: 128
+> Iteration  0: 7 ops/ms | 7125 ops/s
+> Iteration  1: 6 ops/ms | 6954 ops/s
+> Iteration  2: 6 ops/ms | 6997 ops/s
+> Iteration  3: 7 ops/ms | 7210 ops/s
+> Iteration  4: 7 ops/ms | 7214 ops/s
+> Iteration  5: 7 ops/ms | 7210 ops/s
+> Iteration  6: 7 ops/ms | 7253 ops/s
+> Iteration  7: 7 ops/ms | 7253 ops/s
+> Iteration  8: 7 ops/ms | 7168 ops/s
+> Iteration  9: 7 ops/ms | 7210 ops/s
+> Iteration 10: 7 ops/ms | 7210 ops/s
+> Iteration 11: 7 ops/ms | 7210 ops/s
+> Iteration 12: 7 ops/ms | 7253 ops/s
+> Iteration 13: 7 ops/ms | 7210 ops/s
+> Iteration 14: 7 ops/ms | 7210 ops/s
+> Iteration 15: 7 ops/ms | 7210 ops/s
+> Iteration 16: 7 ops/ms | 7253 ops/s
+> Iteration 17: 7 ops/ms | 7253 ops/s
+> Iteration 18: 7 ops/ms | 7253 ops/s
+> Iteration 19: 7 ops/ms | 7296 ops/s
+> Iteration 20: 7 ops/ms | 7125 ops/s
+> Iteration 21: 7 ops/ms | 7210 ops/s
+> Iteration 22: 7 ops/ms | 7217 ops/s
+> Iteration 23: 7 ops/ms | 7214 ops/s
+> Iteration 24: 7 ops/ms | 7253 ops/s
+> Iteration 25: 7 ops/ms | 7253 ops/s
+> Iteration 26: 7 ops/ms | 7168 ops/s
+> Iteration 27: 7 ops/ms | 7253 ops/s
+> Iteration 28: 7 ops/ms | 7210 ops/s
+> Iteration 29: 7 ops/ms | 7210 ops/s
+> Iteration 30: 7 ops/ms | 7210 ops/s
+> Iteration 31: 7 ops/ms | 7257 ops/s
+> Iteration 32: 7 ops/ms | 7253 ops/s
+> Iteration 33: 7 ops/ms | 7210 ops/s
+> Iteration 34: 7 ops/ms | 7253 ops/s
+> Iteration 35: 7 ops/ms | 7210 ops/s
+> Iteration 36: 7 ops/ms | 7082 ops/s
+> Iteration 37: 7 ops/ms | 7253 ops/s
+> Iteration 38: 7 ops/ms | 7210 ops/s
+> Iteration 39: 7 ops/ms | 7296 ops/s
+> Best: 7 ops/ms
+> Executed handler 21888 times
+
+> Benchmarking: PersonDynamicDataMapperTest
+time: 3000; iterations: 40; calls: 128
+> Iteration  0: 159 ops/ms | 159786 ops/s
+> Iteration  1: 161 ops/ms | 161322 ops/s
+> Iteration  2: 161 ops/ms | 161194 ops/s
+> Iteration  3: 157 ops/ms | 157397 ops/s
+> Iteration  4: 161 ops/ms | 161365 ops/s
+> Iteration  5: 160 ops/ms | 160128 ops/s
+> Iteration  6: 160 ops/ms | 160000 ops/s
+> Iteration  7: 160 ops/ms | 160896 ops/s
+> Iteration  8: 160 ops/ms | 160170 ops/s
+> Iteration  9: 153 ops/ms | 153813 ops/s
+> Iteration 10: 160 ops/ms | 160298 ops/s
+> Iteration 11: 161 ops/ms | 161152 ops/s
+> Iteration 12: 158 ops/ms | 158293 ops/s
+> Iteration 13: 160 ops/ms | 160469 ops/s
+> Iteration 14: 161 ops/ms | 161834 ops/s
+> Iteration 15: 160 ops/ms | 160426 ops/s
+> Iteration 16: 149 ops/ms | 149760 ops/s
+> Iteration 17: 160 ops/ms | 160853 ops/s
+> Iteration 18: 158 ops/ms | 158677 ops/s
+> Iteration 19: 161 ops/ms | 161920 ops/s
+> Iteration 20: 160 ops/ms | 160469 ops/s
+> Iteration 21: 161 ops/ms | 161322 ops/s
+> Iteration 22: 161 ops/ms | 161408 ops/s
+> Iteration 23: 159 ops/ms | 159957 ops/s
+> Iteration 24: 160 ops/ms | 160213 ops/s
+> Iteration 25: 160 ops/ms | 160298 ops/s
+> Iteration 26: 161 ops/ms | 161024 ops/s
+> Iteration 27: 161 ops/ms | 161109 ops/s
+> Iteration 28: 157 ops/ms | 157269 ops/s
+> Iteration 29: 160 ops/ms | 160597 ops/s
+> Iteration 30: 159 ops/ms | 159914 ops/s
+> Iteration 31: 161 ops/ms | 161109 ops/s
+> Iteration 32: 160 ops/ms | 160981 ops/s
+> Iteration 33: 160 ops/ms | 160640 ops/s
+> Iteration 34: 161 ops/ms | 161749 ops/s
+> Iteration 35: 160 ops/ms | 160298 ops/s
+> Iteration 36: 161 ops/ms | 161280 ops/s
+> Iteration 37: 160 ops/ms | 160170 ops/s
+> Iteration 38: 159 ops/ms | 159744 ops/s
+> Iteration 39: 159 ops/ms | 159146 ops/s
+> Best: 161 ops/ms
+> Executed handler 477440 times
+

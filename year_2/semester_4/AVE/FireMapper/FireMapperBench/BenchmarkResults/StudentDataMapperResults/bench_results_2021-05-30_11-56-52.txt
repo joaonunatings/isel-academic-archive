@@ -1,0 +1,30 @@
+> Benchmarking: FireDataMapperTest
+time: 3000; iterations: 10; calls: 32
+> Iteration  0: 8 ops/ms | 8234 ops/s
+> Iteration  1: 8 ops/ms | 8160 ops/s
+> Iteration  2: 8 ops/ms | 8288 ops/s
+> Iteration  3: 8 ops/ms | 8384 ops/s
+> Iteration  4: 8 ops/ms | 8352 ops/s
+> Iteration  5: 8 ops/ms | 8256 ops/s
+> Iteration  6: 8 ops/ms | 8373 ops/s
+> Iteration  7: 8 ops/ms | 8320 ops/s
+> Iteration  8: 8 ops/ms | 8384 ops/s
+> Iteration  9: 8 ops/ms | 8309 ops/s
+> Best: 8 ops/ms
+> Executed handler 24928 times
+
+> Benchmarking: DynamicDataMapperTest
+time: 3000; iterations: 10; calls: 32
+> Iteration  0: 21 ops/ms | 21141 ops/s
+> Iteration  1: 21 ops/ms | 21152 ops/s
+> Iteration  2: 20 ops/ms | 20874 ops/s
+> Iteration  3: 20 ops/ms | 20981 ops/s
+> Iteration  4: 20 ops/ms | 20949 ops/s
+> Iteration  5: 20 ops/ms | 20640 ops/s
+> Iteration  6: 20 ops/ms | 20640 ops/s
+> Iteration  7: 20 ops/ms | 20853 ops/s
+> Iteration  8: 20 ops/ms | 20970 ops/s
+> Iteration  9: 20 ops/ms | 20960 ops/s
+> Best: 21 ops/ms
+> Executed handler 62880 times
+
