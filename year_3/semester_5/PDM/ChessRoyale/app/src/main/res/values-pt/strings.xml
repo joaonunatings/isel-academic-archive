@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="author_info">ChessRoyale APP desenvolvida por:</string>
+    <string name="api">Disponibilizado por <a href="https://lichess.org/api">API Lichess</a></string>
+    <string name="info_menu">Informações</string>
+    <string name="play_button_text">Puzzle</string>
+    <string name="fetching_message">Obtendo puzzle…</string>
+    <string name="puzzle_won">Boa, conseguiste completar o puzzle!</string>
+    <string name="wrong_puzzle_move">Jogada errada, tente outra vez.</string>
+    <string name="history_menu">Histórico</string>
+    <string name="fetching_error">Rede indisponível, começando o último puzzle</string>
+    <string name="no_puzzle">Nenhum puzzle disponível</string>
+    <string name="redo_button">Refazer puzzle</string>
+    <string name="solution_button">Mostrar Solução</string>
+    <string name="solved_title">Estado Inicial do Puzzle</string>
+    <string name="curr_player">Jogador atual</string>
+    <string name="solved">Resolvido</string>
+    <string name="error">Erro inesperado</string>
+    <string name="solved_puzzle_title">Solução do puzzle</string>
+    <string name="local_button_text">Local</string>
+    <string name="online_button_text">Multijogador</string>
+    <string name="white_won">Brancas ganharam!</string>
+    <string name="black_won">Pretas ganharam!</string>
+    <string name="list_screen_title">Desafios de xadrez</string>
+    <string name="list_create_challenge_button_label">Novo desafio</string>
+    <string name="list_menu_update_label">Atualizar</string>
+    <string name="error_getting_list">Não foi possível obter a lista de desafios</string>
+    <string name="error_accepting_challenge">Não foi possível aceitar</string>
+    <string name="accept_challenge_dialog_title">Aceita o desafio %s?</string>
+    <string name="dialog_cancel">Cancelar</string>
+    <string name="loading">Carregando...</string>
+    <string name="create_challenge_title">Criar desafio</string>
+    <string name="create_challenge_waiting_message">À espera de adversário</string>
+    <string name="create_challenge_prompt_challenger_name">Nome</string>
+    <string name="create_challenge_prompt_message">Mensagem</string>
+    <string name="create_challenge_button_label">Enviar desafio</string>
+    <string name="cancel_challenge_button_label">Cancelar</string>
+    <string name="create_challenge_button_label_in_short">Enviar</string>
+    <string name="error_creating_challenge">Não foi possível criar um desafio</string>
+    <string name="game_forfeit_button_label">Desistir</string>
+    <string name="game_draw_button_label">Empatar</string>
+    <string name="forfeit_dialog_title">Deseja desistir?</string>
+    <string name="won_msg">Ganhaste!</string>
+    <string name="lost_msg">Perdeste!</string>
+    <string name="draw_game">Foi um empate!</string>
+    <string name="draw_rejected">Empate rejeitado!</string>
+    <string name="accept_label">Aceitar</string>
+    <string name="decline_label">Recusar</string>
+    <string name="draw_offer">Queres empatar?</string>
+    <string name="join_challege_fail">Desafio já não existe!</string>
+</resources>

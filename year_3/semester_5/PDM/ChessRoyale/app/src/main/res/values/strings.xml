@@ -1,0 +1,61 @@
+<resources>
+    <string name="app_name" translatable="false">ChessRoyale</string>
+    <string name="author_info">ChessRoyale APP developed by:</string>
+    <string name="author_one" translatable="false">Alexandre Silva</string>
+    <string name="author_two" translatable="false">Miguel Marques</string>
+    <string name="author_three" translatable="false">João Nunes</string>
+    <string name="api">Thanks to <a href="https://lichess.org/api">API Lichess</a></string>
+    <string name="info_menu">Info</string>
+    <string name="history_menu">History</string>
+    <string name="play_button_text">Puzzle</string>
+    <string name="fetching_message">Getting puzzle…</string>
+    <string name="fetching_error">Network unavailable, starting last puzzle</string>
+    <string name="wrong_puzzle_move">Wrong move, try again.</string>
+    <string name="puzzle_won">Good job, you completed the puzzle!</string>
+    <string name="empty" translatable="false" />
+    <string name="no_puzzle">No available puzzles</string>
+    <string name="redo_button">Replay Puzzle</string>
+    <string name="solution_button">Show Solution</string>
+    <string name="solved_title">Initial Puzzle State</string>
+    <string name="curr_player">Current player</string>
+    <string name="solved">Solved</string>
+    <string name="error">Unexpected error occurred</string>
+    <string name="solved_puzzle_title">Puzzle Solution</string>
+    <string name="local_button_text">Local</string>
+    <string name="online_button_text">Online</string>
+    <string name="white_won">White won!</string>
+    <string name="black_won">Black won!</string>
+    <!-- Game list screen -->
+    <string name="list_screen_title">Chess challenges</string>
+    <string name="list_create_challenge_button_label">New Challenge</string>
+    <string name="list_menu_update_label">Refresh</string>
+    <string name="error_getting_list">Could not fetch challenges list</string>
+    <string name="error_accepting_challenge">Could not accept challenge</string>
+    <string name="accept_challenge_dialog_title">Accept %s\'s challenge?</string>
+    <string name="dialog_ok" translatable="false">OK</string>
+    <string name="dialog_cancel">Cancel</string>
+    <string name="loading">Loading…</string>
+
+    <!-- Create challenge screen -->
+    <string name="create_challenge_title">Create Challenge</string>
+    <string name="create_challenge_waiting_message">Waiting for the contender</string>
+    <string name="create_challenge_prompt_challenger_name">Name</string>
+    <string name="create_challenge_prompt_message">Message</string>
+    <string name="create_challenge_button_label">Post challenge</string>
+    <string name="cancel_challenge_button_label">Cancel</string>
+    <string name="create_challenge_button_label_in_short">Post it</string>
+    <string name="error_creating_challenge">Could not create challenge</string>
+
+    <!-- Game screen -->
+    <string name="game_forfeit_button_label">Forfeit</string>
+    <string name="game_draw_button_label">Draw</string>
+    <string name="forfeit_dialog_title">Give up?</string>
+    <string name="won_msg">U won!</string>
+    <string name="lost_msg">U lost!</string>
+    <string name="draw_rejected">Draw offer rejected!</string>
+    <string name="draw_game">It was a tie!</string>
+    <string name="accept_label">Accept</string>
+    <string name="decline_label">Decline</string>
+    <string name="draw_offer">Wanna draw?</string>
+    <string name="join_challege_fail">Challenge no longer exists!</string>
+</resources>

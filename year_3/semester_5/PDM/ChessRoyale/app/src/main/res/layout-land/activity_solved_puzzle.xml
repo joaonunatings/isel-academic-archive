@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    tools:context=".chess.puzzle.SolvedActivity">
+
+    <pt.isel.pdm.chessroyale.chess.view.BoardView
+        android:id="@+id/boardView"
+        android:layout_width="390dp"
+        android:layout_height="383dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.892">
+
+    </pt.isel.pdm.chessroyale.chess.view.BoardView>
+
+    <Button
+        android:id="@+id/replayButton"
+        android:layout_width="178dp"
+        android:layout_height="49dp"
+        android:text="@string/redo_button"
+        app:layout_constraintBottom_toTopOf="@+id/solutionButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.473"
+        app:layout_constraintStart_toEndOf="@+id/boardView"
+        app:layout_constraintTop_toBottomOf="@+id/solvedTitle"
+        app:layout_constraintVertical_bias="0.484" />
+
+    <Button
+        android:id="@+id/solutionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/solution_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.484"
+        app:layout_constraintStart_toEndOf="@+id/boardView"
+        app:layout_constraintTop_toBottomOf="@+id/solvedTitle"
+        app:layout_constraintVertical_bias="0.633" />
+
+    <TextView
+        android:id="@+id/solvedTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleX="2"
+        android:scaleY="2"
+        android:text="@string/solved_title"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.509"
+        app:layout_constraintStart_toEndOf="@+id/boardView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.293" />
+
+    <ImageView
+        android:id="@+id/currPlayer"
+        android:layout_width="63dp"
+        android:layout_height="54dp"
+        android:contentDescription="@string/curr_player"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.064"
+        app:layout_constraintStart_toEndOf="@+id/boardView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.095"
+        app:srcCompat="@drawable/ic_white_king" />
+</androidx.constraintlayout.widget.ConstraintLayout>

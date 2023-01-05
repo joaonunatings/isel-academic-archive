@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="pt.isel.pdm.chessroyale">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:name=".common.ChessRoyaleApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.ChessRoyale">
+        <activity
+            android:name=".history.HistoryActivity"
+            android:exported="true" />
+        <activity
+            android:name=".chessroyale.MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".info.InfoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".chess.puzzle.PuzzleActivity"
+            android:exported="false"
+            android:theme="@style/Theme.ChessRoyaleGame" />
+        <activity
+            android:name=".chess.puzzle.SolvedActivity"
+            android:exported="false"
+            android:theme="@style/Theme.ChessRoyaleGame" />
+        <activity
+            android:name=".chess.offline.ChessActivity"
+            android:exported="false"
+            android:theme="@style/Theme.ChessRoyaleGame" />
+        <activity
+            android:name=".challenges.list.ChallengesListActivity"
+            android:exported="false"
+            android:theme="@style/Theme.ChessRoyale" />
+        <activity
+            android:name=".challenges.create.CreateChallengeActivity"
+            android:exported="false"
+            android:theme="@style/Theme.ChessRoyaleGame" />
+        <activity
+            android:name=".chess.online.OnlineChessActivity"
+            android:exported="false"
+            android:theme="@style/Theme.ChessRoyaleGame" />
+    </application>
+
+</manifest>
