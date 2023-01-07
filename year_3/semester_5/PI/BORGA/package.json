@@ -1,0 +1,30 @@
+{
+  "name": "borga",
+  "version": "1.0.0",
+  "description": "",
+  "main": "borga-app.js",
+  "scripts": {
+    "test": "jest",
+    "start": "node borga-app.js",
+    "start-dev": "nodemon borga-app.js"
+  },
+  "author": "Alexandre Silva, João Nunes e Miguel Marques",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap-icons": "^1.7.2",
+    "express": "^4.17.2",
+    "express-session": "^1.17.2",
+    "hbs": "^4.2.0",
+    "node-fetch": "^2.6.7",
+    "passport": "^0.5.2",
+    "session": "^0.1.0",
+    "swagger-ui-express": "^4.3.0",
+    "yamljs": "^0.3.0"
+  },
+  "devDependencies": {
+    "jest": "^27.4.7",
+    "nodemon": "^2.0.15",
+    "supertest": "^6.1.6",
+    "jest-openapi": "^0.14.2"
+  }
+}

@@ -1,0 +1,40 @@
+<table class="table">
+    <tbody>
+        <tr>
+            <th>Name</th>
+            <td>{{group.name}}</td>
+        </tr>
+        <tr>
+            <th>Description</th>
+            <td>{{{group.description}}}</td>
+        </tr>
+    </tbody>
+</table>
+<h5 style="text-align: center;">Games</h5>
+<table class="table">
+    <tbody>
+        <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+        {{#if group.games.length}}
+            {{#each group.games}}
+                <tr class="game-item" data-token="{{../userId}}" data-group-id="{{../groupId}}">
+                    <td style="text-align: center; vertical-align: middle;">{{#if image}}
+                            <a href="/game/{{gameId}}">
+                                <img src={{image}} style="width: 180px; height: auto;" />
+                            </a>
+                        {{else}}N/A{{/if}}
+                    </td>
+                    <td style="text-align: center; vertical-align: middle;">{{#if description}}{{{description}}}{{else}}N/A{{/if}}</td>
+                    <td style="text-align: center; width: 20%; vertical-align: middle;">
+                        <button class="delete btn btn-danger btn-block" data-game-id="{{gameId}}">Delete Game</button>
+                    </td>
+                </tr>
+            {{/each}}
+        {{else}}
+            <tr>'N/A'</tr>
+        {{/if}}
+    </tbody>
+</table>

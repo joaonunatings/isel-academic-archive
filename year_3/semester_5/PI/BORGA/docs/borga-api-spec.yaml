@@ -1,0 +1,547 @@
+---
+openapi: 3.0.1
+info:
+  title: BORGA API
+  description: BORGA API extends Board Game Atlas API(used to obtain data about games) to handle game groups.
+  contact:
+    email: a47192-a47204-a47220@alunos.isel.pt
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.1.3
+servers:
+- url: http://localhost:8888/api
+  description: Default Localhost server for BORGA API
+tags:
+- name: games
+- name: groups
+- name: users
+paths:
+  /games:
+    get:
+      tags:
+      - games
+      summary: By default returns most popular games otherwise can filter results
+      description: By default returns most popular games otherwise can filter results
+      operationId: getPopularGames
+      parameters:
+      - name: ids
+        in: query
+        description: Ids of board games to search for
+        required: false
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: string
+      - name: order_by
+        in: query
+        description: Provide the name of another parameter and it will order the results according to it. The possible values include rank, name, price.
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+          enum:
+            - rank
+            - name
+            - price
+      - name: name
+        in: query
+        description: Name of a game to search for. This search is based on the start of the strings.
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: skip
+        in: query
+        description: Number of records to skip for pagination
+        required: false
+        style: form
+        explode: true
+        schema:
+          minimum: 0
+          type: integer
+      - name: limit
+        in: query
+        description: Maximum number of records to return
+        required: false
+        style: form
+        explode: true
+        schema:
+          maximum: 50
+          minimum: 0
+          type: integer
+      responses:
+        "200":
+          description: Search results containing the ID, name, image and description of the game. Also contains the original URL from the Board Game Atlas API.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Game'
+        "404":
+          description: Game(s) not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "400":
+          description: Bad input parameter.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    x-codegen-request-body-name: game
+  /groups:
+    get:
+      tags:
+      - groups
+      summary: List all groups
+      description: List all groups
+      operationId: getGroups
+      responses:
+        "200":
+          description: All groups associated to the matching user
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Group'
+        "400":
+          description: Bad request parameter.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "401":
+          description: User error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      security:
+      - bearerAuth: []
+    post:
+      tags:
+      - groups
+      summary: Adds a group associated to the user
+      description: Adds a group (to a user) providing its name and description.
+      operationId: addGroup
+      requestBody:
+        description: Group to add.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GroupInfo'
+        required: true
+      responses:
+        "201":
+          description: Group ID of the created group.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GroupId'
+        "400":
+          description: Bad request parameter.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "401":
+          description: User error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      security:
+      - bearerAuth: []
+      x-codegen-request-body-name: groupName
+  /groups/{groupId}:
+    get:
+      tags:
+      - groups
+      summary: Get the details of a group
+      description: Get the details of a group, with its name, description and names of the included games.
+      operationId: getGroupDetails
+      parameters:
+      - name: groupId
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          $ref: '#/components/schemas/GroupId'
+      responses:
+        "200":
+          description: Details of the group searched.
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  $ref: '#/components/schemas/GroupDetails'
+        "400":
+          description: Bad request parameter.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "401":
+          description: User error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "404":
+          description: Group not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      security:
+      - bearerAuth: []
+      x-codegen-request-body-name: gameGroup
+    put:
+      tags:
+      - groups
+      summary: Edit a group
+      description: Edit group by changing its name and description.
+      operationId: updateGroup
+      parameters:
+      - name: groupId
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          $ref: '#/components/schemas/GroupId'
+      requestBody:
+        description: Group to edit.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GroupInfo'
+        required: true
+      responses:
+        "200":
+          description: Group updated.
+          content:
+            application/json:
+              schema:
+                type: string
+                example: Group updated
+        "400":
+          description: Invalid request parameters.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "401":
+          description: User error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "404":
+          description: Group not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      security:
+      - bearerAuth: []
+      x-codegen-request-body-name: gameGroup
+    delete:
+      tags:
+      - groups
+      summary: Deletes a group
+      description: Deletes a group.
+      operationId: deleteGroup
+      parameters:
+      - name: groupId
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          $ref: '#/components/schemas/GroupId'
+      responses:
+        "200":
+          description: Group deleted.
+          content:
+            application/json:
+              schema:
+                type: string
+                example: Group deleted
+        "400":
+          description: Invalid request parameters.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "401":
+          description: User error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "404":
+          description: Group not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      security:
+      - bearerAuth: []
+      x-codegen-request-body-name: gameGroup
+  /groups/{groupId}/games:
+    post:
+      tags:
+      - groups
+      summary: Add a game to a group
+      description: Add a game to a group.
+      operationId: addGameToGroup
+      parameters:
+      - name: groupId
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          $ref: '#/components/schemas/GroupId'
+      requestBody:
+        description: Game to add.
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - gameId
+              properties:
+                gameId:
+                  $ref: '#/components/schemas/GameId'
+        required: true
+      responses:
+        "201":
+          description: Game added.
+          content:
+            application/json:
+              schema:
+                type: string
+                example: Game Added
+        "400":
+          description: Invalid request parameters.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "401":
+          description: User error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "404":
+          description: Game or group not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      security:
+      - bearerAuth: []
+      x-codegen-request-body-name: games
+  /groups/{groupId}/games/{gameId}:
+    delete:
+      tags:
+      - groups
+      summary: Deletes a game from a group
+      description: Deletes a game from a group.
+      operationId: deleteGameGroup
+      parameters:
+      - name: groupId
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          $ref: '#/components/schemas/GroupId'
+      - name: gameId
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          $ref: '#/components/schemas/GameId'
+      responses:
+        "200":
+          description: Game deleted.
+          content:
+            application/json:
+              schema:
+                type: string
+                example: Game deleted
+        "400":
+          description: Invalid request parameters.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "401":
+          description: User error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "404":
+          description: Game or group not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      security:
+      - bearerAuth: []
+      x-codegen-request-body-name: gameGroup
+  /users:
+    post:
+      tags:
+      - users
+      summary: Adds a user
+      description: Adds a user to the system.
+      operationId: addUser
+      requestBody:
+        description: User to add.
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                  example: guest
+                password:
+                  type: string
+                  example: guest_pass
+              required:
+                - username
+                - password
+        required: true
+      responses:
+        "201":
+          description: User created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserId'
+        "400":
+          description: Invalid username.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "409":
+          description: User already exists.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-codegen-request-body-name: user
+components:
+  schemas:
+    GameId:
+      type: string
+      example: TAAifFP590
+    Game:
+      required:
+        - gameId
+        - name
+        - url
+        - image
+        - description
+      type: object
+      properties:
+        gameId:
+          $ref: '#/components/schemas/GameId'
+        name:
+          type: string
+          example: Root
+        url:
+          type: string
+          example: https://www.boardgameatlas.com/game/TAAifFP590/root
+        image:
+          type: string
+          example: https://cdn.shopify.com/s/files/1/0513/4077/1515/products/root-board-game.jpg?v=1611089915
+        description:
+          type: string
+          example: <p>Find adventure in this marvelous asymmetric game. Root provides limitless replay value as you and your friends explore the unique factions all wanting to rule a fantastic forest kingdom. Play as the Marquise de Cat and dominate the woods, extracting its riches and policing its inhabitants, as the Woodland Alliance, gathering supporters and coordinate revolts against the ruling regime, the Eyrie Dynasties, regaining control of the woods while keeping your squabbling court at bay, or as the Vagabond, seeking fame and fortune as you forge alliances and rivalries with the other players. Each faction has its own play style and paths to victory, providing an immersive game experience you will want to play again and again.</p>
+    GroupId:
+      type: string
+      example: s8UNtX4BIiPWnp229VxD
+    GroupInfo:
+      required:
+        - name
+        - description
+      type: object
+      properties:
+        name:
+          type: string
+          example: Strategy Games
+        description:
+          type: string
+          example: Description of the strategy games group
+    Group:
+      allOf:
+        - $ref: '#/components/schemas/GroupInfo'
+        - type: object
+      type: object
+      required:
+        - groupId
+        - name
+        - description
+      properties:
+        groupId:
+          $ref: '#/components/schemas/GroupId'
+    GroupDetails:
+      allOf:
+        - $ref: '#/components/schemas/GroupInfo'
+        - $ref: '#/components/schemas/Game'
+        - type: object
+    GameName:
+      required:
+      - name
+      type: object
+      properties:
+        name:
+          type: string
+          example: Catan
+    UserId:
+      type: string
+      example: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+    Error:
+      required:
+      - code
+      - info
+      - message
+      - name
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 1004
+        name:
+          type: string
+          example: INVALID_PARAM
+        message:
+          type: string
+          example: Invalid parameters.
+        info:
+          type: string
+          example: Invalid game.
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer

@@ -1,0 +1,12 @@
+<div style="text-align: center;">
+    <h1>Oops!</h1>
+    <br>
+    <img class="img-fluid" src="/res/chuck_joke.jpg"></img>
+    <br>
+    <br>
+    <h2>Code: &nbsp;{{err.code}}</h2>
+    <h2>Reason: &nbsp;{{err.name}}</h2>
+    {{#if err.info}}
+        <h3>Info: &nbsp;{{err.info}}</h3>
+    {{/if}}
+</div>

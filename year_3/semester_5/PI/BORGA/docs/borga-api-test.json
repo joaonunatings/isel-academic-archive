@@ -1,0 +1,652 @@
+{
+	"info": {
+		"_postman_id": "9e68cb7f-c4d4-4478-a99c-57301af56e95",
+		"name": "BORGA API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Games",
+			"item": [
+				{
+					"name": "Search Games",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/games?name=Catan&limit=1&skip=1&order_by=price",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"games"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Catan"
+								},
+								{
+									"key": "limit",
+									"value": "1"
+								},
+								{
+									"key": "skip",
+									"value": "1"
+								},
+								{
+									"key": "order_by",
+									"value": "price"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Most Popular Games",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/games?limit=1&skip=2",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"games"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "1"
+								},
+								{
+									"key": "skip",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "GameGroups",
+			"item": [
+				{
+					"name": "Create Group",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"dummyName\",\r\n    \"description\" : \"dummy description\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/gameGroups",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"gameGroups"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Group",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"newDummyName\",\r\n    \"description\": \"new dummy description\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/gameGroups/1",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"gameGroups",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Group",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/gameGroups/1",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"gameGroups",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Game from Group",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/gameGroups/1/games/56onxUCrXc",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"gameGroups",
+								"1",
+								"games",
+								"56onxUCrXc"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List All Groups",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/gameGroups",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"gameGroups"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Group Details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/gameGroups/1",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"gameGroups",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Game to Group",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"gameId\" : \"O0G8z5Wgz1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/gameGroups/1/games",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"gameGroups",
+								"1",
+								"games"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Create User",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\" : \"dummy_username\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/users",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Test Error Requests",
+			"item": [
+				{
+					"name": "Games Tests",
+					"item": [
+						{
+							"name": "Search Games with Invalid Params",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseurl}}/games?limit=-1&skip=ABC",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"games"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "NOGAMETOBEFOUND",
+											"disabled": true
+										},
+										{
+											"key": "order_by",
+											"value": "WRONGORDER",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "-1"
+										},
+										{
+											"key": "skip",
+											"value": "ABC"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Most Popular Games with Invalid Params",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseurl}}/games?limit=-1&skip=XYZ",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"games"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "-1"
+										},
+										{
+											"key": "skip",
+											"value": "XYZ"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "GameGroups Tests",
+					"item": [
+						{
+							"name": "Create Group without description",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"dummyName\"\r\n    \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseurl}}/gameGroups",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"gameGroups"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Edit Group with Unknown ID",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\" : \"newDummyName\",\r\n    \"description\": \"new dummy description\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseurl}}/gameGroups/99999",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"gameGroups",
+										"99999"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Group with Unknown ID",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseurl}}/gameGroups/98765",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"gameGroups",
+										"98765"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Unknown Game from Group",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseurl}}/gameGroups/1/games/99999999",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"gameGroups",
+										"1",
+										"games",
+										"99999999"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "List All Groups with Invalid Token",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "9124102431fdsfnsdkjfn",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseurl}}/gameGroups",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"gameGroups"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Group Details with Unknown Group",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseurl}}/gameGroups/10",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"gameGroups",
+										"10"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Game to Group With Invalid Game ID",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"gameId\" : \"xas1234567\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseurl}}/gameGroups/1/games",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"gameGroups",
+										"1",
+										"games"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Edit Group Name Only",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\" : \"newDummyName2\",\r\n    \"description\": null\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseurl}}/gameGroups/1",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"gameGroups",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Edit Group Description Only",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\" : null,\r\n    \"description\": \"new dummy description 2\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseurl}}/gameGroups/1",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"gameGroups",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Users Tests",
+					"item": [
+						{
+							"name": "Create Already Existing User",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\" : \"dummyUser\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseurl}}/users",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "36b8f84d-df4e-4d49-b662-bcde71a8764f",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseurl",
+			"value": "http://localhost:8888/api"
+		},
+		{
+			"key": "clientid",
+			"value": "kFK5QZbBkt"
+		}
+	]
+}

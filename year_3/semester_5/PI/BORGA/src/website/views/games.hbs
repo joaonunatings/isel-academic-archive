@@ -1,0 +1,61 @@
+<h1>Find a Game</h1>
+<form action="/search" method="GET">
+    <div>
+        <div class="input-group mb-3" style="width: 200px; display:inline-flex">
+            <input type="text" id="name" name="name" class="form-control" placeholder="Search name">
+        </div>
+        <div class="col-sm" style="width: 120px; display: inline-flex;">
+            <select class="form-select" id="order_by" name="order_by">
+                <option value="rank">Rank</option>
+                <option value="name">Name</option>
+                <option value="price">Price</option>
+            </select>
+        </div>
+        <div class="col-sm" style="width: 120px; display: inline-flex;">
+            <button class="btn btn-primary btn-block" value="Search">Search</button>
+        </div>
+    </div>
+</form>
+{{#if games}}
+    <hr>
+    {{#each games}}
+        <div class="row mb-2" style="width: 100%;">
+            <div class="col-sm-7">
+                <h3 style="display: inline;">{{name}}</h3>
+            </div>
+            {{#if ../username}}
+                <div class="group-form col-sm">
+                    <div>
+                        <input type="hidden" name="gameId" class="form-control" value="{{gameId}}">
+                    </div>
+                    <div class="col-sm" style="width: 120px; display: inline-flex;">
+                        <select class="group-select form-select" name="groupId" autocomplete="off">
+                            <option selected value="">Choose...</option>
+                            {{#each ../groups}}
+                                <option value={{groupId}}>{{{name}}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                    <div class="col-sm" style="display: inline-flex;">
+                        <button class="add-game btn btn-primary btn-block">Add to Group</button>
+                    </div>
+                </div>
+            {{/if}}
+        </div>
+        <table class="table table-striped table-bordered">
+            <tr>
+                <td>View Details</td>
+                <td>Description</td>
+            </tr>
+            <tr>
+                <td>{{#if image}}
+                        <a href="/game/{{gameId}}">
+                            <img src={{image}} style="width: 180px; height: auto;" />
+                        </a>
+                    {{else}}N/A{{/if}}
+                </td>
+                <td>{{#if description}}{{{description}}}{{else}}N/A{{/if}}</td>
+            </tr>
+        </table>
+    {{/each}}
+{{/if}}

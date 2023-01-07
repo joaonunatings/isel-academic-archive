@@ -1,0 +1,937 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "BORGA API",
+    "description": "BORGA API extends Board Game Atlas API(used to obtain data about games) to handle game groups.",
+    "contact": {
+      "email": "a47192-a47204-a47220@alunos.isel.pt"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    },
+    "version": "1.1.3"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8888/api",
+      "description": "Default Localhost server for BORGA API"
+    }
+  ],
+  "tags": [
+    {
+      "name": "games"
+    },
+    {
+      "name": "groups"
+    },
+    {
+      "name": "users"
+    }
+  ],
+  "paths": {
+    "/games": {
+      "get": {
+        "tags": [
+          "games"
+        ],
+        "summary": "By default returns most popular games otherwise can filter results",
+        "description": "By default returns most popular games otherwise can filter results",
+        "operationId": "getPopularGames",
+        "parameters": [
+          {
+            "name": "order_by",
+            "in": "query",
+            "description": "Provide the name of another parameter and it will order the results according to it. The possible values include rank, name, price.",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "description": "Name of a game to search for. This search is based on the start of the strings.",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "skip",
+            "in": "query",
+            "description": "Number of records to skip for pagination",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Maximum number of records to return",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "maximum": 50,
+              "minimum": 0,
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Search results of most popular games",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Game"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "bad input parameter",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "x-codegen-request-body-name": "game"
+    },
+    "/groups": {
+      "get": {
+        "tags": [
+          "groups"
+        ],
+        "summary": "List all groups",
+        "description": "List all groups",
+        "operationId": "getGroups",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "All groups associated to the matching user",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GroupId"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "User error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "groups"
+        ],
+        "summary": "Adds a group associated to the user",
+        "description": "Adds a group providing its name and description",
+        "operationId": "addGroup",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Group to add",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Group"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Details of the group searched",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/NewGroup"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Group name or description missing",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "User error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Group with invalid properties",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "x-codegen-request-body-name": "groupName"
+      }
+    },
+    "/groups/{groupId}": {
+      "get": {
+        "tags": [
+          "groups"
+        ],
+        "summary": "Get the details of a group",
+        "description": "Get the details of a group, with its name, description and names of the included games.",
+        "operationId": "getGroupDetails",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "groupId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Details of the group searched",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GroupDetails"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Group ID is not a number",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "User error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Group not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "x-codegen-request-body-name": "gameGroup"
+      },
+      "put": {
+        "tags": [
+          "groups"
+        ],
+        "summary": "Edit a group",
+        "description": "Edit group by changing its name and description",
+        "operationId": "updateGroup",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "groupId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Group to edit",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Group"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Group updated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "example": "Group Updated"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Group is invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "User error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Group not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Group with invalid properties",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "x-codegen-request-body-name": "gameGroupe"
+      },
+      "delete": {
+        "tags": [
+          "groups"
+        ],
+        "summary": "Deletes a group",
+        "description": "Deletes a group",
+        "operationId": "deleteGroup",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "groupId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deleted",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "example": "Deleted"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid group ID",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "User error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Group not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "x-codegen-request-body-name": "gameGroup"
+      }
+    },
+    "/groups/{groupId}/games": {
+      "post": {
+        "tags": [
+          "groups"
+        ],
+        "summary": "Add a game to a group",
+        "description": "Add a game to a group",
+        "operationId": "addGameToGroup",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "groupId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Game to add",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GameId"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Game added",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "example": "Game Added"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "User error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Game or group not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "Services failure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "x-codegen-request-body-name": "games"
+      }
+    },
+    "/groups/{groupId}/games/{gameId}": {
+      "delete": {
+        "tags": [
+          "groups"
+        ],
+        "summary": "Deletes a game from a group",
+        "description": "Deletes a game from a group",
+        "operationId": "deleteGameGroup",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "groupId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "gameId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deleted",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "example": "Deleted"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "User error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Game or group not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "x-codegen-request-body-name": "gameGroup"
+      }
+    },
+    "/users": {
+      "post": {
+        "tags": [
+          "users"
+        ],
+        "summary": "Adds a user",
+        "description": "Adds a user to the system",
+        "operationId": "addUser",
+        "requestBody": {
+          "description": "User to add",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewUser"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "User created!",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "example": "b72066aa-56e6-4abc-8f68-3e68ca63eb00"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid username",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "User already exists",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "x-codegen-request-body-name": "user"
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "GroupDetails": {
+        "required": [
+          "group",
+          "groupGames"
+        ],
+        "type": "object",
+        "properties": {
+          "group": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Group"
+            }
+          },
+          "groupGames": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GameName"
+            }
+          }
+        }
+      },
+      "Group": {
+        "required": [
+          "description",
+          "groupName"
+        ],
+        "type": "object",
+        "properties": {
+          "groupName": {
+            "type": "string",
+            "example": "Strategy Games"
+          },
+          "description": {
+            "type": "string",
+            "example": "Description of the startegy games group"
+          }
+        }
+      },
+      "NewGroup": {
+        "required": [
+          "groupId"
+        ],
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "integer",
+            "example": 7
+          }
+        }
+      },
+      "GameName": {
+        "required": [
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "Catan"
+          }
+        }
+      },
+      "Game": {
+        "required": [
+          "gameId",
+          "name",
+          "url"
+        ],
+        "type": "object",
+        "properties": {
+          "gameId": {
+            "type": "string",
+            "example": "OIXt3DmJU0"
+          },
+          "name": {
+            "type": "string",
+            "example": "Catan"
+          },
+          "url": {
+            "type": "string",
+            "example": "https://www.boardgameatlas.com/game/OIXt3DmJU0/catan"
+          }
+        }
+      },
+      "GroupId": {
+        "required": [
+          "groupId",
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "groupId": {
+            "type": "integer",
+            "example": 7
+          },
+          "name": {
+            "type": "string",
+            "example": "Strategy Games"
+          }
+        }
+      },
+      "GameId": {
+        "required": [
+          "gameId"
+        ],
+        "type": "object",
+        "properties": {
+          "gameId": {
+            "type": "string",
+            "example": "O0G8z5Wgz1"
+          }
+        }
+      },
+      "NewUser": {
+        "required": [
+          "userName"
+        ],
+        "type": "object",
+        "properties": {
+          "userName": {
+            "type": "string",
+            "example": "joao"
+          }
+        }
+      },
+      "Error": {
+        "required": [
+          "code",
+          "info",
+          "message",
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "example": 1004
+          },
+          "name": {
+            "type": "string",
+            "example": "INVALID_PARAM"
+          },
+          "message": {
+            "type": "string",
+            "example": "Invalid parameters."
+          },
+          "info": {
+            "type": "string",
+            "example": "Invalid game."
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    }
+  }
+}

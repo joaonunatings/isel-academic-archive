@@ -1,0 +1,20 @@
+ <div class="row justify-content-center">
+     <div class="col-md-6">
+         <h1>Register</h1>
+         <br>
+         <form action="/users/register" method="POST">
+             <div class="form-group">
+                 <label>Username</label>
+                 <input type="text" name="username" class="form-control" placeholder="Enter username" />
+             </div>
+             <div class="form-group">
+                 <label>Password</label>
+                 <input type="password" name="password" class="form-control" placeholder="Password" />
+             </div>
+             <br>
+             <input type="submit" value="Register" class="btn btn-primary" />
+         </form>
+         <p>Already have an account? <a href="/users/login">Log in!</a>
+         </p>
+     </div>
+ </div>
