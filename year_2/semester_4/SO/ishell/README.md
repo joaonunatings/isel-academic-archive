@@ -1,6 +1,6 @@
 # ishell
 
-Simple shell. This implementation makes use of _fork()_ and pipes its data accordingly.
+Simple shell. This implementation makes use of _fork()_ and pipes (for data flow).
 
 ## Information
 This is the first problem set for Operating Systems @ ISEL (now called [Systems Virtualization Techniques](https://www.isel.pt/en/leic/systems-virtualization-techniques)).
@@ -14,7 +14,7 @@ This is the first problem set for Operating Systems @ ISEL (now called [Systems 
 - [Make](https://www.gnu.org/software/make/)
 - [GCC](https://gcc.gnu.org/)
 
-The following instructions must be executed in the root directory of the project (isel-academic-archive/year_2/semester_4/SO/ishell)
+The following instructions must be executed in the [root directory of the project](./) (isel-academic-archive/year_2/semester_4/SO/ishell).
 
 ### Compile
 `make`

@@ -16,7 +16,7 @@ The project was divided in 3 phases.
 - SQL Server ([guide](https://learn.microsoft.com/en-us/sql/database-engine/install-windows/install-sql-server?view=sql-server-ver16))
 - Java SDK 8
 
-The following instructions must be executed in the root directory of the software part of this project (isel-academic-archive/year_2/semester_3/SI1/Travel4Me)
+The following instructions must be executed in the [root directory of this project](./) (isel-academic-archive/year_2/semester_3/SI1/Travel4Me).
 
 ### Database
 1. Create a database in SQL Server ([guide](https://learn.microsoft.com/en-us/sql/relational-databases/databases/create-a-database?view=sql-server-ver16))

@@ -48,7 +48,7 @@ For more information on how to run the project using the hardware provided pleas
 - Java SDK 8 or IntelliJ IDEA (recommended)
 
 ### Setup
-The following instructions must be executed in the root directory of the software part of this project (_isel-academic-archive/year_1/semester_2/LIC/software_):
+The following instructions must be executed in the [root directory of the software part of this project](./software/) (_isel-academic-archive/year_1/semester_2/LIC/software_):
 
 `java -jar SpaceInvaders.jar` (this will compile the simulator)
 

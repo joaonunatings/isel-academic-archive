@@ -25,7 +25,7 @@ Obtain an API key from [OpenWeather API](https://openweathermap.org/api). Then s
 - [jansson](https://github.com/akheron/jansson)
 - [curl](https://curl.se/)
 
-The following instructions must be executed in the root directory of the project (isel-academic-archive/year_2/semester_3/PSC/Weather)
+The following instructions must be executed in the [root directory of the project](./) (isel-academic-archive/year_2/semester_3/PSC/Weather).
 
 ### Compile
 1. `make` 

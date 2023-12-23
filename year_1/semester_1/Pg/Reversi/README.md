@@ -14,7 +14,6 @@ The goal is to have the most pieces on the board at the end of the game.
 
 ## Information
 This was the last work (of three, being the first two mere academic exercises) for [Programming @ ISEL](https://www.isel.pt/en/leic/programming).
-Project was developed in IntelliJ IDEA.
 
 - [Project description](docs/project-description.pdf) (Portuguese)
 - [Report](docs/report.pdf) (Portuguese)
@@ -24,7 +23,7 @@ Project was developed in IntelliJ IDEA.
 ### Requirements
 - Java SDK 8
 
-The following instructions must be executed in the root directory of the project (_isel-academic-archive/year_1/semester_1/Pg/Reversi_)
+The following instructions must be executed in the [root directory of the project](./) (_isel-academic-archive/year_1/semester_1/Pg/Reversi_).
 
 ### Compile
 

@@ -15,7 +15,7 @@ This project was split into two phases:
 - .NET Framework 4.8
 - Cloud Firestore ([tutorial](Docs/firestore-tutorial.md))
 
-The following instructions must be executed in the [root directory of the project](./) (isel-academic-archive/year_2/semester_4/AVE/FireMapper)
+The following instructions must be executed in the [root directory of the project](./) (isel-academic-archive/year_2/semester_4/AVE/FireMapper).
 
 ### Run
 - You can run tests using `dotnet test`.

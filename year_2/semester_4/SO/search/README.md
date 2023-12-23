@@ -6,14 +6,13 @@ This implementation uses the _pthread-extensions_ which is a library containing 
 ## Information
 This is the fifth problem set for Operating Systems @ ISEL (now called [Systems Virtualization Techniques](https://www.isel.pt/en/leic/systems-virtualization-techniques)).
 
+- [Problem description](docs/problem-description.pdf)
+
 There are two available implementations for this program:
 
 - **search**: searches the files sequentially.
 
 - **search_mt**: searches the files using a multithreading environment by using the _pthread-extensions_ library.
-
----
-- [Problem description](docs/problem-description.pdf)
 
 ## How to run
 
@@ -22,7 +21,7 @@ There are two available implementations for this program:
 - [Make](https://www.gnu.org/software/make/)
 - [GCC](https://gcc.gnu.org/)
 
-The following instructions must be executed in the [root directory of the project](./) (_isel-academic-archive/year_2/semester_4/SO/search_)
+The following instructions must be executed in the [root directory of the project](./) (_isel-academic-archive/year_2/semester_4/SO/search_).
 
 ### Compile
 1. `make`

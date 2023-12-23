@@ -1,4 +1,4 @@
-# UThread
+# uthread
 
 Simple thread library. This implementation features [semaphore](https://en.wikipedia.org/wiki/Semaphore_(programming)) and [cyclic barrier](https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/CyclicBarrier.html).
 
@@ -14,7 +14,7 @@ This is the fourth problem set for Operating Systems @ ISEL (now called [Systems
 - [Make](https://www.gnu.org/software/make/)
 - [GCC](https://gcc.gnu.org/)
 
-The following instructions must be executed in the root directory of the project (isel-academic-archive/year_2/semester_4/SO/uthread)
+The following instructions must be executed in the [root directory of the project](./) (isel-academic-archive/year_2/semester_4/SO/uthread).
 
 ### Compile
 1. `make`

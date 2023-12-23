@@ -41,7 +41,7 @@ This server accepts TCP and UDP requests and process them accordingly.
 - [GCC](https://gcc.gnu.org/)
 - [libuv](https://libuv.org/)
 
-The following instructions must be executed in the [root directory of the project](./) (_isel-academic-archive/year_2/semester_4/SO/server_)
+The following instructions must be executed in the [root directory of the project](./) (_isel-academic-archive/year_2/semester_4/SO/server_).
 
 ### Compile
 `make`
