@@ -52,6 +52,6 @@ The following instructions must be executed in the [root directory of the projec
 For the client you can use [netcat](https://netcat.sourceforge.net/).
 
 ## Authors
-- João Nunes ([joaonunatingscode](https://github.com/joaonunatingscode))
+- João Nunes ([joaonunatings](https://github.com/joaonunatings))
 - Alexandre Silva ([Cors00](https://github.com/Cors00))
 - Miguel Marques ([mjbmarques](https://github.com/mjbmarques))

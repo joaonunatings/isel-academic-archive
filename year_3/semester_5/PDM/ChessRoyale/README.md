@@ -27,6 +27,6 @@ This project was developed in 3 phases.
 After setting up the Firestore Database you can **build** and **deploy** the application following [this guide](https://developer.android.com/studio/build/building-cmdline).
 
 ## Authors
-- João Nunes ([joaonunatingscode](https://github.com/joaonunatingscode))
+- João Nunes ([joaonunatings](https://github.com/joaonunatings))
 - Alexandre Silva ([Cors00](https://github.com/Cors00))
 - Miguel Marques ([mjbmarques](https://github.com/mjbmarques))

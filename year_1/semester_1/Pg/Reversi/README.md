@@ -40,5 +40,5 @@ The following instructions must be executed in the root directory of the project
 `java -cp .:lib/ConsolePG.jar Reversi`
 
 ## Authors
-- João Nunes ([joaonunatingscode](https://github.com/joaonunatingscode))
+- João Nunes ([joaonunatings](https://github.com/joaonunatings))
 - Miguel Marques ([mjbmarques](https://github.com/mjbmarques))

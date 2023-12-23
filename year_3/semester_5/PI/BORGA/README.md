@@ -11,7 +11,7 @@ The project was split into 3 parts:
 - [Project description (part 2)](docs/project-description2.md)
 - [Project description (part 3)](docs/project-description3.md)
 
-There's also a [Wiki](docs/report.md) containing all implementation details and how to run the application.
+There's also a [Wiki](docs/wiki.md) containing all implementation details and how to run the application.
 
 ## How to run
 
@@ -20,9 +20,9 @@ There's also a [Wiki](docs/report.md) containing all implementation details and 
 - [Board Game Atlas API](https://www.boardgameatlas.com/api/docs)
 - [ElasticSearch](https://www.elastic.co/what-is/elasticsearch)
 
-Check the documentation on [how to run](docs/report.md#run-the-application) the application.
+Check the documentation on [how to run](docs/wiki.md#run-the-application) the application.
 
 ## Authors
-- João Nunes ([joaonunatingscode](https://github.com/joaonunatingscode))
+- João Nunes ([joaonunatings](https://github.com/joaonunatings))
 - Miguel Marques ([mjbmarques](https://github.com/mjbmarques))
 - Alexandre Silva ([Cors00](https://github.com/Cors00))

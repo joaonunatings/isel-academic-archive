@@ -26,6 +26,6 @@ There are tests in the _bin/test_ which you can run:
 `./bin/test/<name of test>`
 
 ## Authors
-- João Nunes ([joaonunatingscode](https://github.com/bigskydiver))
+- João Nunes ([joaonunatings](https://github.com/joaonunatings))
 - Alexandre Silva ([Cors00](https://github.com/Cors00))
 - Miguel Marques ([mjbmarques](https://github.com/mjbmarques))

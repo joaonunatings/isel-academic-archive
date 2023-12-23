@@ -37,5 +37,5 @@ The following instructions must be executed in the root directory of the project
 The file _locations_ provides a simple example of real locations, so you can run: `./weather 11/12/2022 locations` (please mind the date limits according to [this](https://openweathermap.org/api))
 
 ## Authors
-- João Nunes ([joaonunatingscode](https://github.com/bigskydiver))
+- João Nunes ([joaonunatings](https://github.com/joaonunatings))
 - Pedro Batista ([bigskydiver](https://github.com/bigskydiver))

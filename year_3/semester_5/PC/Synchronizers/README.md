@@ -34,4 +34,4 @@ The following instructions must be executed in the [root directory of the projec
 You can run the tests by using: `./gradlew test`
 
 ## Authors
-- João Nunes ([joaonunatingscode](https://github.com/joaonunatingscode))
+- João Nunes ([joaonunatings](https://github.com/joaonunatings))

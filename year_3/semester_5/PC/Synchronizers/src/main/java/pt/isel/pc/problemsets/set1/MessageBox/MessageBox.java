@@ -12,7 +12,7 @@ import java.util.concurrent.locks.ReentrantLock;
  * Synchronizer for sending messages between threads.
  * New version of synchronizer with serious performance improvements.
  * Kernel-style design.
- * @author joaonunatingscode (47220)
+ * @author joaonunatings
  * @param <T> Message to be sent
  */
 public class MessageBox<T> {

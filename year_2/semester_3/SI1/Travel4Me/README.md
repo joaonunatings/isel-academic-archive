@@ -47,5 +47,5 @@ After this, you can run:
 `java -jar build/libs/Travel4Me-1.0-SNAPSHOT.jar`
 
 ## Authors
-- João Nunes ([joaonunatingscode](https://github.com/joaonunatingscode))
+- João Nunes ([joaonunatings](https://github.com/joaonunatings))
 - Alexandre Silva ([Cors00](https://github.com/Cors00))

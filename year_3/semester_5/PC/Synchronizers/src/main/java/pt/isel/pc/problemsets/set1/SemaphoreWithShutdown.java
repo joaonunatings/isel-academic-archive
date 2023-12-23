@@ -12,7 +12,7 @@ import java.util.concurrent.locks.ReentrantLock;
 /**
  * Unary semaphore with shutdown functionality.
  * Monitor-style design.
- * @author joaonunatingscode (47220)
+ * @author joaonunatings
  */
 public class SemaphoreWithShutdown {
 

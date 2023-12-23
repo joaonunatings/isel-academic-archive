@@ -76,6 +76,6 @@ Then you can run the project by going into _edu.isel.lic.game.APP_ class and cli
 - You can enter maintenance mode by pressing 'M' in the _manut_ module. Here you can view the total games and coins the machine has played and colected, respectively. You can also shutdown the machine.
 
 ## Authors
-- João Nunes ([joaonunatingscode](https://github.com/joaonunatingscode))
+- João Nunes ([joaonunatings](https://github.com/joaonunatings))
 - Miguel Marques ([mjbmarques](https://github.com/mjbmarques))
 - Alexandre Luís ([AlexoLeao](https://github.com/AlexoLeao))

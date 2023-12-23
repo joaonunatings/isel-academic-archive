@@ -15,7 +15,7 @@ import java.util.concurrent.locks.ReentrantLock;
 /**
  * Synchronizer that sends messages between threads using consumers and producers with FIFO order.
  * Kernel-style design.
- * @author joaonunatingscode
+ * @author joaonunatings
  * @param <E> is generic for type of message
  */
 public class BlockingMessageQueue<E> {

@@ -13,7 +13,7 @@ import java.util.concurrent.locks.ReentrantLock;
 /**
  * Synchronizer using a thread pool executor service and key implementation for each task.
  * Monitor-style design.
- * @author joaonunatingscode
+ * @author joaonunatings
  */
 public class KeyedThreadPoolExecutor {
 

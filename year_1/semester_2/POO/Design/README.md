@@ -25,6 +25,6 @@ This project was developed in Android Studio.
 In order to **build** and **deploy** the application follow [this guide](https://developer.android.com/studio/build/building-cmdline).
 
 ## Authors
-- João Nunes ([joaonunatingscode](https://github.com/joaonunatingscode))
+- João Nunes ([joaonunatings](https://github.com/joaonunatings))
 - Miguel Marques ([mjbmarques](https://github.com/mjbmarques))
 - Bruno Baptista ([BrunoAT](https://github.com/BrunoAT))

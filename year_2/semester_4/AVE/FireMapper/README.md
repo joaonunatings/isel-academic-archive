@@ -22,6 +22,6 @@ The following instructions must be executed in the [root directory of the projec
 - You can run benchmark in [_FireMapperBench_ folder](FireMapperBench): `dotnet run` and then check the results in [_BenchmarkResults_](FireMapperBench/BenchmarkResults). These results provide the difference in performance between the two implementations (_FireDataMapper_ & _DynamicDataMapper_).
 
 ## Authors
-- João Nunes ([joaonunatingscode](https://github.com/joaonunatingscode))
+- João Nunes ([joaonunatings](https://github.com/joaonunatings))
 - Alexandre Silva ([Cors00](https://github.com/Cors00))
 - Miguel Marques ([mjbmarques](https://github.com/mjbmarques))
