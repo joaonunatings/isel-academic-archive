@@ -38,7 +38,7 @@ This application is splitted into **two** key components: [server](#server) and 
 Any URL referenced is using the local IP address of host machine (i.e.: http://localhost:8080 or http://127.0.0.1:8080). At the [deploy phase](#deploying-application) the URL becomes public.
 ### Structure
 
-![BORGA diagram](docs/diagram.png)
+![BORGA diagram](diagram.png)
 
 ### Server
 The server side of this application contains the following modules:
@@ -144,6 +144,6 @@ The server API uses the [OpenAPI Specification](https://swagger.io/specification
 
 ## Credits
 Developed by:
-- [joaonunatingscode](https://github.com/joaonunatingscode)
+- [joaonunatings](https://github.com/joaonunatings)
 - [mjbmarques](https://github.com/mjbmarques)
 - [Cors00](https://github.com/Cors00)
