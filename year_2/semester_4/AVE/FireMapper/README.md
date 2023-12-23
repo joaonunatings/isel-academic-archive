@@ -9,7 +9,7 @@ This project was split into two phases:
 - Phase 1: development of _FireDataMapper_ which uses Reflection in order to map the data ([Problem description](Docs/problem-description1.md)).
 - Phase 2: development of _DynamicDataMapper_ which uses Reflection.Emit (generation of IL) in order to map the data ([Problem description](Docs/problem-description2.md)).
 
-## How to Run
+## How to run
 
 ### Requirements
 - .NET Framework 4.8
