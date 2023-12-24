@@ -1,0 +1,40 @@
+version: "2.9"
+
+services:
+  tsma:
+    build:
+      context: .
+      target: production
+    image: joaonunatingscode/tsma:api
+    ports:
+      - "${SERVER_PORT}:${SERVER_PORT}"
+    environment:
+      - SERVER_PORT
+      - POSTGRES_URL=jdbc:postgresql://postgresql/${POSTGRES_DB}
+      - POSTGRES_USERNAME
+      - POSTGRES_PASSWORD
+      - MONGODB_DB
+      - MONGODB_URI=mongodb://mongodb/${MONGODB_DB}
+    volumes:
+      - ./:/tsma
+    depends_on:
+      - postgresql
+      - mongodb
+    command: ["java", "-Djava.security.egd=file:/dev/./urandom", "-jar", "/tsma.jar", "--illegal-access=deny"]
+  postgresql:
+    image: postgres
+    volumes:
+      - postgresql_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER
+      - POSTGRES_PASSWORD
+      - POSTGRES_DB
+  mongodb:
+    image: mongo
+    volumes:
+      - mongodb_data:/var/lib/mongodb
+
+volumes:
+  tsma:
+  postgresql_data:
+  mongodb_data:

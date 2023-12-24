@@ -1,0 +1,249 @@
+<style>
+
+
+	.details-form {
+		min-width: 850px;
+		padding: 0px 0px 5px;
+		background-color: rgba(25, 118, 210, 0.85);
+		border-radius: 25px 25px 5px 5px;
+	}
+
+	.spacer-header {
+		min-width: 500px;
+		padding-top: 12px;
+		background-color: #bb022a;
+		border-radius: 25px 25px 5px 5px;
+
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+	}
+
+	p {
+		width: 100%;
+		color: white;
+		font-size: 23px;
+		font-weight: 600;
+		text-align: center;
+	}
+
+	textarea {
+		min-height: 35px;
+	}
+
+	.calendar-form {
+		margin-inline: 5px;
+	}
+
+	.calendar-form #calendar-description,
+						#calendar-title,
+						#calendar-title,
+						#calendar-start-date,
+						#calendar-end-date
+	{
+		width: 100%;
+		height: 35px;
+		padding: 5px;
+		border: 1px solid #ccc;
+		border-radius: 4px;
+		resize: vertical;
+	}
+
+	label {
+		padding-top: 5px;
+		display: inline-block;
+	}
+
+	.col-l {
+		float: left;
+		width: 40%;
+		margin-top: 6px;
+	}
+
+	.col-r {
+		float: left;
+		width: 60%;
+		margin-top: 6px;
+	}
+
+	.col-30 {
+		float: left;
+		width: 30%;
+		margin-top: 6px;
+		text-align: center;
+		color: white;
+		font-size: 16px;
+		font-weight: 600;
+	}
+
+	.col-70 {
+		float: left;
+		width: 70%;
+		margin-top: 6px;
+	}
+
+	.col-70, #calendar-end-date {
+		margin-bottom: 3px;
+	}
+
+	/* Clear floats after the columns */
+	.row f:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+
+
+	.calendar-template-form {
+		min-width: 700px;
+		max-height:565px;
+		margin-top: 5px;
+		padding: 10px;
+		background-color: rgba(25, 118, 210, 0.74);
+		border-radius: 5px 5px 5px 5px;
+	}
+
+	.form-header-footer {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+	}
+
+	.form-footer {
+		min-width: 700px;
+		height: 40px;
+		margin-top: 5px;
+		padding-inline: 20px;
+		background-color: #bb022a;
+		border-radius: 5px 5px 25px 25px;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+	}
+
+	.footer-info {
+		color: white;
+		font-weight: bold;
+		border-radius: 10px;
+		border: 2px solid white;
+		padding-inline: 5px;
+		margin-inline: 5px;
+	}
+
+	.footer-button {
+		height: 30px;
+		border-radius: 25px 25px 25px 25px;
+		background-color: white;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		text-align: center;
+		margin-inline: 10px;
+	}
+
+	.cancel-button {
+		color: #d1002d;
+		border: 2px solid #d1002d;
+	}
+
+	.create-button {
+		color: #1976d2;
+		border: 2px solid #1976d2;
+	}
+
+	@media screen and (max-width: 600px) {
+		.details-form {
+			max-width: 500px;
+			min-width: 400px;
+		}
+
+		.spacer-header {
+
+		}
+	}
+
+	.spacer {
+		flex: 1 1 auto;
+	}
+
+</style>
+
+<div id="details-form-1" [style.max-width]="'{{windowWidth - 100}}'" class="details-form">
+	<div [style.max-width]="'{{windowWidth - 100}}'" class="spacer-header">
+		<p>New Calendar Configuration</p>
+	</div>
+	<form class="calendar-form" [formGroup]="calendarForm" (ngSubmit)="createCalendarFromTemplate()">
+		<div class="row form">
+			<div class="col-l">
+				<div class="row f">
+					<div class="col-30">
+						<label for="calendar-title">* (Unique) Title:</label>
+					</div>
+					<div class="col-70">
+						<input id="calendar-title" type="text" placeholder="A title..." formControlName="calendarTitle">
+					</div>
+				</div>
+			</div>
+
+			<div class="col-r">
+				<div class="row f">
+					<div class="col-30">
+						<label for="calendar-description">Description: </label>
+					</div>
+					<div class="col-70">
+						<textarea id="calendar-description" name="subject" placeholder="Some description..." formControlName="calendarDescription"></textarea>
+						<!-- <input id="calendar-description" type="text" formControlName="calendarDescription"> -->
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row form">
+			<div class="col-l">
+				<div class="row f">
+					<div class="col-30">
+						<label for="calendar-start-date">* Start Date: </label>
+					</div>
+					<div class="col-70">
+						<input id="calendar-start-date" type="date" formControlName="calendarStartDate">
+					</div>
+				</div>
+			</div>
+
+			<div class="col-r">
+				<div class="row f">
+					<div class="col-30">
+						<label for="calendar-end-date">* End Date: </label>
+					</div>
+					<div class="col-70">
+						<input id="calendar-end-date" type="date" formControlName="calendarEndDate">
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-header-footer">
+			<span *ngIf="!calendarForm.valid" style="color: #cc1b1b; background-color: white; border-radius: 5px; padding-inline: 5px; font-weight: bold">* Missing required parameters, complete them to enable create button!</span>
+			<div class="spacer"></div>
+			<button mat-button class="footer-button cancel-button" [routerLink]="'/calendars'">CANCEL</button>
+			<button mat-button type="submit" [disabled]="!calendarForm.valid" class="footer-button create-button">CREATE</button>
+		</div>
+	</form>
+</div>
+
+<div [style.max-width]="'{{windowWidth}}'" class="calendar-template-form">
+	<app-calendar></app-calendar>
+</div>
+
+<div class="form-footer">
+	<div class="footer-info" *ngIf="showTooltip">1. Complete the calendar info form.</div>
+	<div class="footer-info" *ngIf="showTooltip">2. Choose the members of the calendar.</div>
+	<div class="footer-info" *ngIf="showTooltip">3. Draw a template to be replicated between the chosen dates.</div>
+	<div class="footer-info" *ngIf="showTooltip">4. Click the create button.</div>
+	<div class="spacer"></div>
+	<button mat-button (click)="toggleTooltip()" style="color: white; border: 2px solid white; display: inline-flex;
+	align-items: center; padding-inline: 10px; height: 24px; border-radius: 10px; text-align: center">
+		<div *ngIf="!showTooltip">Show Tooltip</div>
+		<div *ngIf="showTooltip">Hide Tooltip</div>
+	</button>
+</div>

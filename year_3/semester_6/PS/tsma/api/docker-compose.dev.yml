@@ -1,0 +1,7 @@
+version: "2.9"
+
+services:
+  tsma:
+    build:
+      context: .
+      target: development

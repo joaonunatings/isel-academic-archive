@@ -1,0 +1,274 @@
+<style>
+
+	:root {
+		--calendar-card-max-width: 300px;
+	}
+
+    .main-container {
+		padding: 15px 10px;
+	}
+
+    .card-container {
+        display: inline-flex;
+        align-items: center;
+		flex-wrap: wrap;
+    }
+
+    .add-new-button:hover {
+        opacity: 80%;
+    }
+
+    mat-card {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+        min-width: 200px;
+		height: 267px;
+		padding: 2px;
+        border-radius: 25px;
+        margin-right: 10px;
+        margin-bottom: 10px;
+    }
+
+    mat-card-header {
+        background-color: #d1002d;
+        border-top-left-radius: 25px;
+        border-top-right-radius: 25px;
+        color: white;
+        padding-top: 10px;
+		min-width: 200px;
+		height: 40px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+    }
+
+    mat-card-content {
+        height: 168px;
+		max-width: 200px;
+		padding-block: 5px;
+    }
+
+	.card-calendar-desc {
+		overflow-block: scroll;
+		margin: 3px;
+	}
+
+    mat-card-footer {
+		display: inline-flex;
+		flex-direction: row;
+		align-items: center;
+        background-color: #1976d2;
+        border-bottom-left-radius: 25px;
+        border-bottom-right-radius: 25px;
+		min-width: 200px;
+		min-height: 40px;
+    }
+
+	.popup-button {
+		display: inline-flex;
+		flex-direction: row;
+		align-items: center;
+		text-align: center;
+		height: 25px;
+		border-radius: 25px 25px 25px 25px;
+		background-color: white;
+		margin-inline: 3px;
+		width: 30px;
+	}
+
+	.cancel {
+		color: #d1002d;
+		border: 2px solid #d1002d;
+	}
+
+	.confirm {
+		color: #1976d2;
+		border: 2px solid #1976d2;
+	}
+
+	.card-footer-button {
+		display: inline-flex;
+		flex-direction: row;
+		align-items: center;
+		text-align: center;
+		height: 25px;
+		border-radius: 25px 25px 25px 25px;
+		background-color: white;
+		margin-right: 15px;
+	}
+
+	.open {
+		color: #1976d2;
+		border: 2px solid #1976d2;
+	}
+
+	.delete {
+		color: #d1002d;
+		border: 2px solid #d1002d;
+	}
+
+	.spacer {
+		flex: 1 1 auto;
+	}
+
+	.confirm-popup {
+		width: 200px;
+		height: 38px;
+		background-color: white;
+		text-align: center;
+		border-radius: 5px 5px 25px 25px;
+		border: 3px solid #1976d2;
+		padding: 5px;
+		position: absolute;
+		z-index: 1;
+		opacity: 0;
+		transition: opacity 0.3s ease-in-out;
+		margin-top: 3px;
+
+		display: inline-flex;
+		align-items: center;
+
+		visibility: hidden;
+	}
+
+	.page-header {
+		text-align: center;
+		margin-bottom: 20px;
+		display: inline-flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.header-left {
+		text-align: center;
+		font-weight: bold;
+		font-size: 23px;
+		border-radius: 15px 15px 5px 5px;
+		background-color: #d1002d;
+		color: white;
+		height: 35px;
+		width: 145px;
+		padding-inline: 10px;
+		margin-bottom: 2px;
+		display: inline-flex;
+		align-items: center;
+	}
+
+	.header-right {
+		background-color: #1976d2;
+		border-radius: 5px 5px 15px 15px;
+		width: 145px;
+		height: fit-content;
+		padding-block: 3px;
+	}
+
+	.graph-sync-button {
+		color: white;
+
+	}
+
+</style>
+
+<div class="page-header">
+	<div class="header-left">
+		Calendars:
+	</div>
+	<div class="header-right">
+		<button mat-button class="graph-sync-button" [disabled]="syncButtonLock"	 (click)="syncCalendarsWithGraph()">
+			<mat-icon style="margin-right: 2px;">sync</mat-icon>
+			Graph Export
+		</button>
+	</div>
+</div>
+<div class="spacer"></div>
+
+<div class="main-container">
+    <div class="card-container">
+        <mat-card *ngFor="let calendar of calendars">
+            <mat-card-header>
+                <mat-card-title>{{calendar.title}}</mat-card-title>
+            </mat-card-header>
+            <mat-card-content >
+				<div class="card-calendar-desc"> {{calendar.description}} </div>
+				<br>
+				{{calendar.startDate.toDateString()}}
+				<br>
+				{{calendar.endDate.toDateString()}}
+            </mat-card-content>
+            <mat-card-footer>
+				<div class="spacer"></div>
+                <button mat-button class="card-footer-button delete"
+						(click)="showPopupById(calendar.id)">
+					Delete
+				</button>
+				<div id="popup-{{calendar.id}}" class="confirm-popup">
+					<button mat-button class="popup-button cancel" (click)="hidePopupById(calendar.id)"><mat-icon>close</mat-icon></button>
+					<div class="spacer"></div>
+					<button mat-button class="popup-button confirm" (click)="deleteCalendarById(calendar.id)" [routerLink]="['/calendars']"><mat-icon>check</mat-icon></button>
+				</div>
+                <button mat-button class="card-footer-button open" [routerLink]="['/calendar', calendar.id]">Open</button>
+            </mat-card-footer>
+        </mat-card>
+        <svg id="addNewMatrixButton1" class="add-new-button" [routerLink]="'/calendars/new'" width="106" height="105" viewBox="0 0 106 105" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g filter="url(#filter0_d_21_8)">
+            <rect x="5" y="2" width="96" height="96" rx="16" fill="#FCFCFC"/>
+            <path d="M53.0051 72.9427C40.3581 72.9427 30.0675 62.6521 30.0675 50.0051C30.0675 37.3581 40.3581 27.0675 53.0051 27.0675C65.6521 27.0675 75.9427 37.3581 75.9427 50.0051C75.9427 62.6521 65.6521 72.9427 53.0051 72.9427Z" fill="#1E7DDB" fill-opacity="0.9"/>
+            <path d="M40.3894 46.5645H65.6208V53.4458H40.3894V46.5645Z" fill="white"/>
+            <path d="M56.4457 37.3894V62.6208H49.5645V37.3894H56.4457Z" fill="white"/>
+            </g>
+            <defs>
+            <filter id="filter0_d_21_8" x="0.98592" y="0.27968" width="104.028" height="104.028" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+            <feMorphology radius="1.72032" operator="dilate" in="SourceAlpha" result="effect1_dropShadow_21_8"/>
+            <feOffset dy="2.29376"/>
+            <feGaussianBlur stdDeviation="1.14688"/>
+            <feComposite in2="hardAlpha" operator="out"/>
+            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_21_8"/>
+            <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_21_8" result="shape"/>
+            </filter>
+            </defs>
+        </svg>
+    </div>
+    <!--
+    <button (click)="createMember()" >MEMBER</button>
+    <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+
+        <div>
+          <label for="id">
+            Id
+          </label>
+          <input id="id" type="number" formControlName="id">
+        </div>
+        <button class="button" type="submit">Delete</button>
+
+      </form>
+    <div class="card my-5">
+        <div class="card-body">
+          <table class="table table-bordered table-striped">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let user of members">
+                <td>{{ user.id }}</td>
+                <td>{{ user.name }}</td>
+                <td><a href="mailto:{{ user.email }}">{{ user.email }}</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    -->
+    <!--
+    <app-ng-grid-list>
+    </app-ng-grid-list>
+    -->
+
+</div>

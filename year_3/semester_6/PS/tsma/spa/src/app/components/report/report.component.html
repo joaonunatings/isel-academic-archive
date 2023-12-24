@@ -1,0 +1,43 @@
+<style>
+	tr {
+
+	}
+
+	tr:hover {
+		background-color: rgba(25, 118, 210, 0.53);
+	}
+
+	td, th {
+		border: 2px solid black;
+
+		text-align: center;
+		height: 18px;
+		width: 40px;
+		padding-inline: 2px;
+
+	}
+
+	.member-header {
+		width: 150px;
+		border-radius: 25px 0px 0px 0px;
+	}
+</style>
+
+<div class="container">
+	<table class="report-matrix">
+		<tr class="report-headers">
+			<th class="member-header">
+				Members
+			</th>
+			<th class="cell-header" *ngFor="let r of reportHeaders; index as j" [style.background-color]="r.backgroundColor">
+				{{r.value}}
+			</th>
+		</tr>
+		<tr class="report-row" *ngFor="let mRow of reportMatrix">
+			<th class="member-row" *ngFor="let cell of mRow; index as i">
+				{{cell}}
+			</th>
+		</tr>
+	</table>
+
+</div>

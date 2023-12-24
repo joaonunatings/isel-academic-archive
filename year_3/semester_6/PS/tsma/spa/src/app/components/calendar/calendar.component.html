@@ -1,0 +1,352 @@
+<style>
+
+    :root {
+        --template-button-circle: rgb(241, 240, 240);
+    }
+
+	.grid-container {
+		min-width: 500px;
+		max-height: 500px;
+		background-color: #1976d2;
+		border-radius: 5px 5px 5px 5px;
+	}
+
+    .cell-header.eng {
+        background-color: #d1002d;
+        display: flex;
+        flex-direction: row;
+    }
+
+    .add-engineer {
+        display: inline-flex;
+		flex-direction: row;
+        align-items: center;
+		margin: 1px 1mm 1px 2px;
+		height: 18px;
+		width: 20px;
+        background-color: #17b93f;
+        color: white;
+        border: 1px solid black;
+        border-radius: 5px;
+        font-size: 18px;
+        font-weight: bold;
+		text-align: center;
+		padding-left: 3px;
+		padding-bottom: 4px;
+    }
+
+    .add-engineer:hover {
+        background-color: #1dd64b;
+    }
+
+    .add-engineer:active {
+        border: 1px solid black;
+        background-color: #18b33f;
+    }
+
+	.remove-line {
+		display: inline-flex;
+		flex-direction: row;
+		align-items: center;
+		margin: 1px 5mm 1px 2px;
+		height: 18px;
+		width: 20px;
+		border: 1px solid black;
+		border-radius: 5px;
+		text-align: center;
+		padding-left: 5px;
+	}
+
+    .cell-header {
+        display: flex;
+        border: 1px solid black;
+        flex-direction: column;
+        align-items: center;
+        background-color: #1976d2;
+        color: white;
+        font-weight: 550;
+        width: auto;
+        height: 6mm;
+    }
+
+	.eng {
+		width: 50mm;
+		text-align: center;
+		padding-inline: 10px;
+	}
+    /*
+    .cell-body {
+        display: flex;
+        border: 1px solid black;
+        padding-inline: 5px;
+        flex-direction: column;
+        align-items: center;
+    }
+    */
+
+    .cell.shift:hover {
+        background-color:cornflowerblue;
+        opacity: 50%;
+    }
+
+    .cell.shift {
+        width: 11mm;
+        border-radius: 0;
+        border: 1px solid black;
+        background-color: white;
+    }
+
+    tr {
+        border: none;
+    }
+
+    td, th {
+        border: none;
+		padding: 0;
+		width: 11mm;
+    }
+
+    /*
+        Radio Buttons
+    */
+
+    .radio-container {
+        margin-bottom: 5px;
+		padding: 5px;
+		background-color: #1976d2;
+		border-radius: 5px 5px 5px 5px;
+		text-align: center;
+    }
+
+    .radio-btn {
+        height: 30px;
+		width: min-content;
+        padding: 0;
+		border: 2px solid black;
+        border-radius: 10px;
+        font-weight: bold;
+        font-size: 90%;
+        display: inline-flex;
+        align-items: center;
+        margin-inline: 2px;
+    }
+
+	.dropdown-search {
+		padding: 0;
+		margin: 0;
+		width: 50mm;
+		height: 6mm;
+		background-color: #d1002d;
+		display: inline-flex;
+		flex-direction: row;
+		align-items: center;
+		text-align: center;
+	}
+
+	.member-cell-button {
+		margin: 0 0 0 0;
+		width: 50mm;
+		background-color: white;
+		text-align: center;
+		display: inline-flex;
+		align-items: center;
+		border: 1px solid black;
+	}
+
+	.member-cell-button:hover {
+		opacity: 80%;
+		color: black;
+	}
+
+	.search-input {
+		width: 50mm;
+		height: 6mm;
+		background-color: white;
+	}
+
+	.dropdown-option {
+		width: 50mm;
+		background-color: white;
+		text-align: center;
+		border: 2px solid #d1002d;
+		border-radius: 4px 4px 4px 4px;
+	}
+
+	.dropdown-body {
+		position: absolute;
+		visibility: hidden;
+		touch-action: none;
+		opacity: 0;
+		z-index: 1;
+		overflow: scroll;
+		max-height: 200px;
+		transition: opacity 0.3s ease-in-out;
+		margin-top: 3px;
+
+		background-color: white;
+		border-radius: 4px 4px 4px 4px;
+	}
+
+	.dropdown-option:hover {
+		background-color: #dcdcdc;
+	}
+
+	.member-edit-button {
+		background-color: white;
+		width: 25px;
+		height: 6mm;
+		border-radius: 0;
+		border: 1px solid black;
+		text-align: center;
+		display: inline-flex;
+		flex-direction: row;
+		align-items: center;
+	}
+
+	.calendar-header {
+		min-width: 500px;
+		min-height: 60px;
+		border-radius: 25px 25px 5px 5px;
+		background-color: #d1002d;
+		color: white;
+		padding-top: 10px;
+		padding-inline: 30px;
+		margin-bottom: 5px;
+	}
+
+	.calendar-title {
+		height: 30px;
+		padding-top: 2px;
+		font-weight: 650;
+		font-size: 25px;
+		border-radius: 20px 20px 5px 5px;
+		background-color: #d1002d;
+		color: #ffffff;
+	}
+
+	.calendar-desc {
+		height: 30px;
+
+	}
+
+	.calendar-edate {
+		padding-bottom: 10px;
+	}
+
+	.report-container {
+		border-radius: 5px 5px 25px 25px;
+		border: 3px solid #d1002d;
+		background-color: white;
+
+		margin-top: 5px;
+		padding-inline: 10px;
+		padding-top: 5px;
+		padding-bottom: 10px;
+	}
+
+	.save-button {
+		margin-left: 50px;
+	}
+</style>
+
+
+<div *ngIf="!templateMode" class="calendar-header">
+	<div class="calendar-title">{{tsmCalendar.calendar!.title}}</div>
+	<div class="calendar-desc"> {{tsmCalendar.calendar!.description}}</div>
+	<div class="calendar-sdate">{{tsmCalendar.calendar!.startDate}}</div>
+	<div class="calendar-edate">{{tsmCalendar.calendar!.endDate}}</div>
+</div>
+
+<div class="radio-container">
+	<button mat-raised-button class="undo-button"
+			*ngIf="!templateMode"
+			[disabled]="!undoButtonToggle"
+			(click)="undoCellChanges()"
+			style="margin-right: 10px;">
+		<mat-icon style="transform: scaleX(-1);">redo</mat-icon>
+	</button>
+	<button mat-raised-button class="redo-button"
+			*ngIf="!templateMode"
+			[disabled]="!redoButtonToggle"
+			(click)="redoCellChanges()"
+			style="margin-right: 50px;">
+		<mat-icon>redo</mat-icon>
+	</button>
+	<mat-radio-group aria-labelledby="example-radio-group-label" class="radio-group">
+		<mat-button-toggle class="radio-btn btn check"
+			*ngFor="let opt of radialButtonOptions; index as i"
+			(click)="setCurrentCellType(i)"
+			[style.background-color]="opt.backgroundColor"
+			id="radio{{i}}"
+			>
+			{{opt.value}}
+		</mat-button-toggle>
+	</mat-radio-group>
+	<button class="save-button" mat-raised-button
+			*ngIf="!templateMode"
+			[disabled]="!saveButtonToggle"
+			(click)="saveChangesToCalendar()">
+		SAVE
+	</button>
+</div>
+
+<div id="container-1" class="grid-container">
+	<table class="shift-matrix">
+		<tr>
+			<th>
+				<div class="cell-header eng">
+					<button class="add-engineer" *ngIf="templateMode" (click)="addColumn()">+</button>
+					<button class="remove-line" *ngIf="templateMode" (click)="removeColumn()" >X</button>
+					Date
+				</div>
+			</th>
+			<th *ngFor="let date of tsmCalendar.calendarDateHeaders">
+				<div class="cell-header">{{ date }}</div>
+			</th>
+		</tr>
+		<tr>
+			<th>
+				<div class="cell-header eng">
+					<button class="add-engineer" *ngIf="templateMode" (click)="addRow()">+</button>
+					<button class="remove-line" *ngIf="templateMode" (click)="removeRow()">X</button>
+					Members
+				</div>
+			</th>
+			<th *ngFor="let header of tsmCalendar.calendarWeekHeaders">
+				<div class="cell-header">{{ header }}</div>
+			</th>
+		</tr>
+		<tr class="grid-cell-row" *ngFor="let cellLine of tsmCalendar.calendarMatrix; index as l">
+			<td *ngFor="let cell of cellLine; index as i">
+				<div *ngIf="i==0" class="dropdown-search">
+					<button class="member-cell-button" id="member-{{cell.id}}"
+							(click)="selectRow(cellLine)">
+						{{cell.text}}
+					</button>
+					<mat-icon class="member-edit-button" (click)="showDropdown(cell)">create</mat-icon>
+				</div>
+				<div *ngIf="i==0" id="m{{cell.id}}" class="dropdown-body" (mouseleave)="hideDropdown(cell.id)">
+
+					<option class="dropdown-option" value="" id="dropdown-option-{{m.id}}"
+							(click)="selectMemberFromOptions(m,cell); hideDropdown(cell.id)"
+							*ngFor="let m of memberOptionsList">
+						{{m.name}}
+					</option>
+				</div>
+				<button id="{{cell.id}}" class="cell shift" *ngIf="i!==0"
+						(mousedown)="changeCellTypeById(cell); setPaintMode(true)"
+						(mousemove)="toPaint(cell)"
+						(mouseup)="setPaintMode(false)"
+						[style.background-color]="cell.color"
+				>
+					{{cell.text}}
+				</button>
+			</td>
+		</tr>
+	</table>
+</div>
+
+<div *ngIf="!templateMode" class="report-container">
+	<app-report></app-report>
+</div>
+

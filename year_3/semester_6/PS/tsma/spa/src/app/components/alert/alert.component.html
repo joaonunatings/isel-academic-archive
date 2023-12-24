@@ -1,0 +1,52 @@
+<style>
+	.alert-box {
+		display: flex;
+		align-content: center;
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		height: 100px;
+		background-color: #be3131;
+		color: white;
+		padding-inline: 20px;
+		padding-block: 15px;
+		opacity: 0;
+		transition: opacity 1s ease-in-out;
+	}
+
+	.alert-icon {
+		margin-right: 5px;
+	}
+
+	.alert-subject {
+		font-weight: bold;
+		font-size: 18px;
+		margin-bottom: 5px;
+		margin-top: 2px;
+	}
+
+	.alert-text {
+		padding-left: 5px;
+		font-size: 15px;
+	}
+
+	.alert-close-button {
+		touch-action: none;
+	}
+
+	.spacer {
+		flex: 1 1 auto;
+	}
+</style>
+
+
+<div class="alert-box" id="app-alert" [style.background-color]="backgroundColor">
+	<div class="alert-icon"><mat-icon>{{icon}}</mat-icon></div>
+	<div class="alert-body">
+		<div class="alert-subject">{{alert.subject}}</div>
+		<p class="alert-text">{{alert.text}}</p>
+	</div>
+	<div class="spacer"></div>
+	<button class="alert-close-button" id="alert-close-button" mat-icon-button (click)="hideAlert()"><mat-icon>close</mat-icon></button>
+</div>

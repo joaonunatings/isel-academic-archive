@@ -1,0 +1,14 @@
+version: "2.9"
+
+services:
+    tsma:
+        build:
+            context: .
+        image: joaonunatingscode/tsma:spa
+        ports:
+            - "${PORT}:80"
+        environment:
+            - PORT
+            - API_URL
+            - AZURE_CLIENT_ID
+        command: ["/bin/sh", "-c", "envsubst < /usr/share/nginx/html/assets/env.template.js > /usr/share/nginx/html/assets/env.js && exec nginx -g 'daemon off;'"]

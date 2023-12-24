@@ -1,0 +1,311 @@
+
+<style>
+
+	.members-container {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	.member-card {
+		margin-right: 10px;
+		width: fit-content;
+	}
+
+	.start {
+		display: inline-flex;
+		flex-direction: row;
+		align-items: center;
+		margin-top: 5px;
+		margin-right: 3px;
+		min-width: 20px;
+		height: 36px;
+		background-color: white;
+		border-bottom-left-radius: 25px;
+		border-top-left-radius: 25px;
+		border: 3px solid #d1002d;
+
+	}
+
+	.name {
+		margin-top: 5px;
+		margin-right: 3px;
+		min-width: 220px;
+		background-color: #d1002d;
+		color: white;
+		text-align: left;
+	}
+
+	.email {
+		text-align: center;
+		display: inline-flex;
+		align-content: center;
+
+		margin-top: 5px;
+		min-width: 200px;
+		background-color: #1976d2;
+		color: white;
+		border-bottom-right-radius: 5px;
+		border-top-right-radius: 5px;
+
+	}
+
+	.email:active .tooltip-text{
+		visibility: visible;
+		opacity: 1;
+	}
+
+	.name:active .tooltip-text{
+		visibility: visible;
+		opacity: 1;
+	}
+
+	.tooltip-text {
+		visibility: hidden;
+		width: 140px;
+		background-color: #555;
+		color: #fff;
+		text-align: center;
+		border-radius: 6px;
+		padding: 5px;
+		position: absolute;
+		z-index: 2;
+		bottom: 150%;
+		left: 50%;
+		margin-left: -75px;
+		opacity: 0;
+		transition: opacity 0.3s ease-in-out;
+	}
+
+	.confirm-tooltip {
+		visibility: hidden;
+		width: 550px;
+		height: 38px;
+		background-color: white;
+		text-align: center;
+		border-radius: 25px 25px 25px 25px;
+		border: 3px solid #1976d2;
+		padding: 5px;
+		position: absolute;
+		z-index: 1;
+		opacity: 0;
+		transition: opacity 0.3s ease-in-out;
+		margin-top: 3px;
+
+		display: inline-flex;
+		align-items: center;
+	}
+
+	.confirm-cancel, .confirm-delete {
+		height: 30px;
+		text-align: center;
+		display: inline-flex;
+		align-items: center;
+		margin-right: 10px
+	}
+
+	.members-form-container {
+		position: absolute;
+		z-index: 1;
+		width: 250px;
+		height: 110px;
+		left: 40px;
+		top: 57px;
+		background-color: #1976d2;
+		border-radius: 10px 10px 10px 10px;
+		visibility: hidden;
+		opacity: 0;
+		transition: opacity 0.3s ease-in-out;
+	}
+
+	.members-form {
+		margin: 10px;
+	}
+
+	.members-form label {
+		margin-inline: 10px;
+		color: white;
+		text-align: center;
+		font-weight: bold;
+	}
+
+	.members-form input {
+		width: 150px;
+		margin-inline: 10px;
+		text-align: left;
+	}
+
+	.form-row {
+		display: inline-flex;
+		align-items: center;
+
+	}
+
+	.members-form-buttons {
+		margin-top: 10px;
+		display: inline-flex;
+		flex-direction: row;
+		align-items: center;
+		border-radius: 5px 5px 10px 10px;
+	}
+
+	.form-button {
+		height: 28px;
+		border-radius: 25px 25px 25px 25px;
+		background-color: white;
+		padding-top: 1px;
+		display: inline-flex;
+		flex-direction: row;
+		align-items: center;
+		text-align: center;
+		margin-inline: 10px;
+	}
+
+	.create-button {
+		color: #1976d2;
+		border: 2px solid #1976d2;
+	}
+
+	.cancel-button {
+		color: #d1002d;
+		border: 2px solid #d1002d;
+	}
+
+	.add-new-button {
+		background-color: white;
+		border: 2px solid #1976d2;
+		color: #1976d2;
+		width: 50px;
+		height: 25px;
+		text-align: center;
+		margin: 5px;
+		display: inline-flex;
+		align-items: center;
+		border-radius: 25px 25px 25px 25px;
+	}
+
+	.spacer {
+		flex: 1 1 auto;
+	}
+
+	.page-header {
+		text-align: center;
+		margin-bottom: 20px;
+		display: inline-flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.header-left {
+		text-align: center;
+		font-weight: bold;
+		font-size: 22px;
+		border-radius: 15px 15px 5px 5px;
+		background-color: #d1002d;
+		color: white;
+		height: 35px;
+		width: 150px;
+		padding-top: 7px;
+		padding-inline: 10px;
+		margin-bottom: 2px;
+		display: inline-flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.header-right {
+		background-color: #1976d2;
+		border-radius: 5px 5px 15px 15px;
+		display: inline-flex;
+		flex-direction: column;
+		align-items: center;
+		width: 150px;
+		height: 36px;
+	}
+
+	.updateMemberForm {
+		display: inline-flex;
+		align-items: center;
+	}
+
+	.edit-button {
+		border: 2px solid #1976d2;
+		border-radius: 5px 25px 25px 5px;
+		height: 36px;
+		margin-left: 2px;
+		display: inline-flex;
+		align-items: center;
+	}
+</style>
+
+<div class="page-header">
+	<div class="header-left">
+		Members:
+	</div>
+	<div class="header-right">
+		<div class="add-container">
+			<button mat-button class="add-new-button" (click)="showMemberForm()">NEW</button>
+			<div id="members-form-container" class="members-form-container">
+				<form class="members-form" [formGroup]="membersForm" (ngSubmit)="onSubmitMember()">
+					<div class="form-row">
+						<label for="member-name">Name: </label>
+						<div class="text-input">
+							<input id="member-name" type="text" placeholder="Member name" formControlName="memberName">
+						</div>
+					</div>
+					<div class="spacer"></div>
+					<div class="form-row">
+						<label for="member-email">Email: </label>
+						<div class="text-input">
+							<input id="member-email" type="text" placeholder="Member email" formControlName="memberEmail">
+						</div>
+					</div>
+					<div class="members-form-buttons">
+						<button mat-button type="button" class="form-button cancel-button"
+								(click)="hideMemberForm()">
+							CANCEL
+						</button>
+						<button mat-button type="submit" class="form-button create-button"
+								[disabled]="!membersForm.valid"
+								(click)="hideMemberForm()">
+							CREATE
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="spacer"></div>
+
+<div class="members-container">
+	<div id="{{i}}" class="member-card" *ngFor="let m of members; index as i">
+		<span id="tooltip{{m.id}}" class="confirm-tooltip" style="font-weight: bold">
+			Delete member {{m.name}}?
+			<div class="spacer"></div>
+			<button mat-button (click)="hideDeleteTooltip(m.id)" class="confirm-cancel" style="background-color: white; color: #d1002d; border: 2px solid #d1002d">Cancel</button>
+			<button mat-button (click)="deleteMember(m.id)" class="confirm-delete" style="background-color: #d1002d; color: white">Delete</button>
+		</span>
+		<span id="update-tooltip-{{m.id}}" class="confirm-tooltip" (mouseleave)="hideUpdateForm(m.id)">
+			<form class="updateMemberForm" [formGroup]="updateMemberForm" (ngSubmit)="onSubmitUpdate(m)">
+				<label for="new-member-name" style="margin-right: 5px; font-weight: bold">Name: </label>
+				<input id="new-member-name" type="text" placeholder="new name" formControlName="newMemberName">
+				<label for="new-member-email" style="margin-right: 5px; margin-left: 5px; font-weight: bold">Email: </label>
+				<input id="new-member-email" type="text" placeholder="new email" formControlName="newMemberEmail">
+				<div class="spacer"></div>
+				<button mat-button type="submit" class="form-button create-button">UPDATE</button>
+			</form>
+		</span>
+		<button id="delete{{m.id}}" (click)="showDeleteTooltip(m.id)" mat-button class="member-detail start" style="">
+			X
+		</button>
+		<button (click)="copyText(m.name)" mat-button class="member-detail name" style="">
+			<span class="tooltip-text" id="myTooltip1">Copied to clipboard</span>
+			Name: {{m.name}}
+		</button>
+		<button (click)="copyText(m.email)" mat-button class="member-detail email" style="">
+			<span class="tooltip-text" id="myTooltip2">Copied to clipboard</span>
+			Email: {{m.email}}
+		</button>
+		<button mat-button class="edit-button" (click)="showUpdateForm(m.id)">Edit</button>
+	</div>
+</div>

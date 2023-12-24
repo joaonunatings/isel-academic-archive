@@ -1,0 +1,1062 @@
+{
+	"info": {
+		"_postman_id": "c032e5d3-98db-42dd-b4e3-2548265e1777",
+		"name": "Team Shift Management Application",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18672375"
+	},
+	"item": [
+		{
+			"name": "Member",
+			"item": [
+				{
+					"name": "Get members",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/members?sort=name,desc&sort=email,desc",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"members"
+							],
+							"query": [
+								{
+									"key": "ids",
+									"value": "1,3,2,4",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "id,asc",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "id,desc",
+									"disabled": true
+								},
+								{
+									"key": "names",
+									"value": "A,C,D",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "name,asc",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "name,desc"
+								},
+								{
+									"key": "emails",
+									"value": "B@email.com,A@email.com",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "email,asc",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "email,desc"
+								},
+								{
+									"key": "page",
+									"value": "0",
+									"disabled": true
+								},
+								{
+									"key": "size",
+									"value": "20",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create member",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"if (response.code == 201)",
+									"    pm.collectionVariables.set(\"memberId\", jsonData.id)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"User 1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/members",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"members"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete member",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/members/:memberId",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"members",
+								":memberId"
+							],
+							"variable": [
+								{
+									"key": "memberId",
+									"value": "{{memberId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update member",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Guest user name 2\",\n    \"email\": \"user1@email.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/members/:memberId",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"members",
+								":memberId"
+							],
+							"variable": [
+								{
+									"key": "memberId",
+									"value": "{{memberId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "noauth"
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Calendar",
+			"item": [
+				{
+					"name": "Get calendars",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/calendars",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"calendars"
+							],
+							"query": [
+								{
+									"key": "ids",
+									"value": "1,2,3",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "id,asc",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "id,desc",
+									"disabled": true
+								},
+								{
+									"key": "titles",
+									"value": "Calendar 2,Calendar 1",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "title,asc",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "title,desc",
+									"disabled": true
+								},
+								{
+									"key": "startDate",
+									"value": "2022-01-01",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "startDate,asc",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "startDate,desc",
+									"disabled": true
+								},
+								{
+									"key": "endDate",
+									"value": "2023-01-01",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "endDate,asc",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "endDate,desc",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "0",
+									"disabled": true
+								},
+								{
+									"key": "size",
+									"value": "10",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get calendar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/calendars/:calendarId",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"calendars",
+								":calendarId"
+							],
+							"variable": [
+								{
+									"key": "calendarId",
+									"value": "{{calendarId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create calendar",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"if (response.code == 201)",
+									"    pm.collectionVariables.set(\"calendarId\", jsonData.id)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Calendar 1\",\n    \"description\": \"Calendar 1 description\",\n    \"startDate\": \"2022-05-22\",\n    \"endDate\": \"2022-07-22\",\n    \"sequences\": [\n        {\n            \"memberId\": 1,\n            \"sequence\": [\n                \"MORNING\",\n                \"MORNING\",\n                \"MORNING\",\n                \"MORNING\",\n                \"REST\",\n                \"REST\",\n                \"MORNING\",\n                \"MORNING\",\n                \"MORNING\",\n                \"MORNING\",\n                \"REST\",\n                \"REST\",\n                \"MIDNIGHT\",\n                \"MIDNIGHT\",\n                \"MIDNIGHT\",\n                \"MIDNIGHT\",\n                \"REST\",\n                \"REST\",\n                \"MIDNIGHT\",\n                \"MIDNIGHT\",\n                \"MIDNIGHT\",\n                \"MIDNIGHT\",\n                \"AFTERNOON\",\n                \"AFTERNOON\",\n                \"AFTERNOON\",\n                \"AFTERNOON\",\n                \"REST\",\n                \"REST\",\n                \"AFTERNOON\",\n                \"AFTERNOON\",\n                \"AFTERNOON\",\n                \"AFTERNOON\",\n                \"REST\",\n                \"REST\"\n            ]\n        },\n        {\n            \"memberId\": 2,\n            \"sequence\": [\n                \"REST\",\n                \"REST\",\n                \"MORNING\",\n                \"MORNING\",\n                \"MORNING\",\n                \"MORNING\",\n                \"REST\",\n                \"REST\",\n                \"MORNING\",\n                \"MORNING\",\n                \"MORNING\",\n                \"MORNING\",\n                \"REST\",\n                \"REST\",\n                \"MIDNIGHT\",\n                \"MIDNIGHT\",\n                \"MIDNIGHT\",\n                \"MIDNIGHT\",\n                \"REST\",\n                \"REST\",\n                \"MIDNIGHT\",\n                \"MIDNIGHT\",\n                \"MIDNIGHT\",\n                \"MIDNIGHT\",\n                \"AFTERNOON\",\n                \"AFTERNOON\",\n                \"AFTERNOON\",\n                \"AFTERNOON\",\n                \"REST\",\n                \"REST\",\n                \"AFTERNOON\",\n                \"AFTERNOON\",\n                \"AFTERNOON\",\n                \"AFTERNOON\"\n            ]\n        },\n        {\n            \"memberId\": 3,\n            \"sequence\": [\n                \"AFTERNOON\",\n                \"REST\",\n                \"REST\",\n                \"MORNING\",\n                \"MORNING\",\n                \"MORNING\",\n                \"MORNING\",\n                \"REST\",\n                \"REST\",\n                \"MORNING\",\n                \"MORNING\",\n                \"MORNING\",\n                \"MORNING\",\n                \"REST\",\n                \"REST\",\n                \"MIDNIGHT\",\n                \"MIDNIGHT\",\n                \"MIDNIGHT\",\n                \"MIDNIGHT\",\n                \"REST\",\n                \"REST\",\n                \"MIDNIGHT\",\n                \"MIDNIGHT\",\n                \"MIDNIGHT\",\n                \"MIDNIGHT\",\n                \"AFTERNOON\",\n                \"AFTERNOON\",\n                \"AFTERNOON\",\n                \"AFTERNOON\",\n                \"REST\",\n                \"REST\",\n                \"AFTERNOON\",\n                \"AFTERNOON\",\n                \"AFTERNOON\"\n            ]\n        },\n        {\n            \"memberId\": 4,\n            \"sequence\": [\n                \"AFTERNOON\",\n                \"AFTERNOON\",\n                \"REST\",\n                \"REST\",\n                \"MORNING\",\n                \"MORNING\",\n                \"MORNING\",\n                \"MORNING\",\n                \"REST\",\n                \"REST\",\n                \"MORNING\",\n                \"MORNING\",\n                \"MORNING\",\n                \"MORNING\",\n                \"REST\",\n                \"REST\",\n                \"MIDNIGHT\",\n                \"MIDNIGHT\",\n                \"MIDNIGHT\",\n                \"MIDNIGHT\",\n                \"REST\",\n                \"REST\",\n                \"MIDNIGHT\",\n                \"MIDNIGHT\",\n                \"MIDNIGHT\",\n                \"MIDNIGHT\",\n                \"AFTERNOON\",\n                \"AFTERNOON\",\n                \"AFTERNOON\",\n                \"AFTERNOON\",\n                \"REST\",\n                \"REST\",\n                \"AFTERNOON\",\n                \"AFTERNOON\"\n            ]\n        },\n        {\n            \"memberId\": 5,\n            \"sequence\": [\n                \"AFTERNOON\",\n                \"AFTERNOON\",\n                \"AFTERNOON\",\n                \"AFTERNOON\",\n                \"REST\",\n                \"REST\",\n                \"MORNING\",\n                \"MORNING\",\n                \"MORNING\",\n                \"MORNING\",\n                \"REST\",\n                \"REST\",\n                \"MORNING\",\n                \"MORNING\",\n                \"MORNING\",\n                \"MORNING\",\n                \"REST\",\n                \"REST\",\n                \"MIDNIGHT\",\n                \"MIDNIGHT\",\n                \"MIDNIGHT\",\n                \"MIDNIGHT\",\n                \"REST\",\n                \"REST\",\n                \"MIDNIGHT\",\n                \"MIDNIGHT\",\n                \"MIDNIGHT\",\n                \"MIDNIGHT\",\n                \"AFTERNOON\",\n                \"AFTERNOON\",\n                \"AFTERNOON\",\n                \"AFTERNOON\",\n                \"REST\",\n                \"REST\"\n            ]\n        },\n        {\n            \"memberId\": 6,\n            \"sequence\": [\n                \"REST\",\n                \"AFTERNOON\",\n                \"AFTERNOON\",\n                \"AFTERNOON\",\n                \"AFTERNOON\",\n                \"REST\",\n                \"REST\",\n                \"AFTERNOON\",\n                \"AFTERNOON\",\n                \"AFTERNOON\",\n                \"AFTERNOON\",\n                \"REST\",\n                \"REST\",\n                \"MORNING\",\n                \"MORNING\",\n                \"MORNING\",\n                \"MORNING\",\n                \"REST\",\n                \"REST\",\n                \"MORNING\",\n                \"MORNING\",\n                \"MORNING\",\n                \"MORNING\",\n                \"REST\",\n                \"REST\",\n                \"MIDNIGHT\",\n                \"MIDNIGHT\",\n                \"MIDNIGHT\",\n                \"MIDNIGHT\",\n                \"REST\",\n                \"REST\",\n                \"MIDNIGHT\",\n                \"MIDNIGHT\",\n                \"MIDNIGHT\",\n                \"MIDNIGHT\",\n                \"REST\"\n            ]\n        },\n        {\n            \"memberId\": 7,\n            \"sequence\": [\n                \"REST\",\n                \"REST\",\n                \"AFTERNOON\",\n                \"AFTERNOON\",\n                \"AFTERNOON\",\n                \"AFTERNOON\",\n                \"REST\",\n                \"REST\",\n                \"AFTERNOON\",\n                \"AFTERNOON\",\n                \"AFTERNOON\",\n                \"AFTERNOON\",\n                \"REST\",\n                \"REST\",\n                \"MORNING\",\n                \"MORNING\",\n                \"MORNING\",\n                \"MORNING\",\n                \"REST\",\n                \"REST\",\n                \"MORNING\",\n                \"MORNING\",\n                \"MORNING\",\n                \"MORNING\",\n                \"REST\",\n                \"REST\",\n                \"MIDNIGHT\",\n                \"MIDNIGHT\",\n                \"MIDNIGHT\",\n                \"MIDNIGHT\",\n                \"REST\",\n                \"REST\",\n                \"MIDNIGHT\",\n                \"MIDNIGHT\",\n                \"MIDNIGHT\",\n                \"MIDNIGHT\"\n            ]\n        },\n        {\n            \"memberId\": 8,\n            \"sequence\": [\n                \"MIDNIGHT\",\n                \"REST\",\n                \"REST\",\n                \"AFTERNOON\",\n                \"AFTERNOON\",\n                \"AFTERNOON\",\n                \"AFTERNOON\",\n                \"REST\",\n                \"REST\",\n                \"AFTERNOON\",\n                \"AFTERNOON\",\n                \"AFTERNOON\",\n                \"AFTERNOON\",\n                \"REST\",\n                \"REST\",\n                \"MORNING\",\n                \"MORNING\",\n                \"MORNING\",\n                \"MORNING\",\n                \"REST\",\n                \"REST\",\n                \"MORNING\",\n                \"MORNING\",\n                \"MORNING\",\n                \"MORNING\",\n                \"REST\",\n                \"REST\",\n                \"MIDNIGHT\",\n                \"MIDNIGHT\",\n                \"MIDNIGHT\",\n                \"MIDNIGHT\",\n                \"REST\",\n                \"REST\",\n                \"MIDNIGHT\",\n                \"MIDNIGHT\",\n                \"MIDNIGHT\"\n            ]\n        },\n        {\n            \"memberId\": 9,\n            \"sequence\": [\n                \"MIDNIGHT\",\n                \"MIDNIGHT\",\n                \"REST\",\n                \"REST\",\n                \"AFTERNOON\",\n                \"AFTERNOON\",\n                \"AFTERNOON\",\n                \"AFTERNOON\",\n                \"REST\",\n                \"REST\",\n                \"AFTERNOON\",\n                \"AFTERNOON\",\n                \"AFTERNOON\",\n                \"AFTERNOON\",\n                \"REST\",\n                \"REST\",\n                \"MORNING\",\n                \"MORNING\",\n                \"MORNING\",\n                \"MORNING\",\n                \"REST\",\n                \"REST\",\n                \"MORNING\",\n                \"MORNING\",\n                \"MORNING\",\n                \"MORNING\",\n                \"REST\",\n                \"REST\",\n                \"MIDNIGHT\",\n                \"MIDNIGHT\",\n                \"MIDNIGHT\",\n                \"MIDNIGHT\",\n                \"REST\",\n                \"REST\",\n                \"MIDNIGHT\",\n                \"MIDNIGHT\"\n            ]\n        },\n        {\n            \"memberId\": 10,\n            \"sequence\": [\n                \"MIDNIGHT\",\n                \"MIDNIGHT\",\n                \"MIDNIGHT\",\n                \"MIDNIGHT\",\n                \"REST\",\n                \"REST\",\n                \"AFTERNOON\",\n                \"AFTERNOON\",\n                \"AFTERNOON\",\n                \"AFTERNOON\",\n                \"REST\",\n                \"REST\",\n                \"AFTERNOON\",\n                \"AFTERNOON\",\n                \"AFTERNOON\",\n                \"AFTERNOON\",\n                \"REST\",\n                \"REST\",\n                \"MORNING\",\n                \"MORNING\",\n                \"MORNING\",\n                \"MORNING\",\n                \"REST\",\n                \"REST\",\n                \"MORNING\",\n                \"MORNING\",\n                \"MORNING\",\n                \"MORNING\",\n                \"REST\",\n                \"REST\",\n                \"MIDNIGHT\",\n                \"MIDNIGHT\",\n                \"MIDNIGHT\",\n                \"MIDNIGHT\",\n                \"REST\",\n                \"REST\"\n            ]\n        },\n        {\n            \"memberId\": 11,\n            \"sequence\": [\n                \"REST\",\n                \"MIDNIGHT\",\n                \"MIDNIGHT\",\n                \"MIDNIGHT\",\n                \"MIDNIGHT\",\n                \"REST\",\n                \"REST\",\n                \"AFTERNOON\",\n                \"AFTERNOON\",\n                \"AFTERNOON\",\n                \"AFTERNOON\",\n                \"REST\",\n                \"REST\",\n                \"AFTERNOON\",\n                \"AFTERNOON\",\n                \"AFTERNOON\",\n                \"AFTERNOON\",\n                \"REST\",\n                \"REST\",\n                \"MORNING\",\n                \"MORNING\",\n                \"MORNING\",\n                \"MORNING\",\n                \"REST\",\n                \"REST\",\n                \"MORNING\",\n                \"MORNING\",\n                \"MORNING\",\n                \"MORNING\",\n                \"REST\",\n                \"REST\",\n                \"MIDNIGHT\",\n                \"MIDNIGHT\",\n                \"MIDNIGHT\",\n                \"MIDNIGHT\",\n                \"REST\"\n            ]\n        },\n        {\n            \"memberId\": 12,\n            \"sequence\": [\n                \"REST\",\n                \"REST\",\n                \"MIDNIGHT\",\n                \"MIDNIGHT\",\n                \"MIDNIGHT\",\n                \"MIDNIGHT\",\n                \"REST\",\n                \"REST\",\n                \"AFTERNOON\",\n                \"AFTERNOON\",\n                \"AFTERNOON\",\n                \"AFTERNOON\",\n                \"REST\",\n                \"REST\",\n                \"AFTERNOON\",\n                \"AFTERNOON\",\n                \"AFTERNOON\",\n                \"AFTERNOON\",\n                \"REST\",\n                \"REST\",\n                \"MORNING\",\n                \"MORNING\",\n                \"MORNING\",\n                \"MORNING\",\n                \"REST\",\n                \"REST\",\n                \"MORNING\",\n                \"MORNING\",\n                \"MORNING\",\n                \"MORNING\",\n                \"REST\",\n                \"REST\",\n                \"MIDNIGHT\",\n                \"MIDNIGHT\",\n                \"MIDNIGHT\",\n                \"MIDNIGHT\"\n            ]\n        },\n        {\n            \"memberId\": 13,\n            \"sequence\": [\n                \"MORNING\",\n                \"MORNING\",\n                \"REST\",\n                \"REST\",\n                \"MIDNIGHT\",\n                \"MIDNIGHT\",\n                \"MIDNIGHT\",\n                \"MIDNIGHT\",\n                \"REST\",\n                \"REST\",\n                \"AFTERNOON\",\n                \"AFTERNOON\",\n                \"AFTERNOON\",\n                \"AFTERNOON\",\n                \"REST\",\n                \"REST\",\n                \"AFTERNOON\",\n                \"AFTERNOON\",\n                \"AFTERNOON\",\n                \"AFTERNOON\",\n                \"REST\",\n                \"REST\",\n                \"MORNING\",\n                \"MORNING\",\n                \"MORNING\",\n                \"MORNING\",\n                \"REST\",\n                \"REST\",\n                \"MORNING\",\n                \"MORNING\",\n                \"MORNING\",\n                \"MORNING\",\n                \"REST\",\n                \"REST\",\n                \"MIDNIGHT\",\n                \"MIDNIGHT\"\n            ]\n        },\n        {\n            \"memberId\": 14,\n            \"sequence\": [\n                \"MORNING\",\n                \"MORNING\",\n                \"MORNING\",\n                \"REST\",\n                \"REST\",\n                \"MIDNIGHT\",\n                \"MIDNIGHT\",\n                \"MIDNIGHT\",\n                \"MIDNIGHT\",\n                \"REST\",\n                \"REST\",\n                \"AFTERNOON\",\n                \"AFTERNOON\",\n                \"AFTERNOON\",\n                \"AFTERNOON\",\n                \"REST\",\n                \"REST\",\n                \"AFTERNOON\",\n                \"AFTERNOON\",\n                \"AFTERNOON\",\n                \"AFTERNOON\",\n                \"REST\",\n                \"REST\",\n                \"MORNING\",\n                \"MORNING\",\n                \"MORNING\",\n                \"MORNING\",\n                \"REST\",\n                \"REST\",\n                \"MORNING\",\n                \"MORNING\",\n                \"MORNING\",\n                \"MORNING\",\n                \"REST\",\n                \"REST\",\n                \"MIDNIGHT\"\n            ]\n        }\n    ],\n    \"shiftDurations\": {\n        \"MORNING\": {\n            \"start\": \"08:00\",\n            \"end\": \"15:00\"\n        },\n        \"AFTERNOON\": {\n            \"start\": \"16:00\",\n            \"end\": \"23:00\"\n        }\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/calendars",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"calendars"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create smaller calendar",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"if (response.code == 201)",
+									"    pm.collectionVariables.set(\"calendarId\", jsonData.id)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Calendar 2\",\n    \"description\": \"Calendar 2 description\",\n    \"startDate\": \"2022-05-22\",\n    \"endDate\": \"2022-06-22\", \n    \"sequences\": [\n        {\n            \"memberId\": 1,\n            \"sequence\": [\"MORNING\", \"MORNING\", \"MORNING\", \"MORNING\", \"REST\", \"REST\", \"MORNING\", \"MORNING\", \"MORNING\", \"MORNING\", \"REST\", \"REST\", \"MIDNIGHT\", \"MIDNIGHT\", \"MIDNIGHT\", \"MIDNIGHT\", \"REST\", \"REST\", \"MIDNIGHT\", \"MIDNIGHT\", \"MIDNIGHT\", \"MIDNIGHT\", \"AFTERNOON\", \"AFTERNOON\", \"AFTERNOON\", \"AFTERNOON\", \"REST\", \"REST\", \"AFTERNOON\", \"AFTERNOON\", \"AFTERNOON\"]\n        },\n        {\n            \"memberId\": 2,\n            \"sequence\": [\"REST\", \"REST\", \"MORNING\", \"MORNING\", \"MORNING\", \"MORNING\", \"REST\", \"REST\", \"MORNING\", \"MORNING\", \"MORNING\", \"MORNING\", \"REST\", \"REST\", \"MIDNIGHT\", \"MIDNIGHT\", \"MIDNIGHT\", \"MIDNIGHT\", \"REST\", \"REST\", \"MIDNIGHT\", \"MIDNIGHT\", \"MIDNIGHT\", \"MIDNIGHT\", \"AFTERNOON\", \"AFTERNOON\", \"AFTERNOON\", \"AFTERNOON\", \"REST\", \"REST\", \"AFTERNOON\"]\n        },\n        {\n            \"memberId\": 3,\n            \"sequence\": [\"AFTERNOON\", \"REST\", \"REST\", \"MORNING\", \"MORNING\", \"MORNING\", \"MORNING\", \"REST\", \"REST\", \"MORNING\", \"MORNING\", \"MORNING\", \"MORNING\", \"REST\", \"REST\", \"MIDNIGHT\", \"MIDNIGHT\", \"MIDNIGHT\", \"MIDNIGHT\", \"REST\", \"REST\", \"MIDNIGHT\", \"MIDNIGHT\", \"MIDNIGHT\", \"MIDNIGHT\", \"AFTERNOON\", \"AFTERNOON\", \"AFTERNOON\", \"AFTERNOON\", \"REST\", \"REST\"]\n        }\n    ],\n    \"shiftDurations\": {\n        \"MORNING\": {\n            \"start\": \"08:00\",\n            \"end\": \"15:00\"\n        },\n        \"AFTERNOON\": {\n            \"start\": \"16:00\",\n            \"end\": \"23:00\"\n        }\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/calendars",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"calendars"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete calendar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/calendars/:calendarId",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"calendars",
+								":calendarId"
+							],
+							"variable": [
+								{
+									"key": "calendarId",
+									"value": "{{calendarId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update calendar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Calendar 3\",\n    \"description\": \"New description\",\n    \"shiftDurations\": {\n        \"MORNING\": {\n            \"start\": \"07:00:00\",\n            \"end\": \"18:00:00\"\n        }\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/calendars/:calendarId",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"calendars",
+								":calendarId"
+							],
+							"variable": [
+								{
+									"key": "calendarId",
+									"value": "{{calendarId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add member",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"memberId\": {{memberId}},\n    \"sequence\": [\"MORNING\", \"MORNING\", \"MORNING\", \"MORNING\", \"REST\", \"REST\", \"MORNING\", \"MORNING\", \"MORNING\", \"MORNING\", \"REST\", \"REST\", \"MIDNIGHT\", \"MIDNIGHT\", \"MIDNIGHT\", \"MIDNIGHT\", \"REST\", \"REST\", \"MIDNIGHT\", \"MIDNIGHT\", \"MIDNIGHT\", \"MIDNIGHT\", \"AFTERNOON\", \"AFTERNOON\", \"AFTERNOON\", \"AFTERNOON\", \"REST\", \"REST\", \"AFTERNOON\", \"AFTERNOON\", \"AFTERNOON\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/calendars/:calendarId/members",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"calendars",
+								":calendarId",
+								"members"
+							],
+							"variable": [
+								{
+									"key": "calendarId",
+									"value": "{{calendarId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove member",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/calendars/:calendarId/members/:memberId",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"calendars",
+								":calendarId",
+								"members",
+								":memberId"
+							],
+							"variable": [
+								{
+									"key": "calendarId",
+									"value": "{{calendarId}}"
+								},
+								{
+									"key": "memberId",
+									"value": "{{memberId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update  member",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{{memberId}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/calendars/:calendarId/members/:memberId",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"calendars",
+								":calendarId",
+								"members",
+								":memberId"
+							],
+							"variable": [
+								{
+									"key": "calendarId",
+									"value": "{{calendarId}}"
+								},
+								{
+									"key": "memberId",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update shifts",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"memberId\": 2,\n        \"date\": \"2022-06-13\",\n        \"type\": \"REST\"\n    },\n    {\n        \"memberId\": 1,\n        \"date\": \"2022-06-14\",\n        \"type\": \"REST\"\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/calendars/:calendarId/shifts",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"calendars",
+								":calendarId",
+								"shifts"
+							],
+							"variable": [
+								{
+									"key": "calendarId",
+									"value": "{{calendarId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "noauth"
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Shift",
+			"item": [
+				{
+					"name": "Get shifts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/shifts",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"shifts"
+							],
+							"query": [
+								{
+									"key": "calendars",
+									"value": "{{calendarId}},2",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "calendar,asc",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "calendar,desc",
+									"disabled": true
+								},
+								{
+									"key": "members",
+									"value": "{{memberId}},3,2",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "member,asc",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "member,desc",
+									"disabled": true
+								},
+								{
+									"key": "startDate",
+									"value": "2022-01-01",
+									"disabled": true
+								},
+								{
+									"key": "endDate",
+									"value": "2023-01-01",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "date,asc",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "date,desc",
+									"disabled": true
+								},
+								{
+									"key": "types",
+									"value": "REST,MORNING",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "type,asc",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "type,desc",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "0",
+									"disabled": true
+								},
+								{
+									"key": "size",
+									"value": "100",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "noauth"
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Report",
+			"item": [
+				{
+					"name": "Get reports",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/reports?sort=member,asc&sort=calendar,asc&startDate=2022-05-21",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"reports"
+							],
+							"query": [
+								{
+									"key": "ids",
+									"value": "1,2,3",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "id,asc",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "id,desc",
+									"disabled": true
+								},
+								{
+									"key": "members",
+									"value": "{{memberId}},3,2",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "member,asc"
+								},
+								{
+									"key": "sort",
+									"value": "member,desc",
+									"disabled": true
+								},
+								{
+									"key": "calendars",
+									"value": "{{calendarId}},2",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "calendar,asc"
+								},
+								{
+									"key": "sort",
+									"value": "calendar,desc",
+									"disabled": true
+								},
+								{
+									"key": "startDate",
+									"value": "2022-05-21"
+								},
+								{
+									"key": "sort",
+									"value": "startDate,asc",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "startDate,desc",
+									"disabled": true
+								},
+								{
+									"key": "endDate",
+									"value": "2022-06-21",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "endDate,asc",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "endDate,desc",
+									"disabled": true
+								},
+								{
+									"key": "shiftTypes",
+									"value": "REST,MORNING",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "shiftType,asc",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "shiftType,desc",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "totalShifts,asc",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "totalShifts,desc",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "0",
+									"disabled": true
+								},
+								{
+									"key": "size",
+									"value": "100",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "noauth"
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Graph",
+			"item": [
+				{
+					"name": "Graph sync",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/graph/sync",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"graph",
+								"sync"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "oauth2",
+		"oauth2": [
+			{
+				"key": "scope",
+				"value": "{{scopes}}",
+				"type": "string"
+			},
+			{
+				"key": "clientSecret",
+				"value": "{{clientSecret}}",
+				"type": "string"
+			},
+			{
+				"key": "clientId",
+				"value": "{{clientID}}",
+				"type": "string"
+			},
+			{
+				"key": "accessTokenUrl",
+				"value": "https://login.microsoftonline.com/{{tenantID}}/oauth2/v2.0/token",
+				"type": "string"
+			},
+			{
+				"key": "authUrl",
+				"value": "https://login.microsoftonline.com/{{tenantID}}/oauth2/v2.0/authorize",
+				"type": "string"
+			},
+			{
+				"key": "useBrowser",
+				"value": true,
+				"type": "boolean"
+			},
+			{
+				"key": "grant_type",
+				"value": "authorization_code_with_pkce",
+				"type": "string"
+			},
+			{
+				"key": "tokenName",
+				"value": "Delegated Token",
+				"type": "string"
+			},
+			{
+				"key": "addTokenTo",
+				"value": "header",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "http://localhost:8080/api/v1",
+			"type": "string"
+		},
+		{
+			"key": "memberId",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "calendarId",
+			"value": "1",
+			"type": "string"
+		},
+		{
+			"key": "tenantID",
+			"value": "consumers",
+			"type": "string"
+		},
+		{
+			"key": "clientID",
+			"value": "e0507d56-b4bb-4de2-b0b9-152915f2c365",
+			"type": "string"
+		},
+		{
+			"key": "clientSecret",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "scopes",
+			"value": "https://graph.microsoft.com/.default",
+			"type": "string"
+		}
+	]
+}
