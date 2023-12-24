@@ -1,0 +1,32 @@
+plugins {
+    id 'java'
+}
+
+group 'pt.isel.leic.seginf'
+//version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
+    implementation 'commons-codec:commons-codec:1.15'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+jar {
+    manifest {
+        attributes("Main-Class": "HybridCipher")
+    }
+
+    baseName 'HybridCipher'
+
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}

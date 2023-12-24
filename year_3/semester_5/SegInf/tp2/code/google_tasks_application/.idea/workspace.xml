@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="d871ca33-db08-4f39-8aa2-f0d836038814" name="Changes" comment="tp2: RBAC">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/header/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/header/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/Home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/LoginCallback.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/LoginCallback.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/config/rbac_policy.csv" beforeDir="false" afterPath="$PROJECT_DIR$/server/config/rbac_policy.csv" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="JavaScript File" />
+        <option value="CSS File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2986YthIKHLFbcr0gTJuAelvl8E" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "TODO_SCOPE": "All Places",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/home/nunes/.github/seginf-g09-trabs/tp2/code/google_tasks_application_backup",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_interpreter_path": "node",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
+    "ts.external.directory.path": "/home/nunes/.local/share/JetBrains/Toolbox/apps/WebStorm/ch-0/221.5080.193/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src/server" />
+      <recent name="$PROJECT_DIR$/src/react" />
+      <recent name="$PROJECT_DIR$/src/services" />
+    </key>
+  </component>
+  <component name="RunManager" selected="npm.npm start">
+    <configuration name="Debug Application" type="JavascriptDebugType" uri="http://localhost:3000">
+      <method v="2" />
+    </configuration>
+    <configuration name="index.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/src/react/index.js" working-dir="$PROJECT_DIR$/src">
+      <method v="2" />
+    </configuration>
+    <configuration name="server.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/server/server.js" working-dir="$PROJECT_DIR$">
+      <method v="2" />
+    </configuration>
+    <configuration name="npm start" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="JavaScript Debug.Debug Application" />
+      <item itemvalue="Node.js.server.js" />
+      <item itemvalue="Node.js.index.js" />
+      <item itemvalue="npm.npm start" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Node.js.server.js" />
+        <item itemvalue="Node.js.index.js" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d871ca33-db08-4f39-8aa2-f0d836038814" name="Changes" comment="" />
+      <created>1652482415423</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1652482415423</updated>
+      <workItem from="1652482416618" duration="982000" />
+      <workItem from="1652522751327" duration="4672000" />
+      <workItem from="1652540419722" duration="10795000" />
+      <workItem from="1652717737931" duration="2525000" />
+      <workItem from="1652738583618" duration="75000" />
+      <workItem from="1652739503956" duration="1904000" />
+      <workItem from="1652786397288" duration="990000" />
+      <workItem from="1652811276002" duration="367000" />
+      <workItem from="1652872954610" duration="1199000" />
+      <workItem from="1652887344519" duration="247000" />
+      <workItem from="1652890386169" duration="23000" />
+      <workItem from="1652890439540" duration="6606000" />
+      <workItem from="1653074613310" duration="19000" />
+      <workItem from="1654199524041" duration="9798000" />
+      <workItem from="1654297199040" duration="616000" />
+      <workItem from="1654297822811" duration="5985000" />
+      <workItem from="1654361021779" duration="31125000" />
+      <workItem from="1654509370321" duration="28972000" />
+      <workItem from="1654550519273" duration="14669000" />
+      <workItem from="1654616740475" duration="6518000" />
+      <workItem from="1654630139260" duration="6463000" />
+    </task>
+    <task id="LOCAL-00001" summary="tp2: Alínea 8 init">
+      <created>1652483024968</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1652483024968</updated>
+    </task>
+    <task id="LOCAL-00002" summary="tp2 - 8: pedidos de openid connect">
+      <created>1652568463329</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1652568463329</updated>
+    </task>
+    <task id="LOCAL-00003" summary="tp2 - UI additions (Home, Tasks and Login)">
+      <created>1654305873112</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1654305873112</updated>
+    </task>
+    <task id="LOCAL-00004" summary="tp2 - Login and LoginCallback information">
+      <created>1654395511488</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1654395511488</updated>
+    </task>
+    <task id="LOCAL-00005" summary="tp2: Tasks API integration, missing RBAC">
+      <created>1654568920641</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1654568920641</updated>
+    </task>
+    <task id="LOCAL-00006" summary="tp2: RBAC">
+      <created>1654633003276</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1654633003277</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.csv" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="tp2: Alínea 8 init" />
+    <MESSAGE value="tp2 - 8: pedidos de openid connect" />
+    <MESSAGE value="tp2 - UI additions (Home, Tasks and Login)" />
+    <MESSAGE value="tp2 - Login and LoginCallback information" />
+    <MESSAGE value="tp2: Tasks API integration, missing RBAC" />
+    <MESSAGE value="tp2: RBAC" />
+    <option name="LAST_COMMIT_MESSAGE" value="tp2: RBAC" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

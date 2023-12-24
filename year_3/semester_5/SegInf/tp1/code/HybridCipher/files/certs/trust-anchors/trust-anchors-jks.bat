@@ -1,0 +1,1 @@
+keytool -importcert -keystore CA1.jks -file CA2.cer -trustcacerts -keypass changeit -alias CA2

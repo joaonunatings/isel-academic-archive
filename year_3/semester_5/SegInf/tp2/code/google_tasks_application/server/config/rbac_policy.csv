@@ -1,0 +1,8 @@
+p, free, tasks, get
+p, premium, tasks, create
+p, premium, tasks, delete
+
+g, admin, premium
+g, premium, free
+
+g, joaonunatingscode@gmail.com, free
