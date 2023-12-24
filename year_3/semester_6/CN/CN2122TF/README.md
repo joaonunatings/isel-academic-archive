@@ -17,5 +17,5 @@ Please contact the [authors](#authors) on how to run this system.
 
 ## Authors
 - João Nunes ([joaonunatings](https://github.com/joaonunatings))
-- Alexandre Silva ([Cors00](https://github.com/Cors00))
-- Miguel Marques ([mjbmarques](https://github.com/mjbmarques))
+- Alexandre Luís ([AlexoLeao](https://github.com/AlexoLeao))
+- Paulo Rosa ([p4ulor](https://github.com/p4ulor))
