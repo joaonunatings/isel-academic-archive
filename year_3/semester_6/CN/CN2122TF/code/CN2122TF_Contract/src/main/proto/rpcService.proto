@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+option java_multiple_files = true;
+option java_package = "rpcstubs";
+
+package serverservice; // package do proto
+
+// Os 4 casos de definição de serviço
+service ServerService {
+  rpc submitImageFile(stream ImageRequestReply) returns (SubmitRequestReply);
+  rpc getResultObjects(SubmitRequestReply) returns (stream ResultObjects);
+  rpc getResultImage(SubmitRequestReply) returns (stream ImageRequestReply);
+  rpc searchFilesBetween(SearchRequest) returns (SearchResult);
+}
+
+message ImageRequestReply {
+  bytes byteBlock = 1;          // Image byte block, to be submited
+  string name = 2;
+}
+
+message SubmitRequestReply {
+  string operID = 1;            // Bucket + Blob name
+}
+
+message ResultObjects {
+  string objName = 1;           // Object names list
+  double certaintyGrade = 2;
+}
+
+message SearchRequest {
+  string startTs = 1;
+  string endTs = 2;
+  string obj_name = 3;
+  double certaintyGrade = 4;
+}
+
+message SearchResult {
+  repeated string fileName = 1;
+}

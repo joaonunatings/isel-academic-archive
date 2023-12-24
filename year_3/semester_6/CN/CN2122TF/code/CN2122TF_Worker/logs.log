@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-06-12T19:02:48.266455800Z</date>
+  <millis>1655060568266</millis>
+  <nanos>455800</nanos>
+  <sequence>0</sequence>
+  <logger>Worker</logger>
+  <level>INFO</level>
+  <class>Worker</class>
+  <method>firestoreInit</method>
+  <thread>1</thread>
+  <message>Firestore initialized</message>
+</record>
+<record>
+  <date>2022-06-12T19:02:48.474387600Z</date>
+  <millis>1655060568474</millis>
+  <nanos>387600</nanos>
+  <sequence>1</sequence>
+  <logger>Worker</logger>
+  <level>INFO</level>
+  <class>Worker</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Worker successfully started.</message>
+</record>
+<record>
+  <date>2022-06-12T19:02:48.474387600Z</date>
+  <millis>1655060568474</millis>
+  <nanos>387600</nanos>
+  <sequence>2</sequence>
+  <logger>Worker</logger>
+  <level>INFO</level>
+  <class>Worker</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Press any key to exit...</message>
+</record>
+<record>
+  <date>2022-06-12T19:05:35.517559600Z</date>
+  <millis>1655060735517</millis>
+  <nanos>559600</nanos>
+  <sequence>3</sequence>
+  <logger>Worker</logger>
+  <level>INFO</level>
+  <class>MessageReceiveHandler</class>
+  <method>receiveMessage</method>
+  <thread>38</thread>
+  <message>Received a JSON-formatted message:{"request_id":"cn-2022-g06-table.jpg","bucket_name":"cn-2022-g06","blob_name":"images/table.jpg"}</message>
+</record>
+</log>
